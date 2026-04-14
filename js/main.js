@@ -199,6 +199,44 @@
     });
   }
 
+  // --- Chapters Carousel ---
+  function initChaptersCarousel() {
+    var carousels = document.querySelectorAll('[data-carousel]');
+    if (!carousels.length) return;
+
+    carousels.forEach(function (carousel) {
+      var track = carousel.querySelector('[data-carousel-track]');
+      var prev = carousel.querySelector('[data-carousel-prev]');
+      var next = carousel.querySelector('[data-carousel-next]');
+      if (!track || !prev || !next) return;
+
+      function getStep() {
+        var card = track.querySelector('.chapter-card');
+        if (!card) return 300;
+        var styles = window.getComputedStyle(track);
+        var gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      function updateButtons() {
+        var max = track.scrollWidth - track.clientWidth - 1;
+        prev.disabled = track.scrollLeft <= 0;
+        next.disabled = track.scrollLeft >= max;
+      }
+
+      prev.addEventListener('click', function () {
+        track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+      });
+      next.addEventListener('click', function () {
+        track.scrollBy({ left: getStep(), behavior: 'smooth' });
+      });
+
+      track.addEventListener('scroll', updateButtons, { passive: true });
+      window.addEventListener('resize', updateButtons);
+      updateButtons();
+    });
+  }
+
   // --- Contact Form (placeholder handler) ---
   function initContactForm() {
     var form = document.getElementById('contactForm');
@@ -231,6 +269,7 @@
     initCounters();
     initSmoothScroll();
     initActiveNavHighlight();
+    initChaptersCarousel();
     initContactForm();
   }
 

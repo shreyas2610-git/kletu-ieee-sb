@@ -6,6 +6,8 @@ Static landing page for a college IEEE Student Branch. The design must feel **cl
 
 **Nav sections:** About | Societies | Affinity Groups | Events Conducted | Upcoming Events | Contact Us
 
+> Home page (`index.html`) shows only Hero, About, and a merged **Societies & Affinity Groups** chapter carousel, then Contact. Events Conducted and Upcoming Events live on their own pages (`events.html`, etc.) and are reachable via the navbar only — do not re-add those sections to the home page.
+
 ---
 
 ## Branch Information (Real Data)
@@ -58,47 +60,52 @@ Blend of **minimalist-editorial** and **soft-premium** aesthetics. Think Notion 
 ## Typography Rules
 
 ### Allowed Fonts
-- **Headings:** `Outfit`, `Cabinet Grotesk`, `Satoshi`, or `Geist Sans` — pick ONE and commit
-- **Body:** Same family as headings, or pair with a clean sans like `Plus Jakarta Sans`, `Switzer`
-- **Monospace (dates, metadata):** `Geist Mono`, `JetBrains Mono`, `SF Mono`
-- **Optional editorial accent (hero only):** `Instrument Serif`, `Newsreader`, or `Playfair Display` for a single striking headline
+- **Section titles (`h2`, `.section__title`):** `IBM Plex Sans` weight **700** via the `--font-display` token. This is the engineering-professional voice of the site; do not swap it for a serif or a different sans. Section titles render as solid **KLETU red** (`var(--kletu-red)` / `#C12F41`) — no outline, no stroke, no strip background.
+- **Hero, body, h3/h4, buttons, nav:** `Outfit`. Commit to this sans for everything outside h2 and monospace.
+- **Monospace (dates, chapter meta, footer hierarchy):** `JetBrains Mono`.
+- `Instrument Serif` is loaded for legacy `.serif-accent` usage but should not be introduced in new markup — new headings use IBM Plex Sans only.
 
 ### Banned Fonts
 Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
 
 ### Typography Specs
 - Hero headline: large, tight tracking (`letter-spacing: -0.02em` to `-0.04em`), line-height `1.1`
-- Body text: never pure black `#000000` — use off-black `#111111` or `#1a1a1a`
+- Body text: **pure black `#000000`** via the `--color-text` / `--text-primary` tokens. Do not hardcode `#111111` or `#1a1a1a` — always reference the token.
 - Body line-height: `1.6` for legibility
-- Secondary/muted text: `#787774` or similar warm gray
+- Secondary/muted text: `var(--color-text-muted)` = `#787774` (warm gray) — preserve for hierarchy; do not flip muted text to pure black.
+- Section titles: `clamp(2rem, 5.2vw, 3.5rem)`, `font-weight: 700`, `letter-spacing: -0.015em`, `line-height: 1.1`, `text-align: center`, `text-wrap: balance`. Accent spans inside h2 (`em`, `.amp`, `.serif-accent`) inherit the same red — do not restyle them with gold outlines, strokes, or a different color.
 - Max body text width: ~65 characters (`max-w-prose` or `max-w-3xl`)
 - Use `text-wrap: balance` on headings to prevent orphans
-- Sentence case everywhere — no unnecessary Title Case or ALL CAPS (except tiny eyebrow labels)
+- Sentence case everywhere — no unnecessary Title Case or ALL CAPS.
+- **No eyebrow pills** above section headings. The red h2 carries the section identity on its own — do not re-introduce `<span class="eyebrow">` labels in new sections.
 
 ---
 
 ## Color Palette
 
 ### Primary (Warm Monochrome)
-- **Background/Canvas:** `#FFFFFF` or warm off-white `#F7F6F3` / `#FBFBFA`
-- **Card surfaces:** `#FFFFFF` or `#F9F9F8`
-- **Text primary:** `#111111` (off-black)
-- **Text secondary:** `#787774` (warm gray)
-- **Borders/Dividers:** `#EAEAEA` or `rgba(0,0,0,0.06)` — always `1px solid`
+- **Background/Canvas:** `#FFFFFF` or warm off-white `#F7F6F3` / `#FBFBFA` — via `--color-bg` / `--color-surface-alt`.
+- **Card surfaces:** `var(--color-surface)` (`#FFFFFF`).
+- **Text primary:** `var(--color-text)` / `var(--text-primary)` = **`#000000`** (pure black).
+- **Text secondary:** `var(--color-text-muted)` = `#787774` (warm gray).
+- **Borders/Dividers:** `var(--color-border)` = `#EAEAEA` — always `1px solid`.
 
-### Accent (ONE only — IEEE blue works well)
-- Use a desaturated, muted version of IEEE blue — not the raw saturated blue
-- Saturation must stay **below 80%**
-- Use sparingly: CTAs, active nav states, tags, small highlights
-- Consider desaturated pastel tints for backgrounds of tags/badges:
-  - Pale Blue: `#E1F3FE` with text `#1F6C9F`
-  - Or a warm accent if preferred
+### KLETU Brand Colors (section titles + brand moments)
+- **KLETU red:** `var(--kletu-red)` = `#C12F41`. Used as the solid fill for every `h2` / `.section__title`.
+- **KLETU gold:** `var(--kletu-gold)` = `#D4A84B`. Reserved — do not use on text or backgrounds without design approval. Available for future brand accents.
+- Do not apply KLETU red to body copy, buttons, links, or decoration. It is reserved for section headings.
+
+### Accent (ONE only — IEEE blue)
+- `var(--color-accent)` = `#1F6C9F` (desaturated IEEE blue), pastel tint `var(--color-accent-soft-bg)` = `#E1F3FE`.
+- Saturation stays below 80%.
+- Use sparingly: CTAs, active nav states, tags, small highlights. Never combine with KLETU red in the same element.
 
 ### Banned Colors
-- Pure `#000000` for text or backgrounds
-- Neon anything, purple AI gradients, oversaturated accents
-- Gradient text
-- Bright colored hero section backgrounds
+- Hardcoded hex values for text/background/borders — reference tokens from `base.css`.
+- Neon anything, purple AI gradients, oversaturated accents.
+- Gradient text.
+- Bright colored hero section backgrounds.
+- KLETU red used outside of section headings.
 
 ---
 
@@ -121,7 +128,7 @@ Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
 - **Asymmetric bento grids** for event showcases or feature sections
 - **Split-screen hero** — text on one side, visual on the other (not centered text over image)
 - **Stacked scroll sections** with generous whitespace between
-- **Eyebrow labels** — small pill-shaped badges above section headings (`text-xs uppercase tracking-widest`)
+- **Section headers** — a centered red h2 only (optionally followed by a `.section__subtitle` paragraph). No eyebrow label above it.
 
 ---
 
@@ -135,10 +142,11 @@ Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
 - Consider the **double-bezel technique** for featured cards: outer shell with inner core
 
 ### Buttons
-- Primary: `bg-[#111111] text-white`, border-radius `4px`-`6px`, no box-shadow
-- Hover: subtle shift to `#333333` or `scale(0.98)` on active
-- Generous padding: `px-6 py-3`
-- Consider **button-in-button** pattern: trailing arrow icon nested in its own circular wrapper
+- Primary: `background: var(--color-text)` (pure black) with `color: #fff`, border-radius `4px`-`6px`, no box-shadow.
+- Hover: subtle lift to `#333333` or `scale(0.98)` on active.
+- Generous padding: `px-6 py-3`.
+- Consider **button-in-button** pattern: trailing arrow icon nested in its own circular wrapper.
+- Do not introduce red-filled buttons — red is reserved for section headings.
 
 ### Tags/Badges (for event categories, dates)
 - Pill-shaped (`rounded-full`)
@@ -277,7 +285,7 @@ Each page is owned by one contributor. Ownership is obvious from filenames.
 ### Shared foundations — what lives where
 
 **`css/base.css`** provides:
-- Design tokens as CSS variables: `--color-bg`, `--color-surface`, `--color-text`, `--color-text-muted`, `--color-border`, `--color-accent`, `--color-accent-soft-bg`, `--color-accent-soft-text`, `--font-sans`, `--font-mono`, `--font-serif`, spacing scale (`--space-1` … `--space-28`), `--radius-sm/md/lg/pill`, motion (`--ease-out`, `--dur-fast/med/slow`), layout (`--container-max`, `--container-pad`).
+- Design tokens as CSS variables: `--color-bg`, `--color-surface`, `--color-surface-alt`, `--color-text` (pure black), `--color-text-muted`, `--color-border`, `--color-accent`, `--color-accent-soft-bg`, `--color-accent-soft-text`, `--kletu-red`, `--kletu-gold`, `--font-sans`, `--font-mono`, `--font-serif`, `--font-display` (IBM Plex Sans — section titles), spacing scale (`--space-1` … `--space-28`), `--radius-sm/md/lg/pill`, motion (`--ease-out`, `--dur-fast/med/slow`), layout (`--container-max`, `--container-pad`).
 - Reset, base typography (h1-h4, p, `.eyebrow`, `.text-muted`, `.mono`).
 - Shared classes: `.container`, `.skip-link`, `.nav` (+ `.nav__brand`, `.nav__links`, `.nav__toggle`, `.is-scrolled`, `.is-open`), `.btn` + `.btn--primary` / `.btn--ghost`, `.card`, `.tag`, `.footer` + `.footer__grid`, `.reveal` (+ `prefers-reduced-motion` handling).
 
@@ -302,7 +310,10 @@ Because the site is multi-page, in-page section anchors (`href="#about"`, `href=
 Before considering any section complete, verify:
 
 - [ ] No banned fonts (Inter, Roboto, etc.) present
-- [ ] No pure `#000000` used for text or backgrounds
+- [ ] Section titles use `IBM Plex Sans` bold in KLETU red (`var(--kletu-red)`) — no outline, no strip, no eyebrow above
+- [ ] Primary text references `var(--color-text)` / `var(--text-primary)` (resolves to `#000000`) — no hardcoded `#111111` or `#1a1a1a`
+- [ ] Muted text kept as `var(--color-text-muted)` — not flipped to black
+- [ ] KLETU red not used on body copy, buttons, links, or decoration
 - [ ] Only ONE accent color used, saturation < 80%
 - [ ] Section padding minimum `py-20` equivalent
 - [ ] All cards use `1px solid #EAEAEA` or similar — no generic shadow+border combo
