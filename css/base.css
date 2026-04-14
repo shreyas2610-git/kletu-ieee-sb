@@ -101,12 +101,13 @@ h2 {
   line-height: 1.1;
   letter-spacing: -0.015em;
   text-align: center;
-  color: var(--kletu-red);
+  color: var(--color-text);
 }
 h2 .amp,
 h2 em {
-  font-family: inherit;
-  font-style: normal;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
   color: var(--kletu-red);
   padding: 0;
 }

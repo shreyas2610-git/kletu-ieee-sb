@@ -652,10 +652,10 @@ input, textarea, select {
   margin-bottom: 16px;
 }
 
-/* KLETU-branded heading: dark red fill only */
+/* Heading: black IBM Plex with serif-italic red accent (variant 6) */
 .section__title {
   display: block;
-  margin-top: 24px;
+  margin-top: 0;
   margin-bottom: 0;
   font-family: var(--font-display);
   font-size: clamp(2rem, 5.2vw, 3.5rem);
@@ -664,7 +664,7 @@ input, textarea, select {
   letter-spacing: -0.015em;
   text-align: center;
   text-wrap: balance;
-  color: var(--kletu-red);
+  color: var(--color-text);
   -webkit-text-stroke: 0;
   text-stroke: 0;
 }
@@ -672,9 +672,9 @@ input, textarea, select {
 .section__title .amp,
 .section__title em,
 .section__title .serif-accent {
-  font-family: inherit;
-  font-style: normal;
-  font-weight: inherit;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
   color: var(--kletu-red);
   -webkit-text-stroke: 0;
   text-stroke: 0;

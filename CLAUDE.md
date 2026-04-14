@@ -60,10 +60,10 @@ Blend of **minimalist-editorial** and **soft-premium** aesthetics. Think Notion 
 ## Typography Rules
 
 ### Allowed Fonts
-- **Section titles (`h2`, `.section__title`):** `IBM Plex Sans` weight **700** via the `--font-display` token. This is the engineering-professional voice of the site; do not swap it for a serif or a different sans. Section titles render as solid **KLETU red** (`var(--kletu-red)` / `#C12F41`) — no outline, no stroke, no strip background.
+- **Section titles (`h2`, `.section__title`):** `IBM Plex Sans` weight **700** via the `--font-display` token, rendered in **pure black** (`var(--color-text)`). This is the engineering-professional voice of the site; do not swap it for a different sans.
+- **Heading accents (`em`, `.amp`, `.serif-accent` inside an `h2`):** `Instrument Serif` **italic**, weight **400**, colored **KLETU red** (`var(--kletu-red)` / `#C12F41`). This is the ONE brand moment per heading — a two-tone editorial contrast (black sans + red italic serif). Do not style accent spans any other way (no outlines, no gold, no all-red headings).
 - **Hero, body, h3/h4, buttons, nav:** `Outfit`. Commit to this sans for everything outside h2 and monospace.
 - **Monospace (dates, chapter meta, footer hierarchy):** `JetBrains Mono`.
-- `Instrument Serif` is loaded for legacy `.serif-accent` usage but should not be introduced in new markup — new headings use IBM Plex Sans only.
 
 ### Banned Fonts
 Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
@@ -73,11 +73,12 @@ Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
 - Body text: **pure black `#000000`** via the `--color-text` / `--text-primary` tokens. Do not hardcode `#111111` or `#1a1a1a` — always reference the token.
 - Body line-height: `1.6` for legibility
 - Secondary/muted text: `var(--color-text-muted)` = `#787774` (warm gray) — preserve for hierarchy; do not flip muted text to pure black.
-- Section titles: `clamp(2rem, 5.2vw, 3.5rem)`, `font-weight: 700`, `letter-spacing: -0.015em`, `line-height: 1.1`, `text-align: center`, `text-wrap: balance`. Accent spans inside h2 (`em`, `.amp`, `.serif-accent`) inherit the same red — do not restyle them with gold outlines, strokes, or a different color.
+- Section titles: `clamp(2rem, 5.2vw, 3.5rem)`, `font-weight: 700`, `letter-spacing: -0.015em`, `line-height: 1.1`, `text-align: center`, `text-wrap: balance`. Main heading fills with `var(--color-text)` (black). Accent spans inside h2 (`em`, `.amp`, `.serif-accent`) switch to `Instrument Serif` italic weight 400 in `var(--kletu-red)` — every heading should have exactly one such accent word/glyph to carry the brand moment.
 - Max body text width: ~65 characters (`max-w-prose` or `max-w-3xl`)
 - Use `text-wrap: balance` on headings to prevent orphans
 - Sentence case everywhere — no unnecessary Title Case or ALL CAPS.
-- **No eyebrow pills** above section headings. The red h2 carries the section identity on its own — do not re-introduce `<span class="eyebrow">` labels in new sections.
+- **No eyebrow pills** above section headings. The black-and-red h2 carries the section identity on its own — do not re-introduce `<span class="eyebrow">` labels in new sections.
+- **Every section `h2` should include an accent span.** Wrap the key word (or the `&` between two nouns) in `<em>`, `<span class="amp">`, or `<span class="serif-accent">` so the Instrument Serif italic red treatment has something to land on. A heading with no accent span loses the brand moment and looks incomplete.
 
 ---
 
@@ -90,10 +91,10 @@ Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
 - **Text secondary:** `var(--color-text-muted)` = `#787774` (warm gray).
 - **Borders/Dividers:** `var(--color-border)` = `#EAEAEA` — always `1px solid`.
 
-### KLETU Brand Colors (section titles + brand moments)
-- **KLETU red:** `var(--kletu-red)` = `#C12F41`. Used as the solid fill for every `h2` / `.section__title`.
+### KLETU Brand Colors (section-heading accents only)
+- **KLETU red:** `var(--kletu-red)` = `#C12F41`. Used exclusively on the `em` / `.amp` / `.serif-accent` accent span inside each `h2`. The main heading text stays black.
 - **KLETU gold:** `var(--kletu-gold)` = `#D4A84B`. Reserved — do not use on text or backgrounds without design approval. Available for future brand accents.
-- Do not apply KLETU red to body copy, buttons, links, or decoration. It is reserved for section headings.
+- Do not apply KLETU red to body copy, buttons, links, full headings, or decoration. It is reserved for the single italic-serif accent word inside each section heading.
 
 ### Accent (ONE only — IEEE blue)
 - `var(--color-accent)` = `#1F6C9F` (desaturated IEEE blue), pastel tint `var(--color-accent-soft-bg)` = `#E1F3FE`.
@@ -105,7 +106,7 @@ Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
 - Neon anything, purple AI gradients, oversaturated accents.
 - Gradient text.
 - Bright colored hero section backgrounds.
-- KLETU red used outside of section headings.
+- KLETU red used anywhere other than the accent span inside an `h2`.
 
 ---
 
@@ -128,7 +129,7 @@ Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
 - **Asymmetric bento grids** for event showcases or feature sections
 - **Split-screen hero** — text on one side, visual on the other (not centered text over image)
 - **Stacked scroll sections** with generous whitespace between
-- **Section headers** — a centered red h2 only (optionally followed by a `.section__subtitle` paragraph). No eyebrow label above it.
+- **Section headers** — a centered black IBM Plex `h2` with exactly one Instrument Serif italic red accent span (`em` / `.amp` / `.serif-accent`), optionally followed by a centered `.section__subtitle` paragraph. No eyebrow label above it.
 
 ---
 
@@ -310,10 +311,11 @@ Because the site is multi-page, in-page section anchors (`href="#about"`, `href=
 Before considering any section complete, verify:
 
 - [ ] No banned fonts (Inter, Roboto, etc.) present
-- [ ] Section titles use `IBM Plex Sans` bold in KLETU red (`var(--kletu-red)`) — no outline, no strip, no eyebrow above
+- [ ] Section titles use `IBM Plex Sans` bold in black (`var(--color-text)`) — no outline, no strip, no eyebrow above
+- [ ] Every section `h2` contains exactly one accent span (`em` / `.amp` / `.serif-accent`) rendered in Instrument Serif italic KLETU red
 - [ ] Primary text references `var(--color-text)` / `var(--text-primary)` (resolves to `#000000`) — no hardcoded `#111111` or `#1a1a1a`
 - [ ] Muted text kept as `var(--color-text-muted)` — not flipped to black
-- [ ] KLETU red not used on body copy, buttons, links, or decoration
+- [ ] KLETU red appears ONLY on heading accent spans — never on body copy, buttons, links, full headings, or decoration
 - [ ] Only ONE accent color used, saturation < 80%
 - [ ] Section padding minimum `py-20` equivalent
 - [ ] All cards use `1px solid #EAEAEA` or similar — no generic shadow+border combo
