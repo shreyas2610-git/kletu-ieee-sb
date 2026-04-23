@@ -36,7 +36,7 @@ Every page follows this skeleton. Copy the navbar (`<header class="navbar">` thr
   <!-- Fonts (copy this exact block) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
@@ -76,16 +76,21 @@ Use semantic HTML: `<section>`, `<article>`, `<header>`, `<main>`, `<footer>`. A
 | What you need | Use this | Not this |
 |---|---|---|
 | Text color | `var(--color-text)` | `#000000` or `black` |
-| Muted text | `var(--color-text-muted)` | `#787774` or `gray` |
+| Muted text | `var(--color-text-muted)` | `#6B5E58` or `gray` |
+| Darker secondary | `var(--kletu-slate)` | `#433B36` |
 | Background | `var(--color-bg)` | `#FBFBFA` |
 | Card surface | `var(--color-surface)` | `#FFFFFF` or `white` |
+| Tinted surface | `var(--color-surface-alt)` | `#F7F1EE` (KLE Ivory) |
 | Borders | `var(--color-border)` | `#EAEAEA` |
-| Accent | `var(--color-accent)` | `#1F6C9F` |
+| IEEE blue accent | `var(--color-accent)` | `#1F6C9F` |
 | Body font | `var(--font-sans)` | `"Outfit", sans-serif` |
-| Heading font | `var(--font-display)` | `"IBM Plex Sans"` |
-| Serif accent | `var(--font-serif)` | `"Instrument Serif"` |
+| Heading font | `var(--font-display)` | `"Lora", serif` |
+| Serif accent | `var(--font-serif)` | `"Lora", serif` |
 | Mono | `var(--font-mono)` | `"JetBrains Mono"` |
-| Brand red | `var(--kletu-red)` | `#C12F41` |
+| KLE deep red (heading accent) | `var(--kletu-deep-red)` | `#6B170D` |
+| KLE logo red (minimal accent) | `var(--kletu-red)` | `#BF383C` |
+| KLE nutmeg | `var(--kletu-nutmeg)` | `#BFA682` |
+| KLE sand | `var(--kletu-sand)` | `#E3D9C7` |
 | Spacing | `var(--space-4)`, etc. | `1rem` or `16px` |
 | Radius | `var(--radius-md)` | `8px` |
 | Easing | `var(--ease-out)` | `ease-in-out` |
@@ -109,7 +114,7 @@ Your page CSS should **only** contain styles unique to your page. If you're writ
 - No `!important` in page CSS.
 - No inline styles.
 - No overriding or resetting `base.css` rules.
-- Banned fonts: Inter, Roboto, Open Sans, Arial, Helvetica.
+- Banned fonts: Inter, Roboto, Open Sans, Arial, Helvetica, IBM Plex Sans, Instrument Serif, Unbounded. Use only **Lora + Outfit + JetBrains Mono** — the KLE Tech brand fonts.
 - Banned icon sets: Lucide, Feather, FontAwesome, Material Icons. Use **Phosphor** only.
 - No emojis anywhere.
 
@@ -117,7 +122,7 @@ Your page CSS should **only** contain styles unique to your page. If you're writ
 
 ## 4. Section headings
 
-Every section heading follows a two-tone pattern: the main text is **black IBM Plex Sans**, with exactly **one accent word** in **red italic Instrument Serif**. This is the brand signature — don't skip it.
+Every section heading follows a tone-on-tone serif pattern from the **KLE Tech Brand Guidebook** (page 24, "Faculty of *Design*" hierarchy): the main text is **black Lora** (sentence case), with exactly **one accent word** in **Lora italic, KLE Deep Red** (`#6B170D`). This is the brand signature — don't skip it.
 
 ```html
 <!-- The accent word goes in <em>, <span class="amp">, or <span class="serif-accent"> -->
@@ -130,9 +135,11 @@ The `h2` base rule in `base.css` handles this automatically — you don't need e
 
 **Do not:**
 - Make the entire heading red
-- Use KLETU red on anything other than heading accent spans (not on body text, buttons, links, or decoration)
+- Use deep red, logo red, or nutmeg on body text, buttons, or links
+- Use bright logo red (`#BF383C`) as the accent span color — the brand reserves logo red for minimal decorative accents only. Deep red (`#6B170D`) is the heading accent color
 - Skip the accent span — a plain black heading looks unfinished
 - Add eyebrow labels above section headings
+- Swap Lora for another serif (Instrument Serif, Playfair, etc.) — Lora is the brand primary
 
 ---
 
@@ -194,7 +201,7 @@ These are preferences that keep the site feeling cohesive. You have creative fre
 
 - **Generous whitespace.** Sections have minimum `py-20` padding (base.css handles this). Don't crowd content.
 - **Cards:** prefer `1px solid var(--color-border)` with no shadow at rest. Add a subtle hover shadow if interactive.
-- **One accent color** — `var(--color-accent)` (IEEE blue). Use it sparingly: CTAs, active states, small highlights. Don't combine it with KLETU red in the same element.
+- **Accent colors** — `var(--color-accent)` (IEEE blue) is the main non-brand accent for IEEE-identity moments (CTAs, active states). The KLE palette (deep red, nutmeg, sand, ivory) provides warmth: use nutmeg/sand for subtle highlights and tinted surfaces, deep red only on heading accent spans. Don't combine blue + deep red in the same element.
 - **Prefer CSS Grid** for section layouts — it's more reliable than flexbox for page-level composition.
 - **Asymmetry is welcome.** Avoid the "centered heading + three equal cards" pattern — it reads as generic.
 - **Navigation links** should point to actual pages (`href="about-us.html"`, `href="events.html"`), not in-page anchors. The only valid `#` link is `#main` for accessibility.
@@ -208,9 +215,9 @@ Run through this checklist. If anything fails, fix it before sharing.
 - [ ] Page loads `base.css` then page CSS, `shared.js` then page JS — in that order
 - [ ] Navbar and footer copied verbatim from `index.html`
 - [ ] All colors, spacing, fonts, and radii use `base.css` tokens — no hardcoded values
-- [ ] Section headings: black IBM Plex + one red italic Instrument Serif accent span
-- [ ] KLETU red only appears on heading accent spans
-- [ ] No `!important`, no inline styles, no banned fonts or icon sets
+- [ ] Section headings: black Lora (weight 600) + one Lora italic KLE deep-red accent span
+- [ ] Deep red appears only on heading accent spans; logo red used minimally for small accents only
+- [ ] No `!important`, no inline styles, no banned fonts (IBM Plex, Instrument Serif, Unbounded, etc.) or icon sets
 - [ ] Scroll reveal: `.reveal` class on content blocks (shared.js handles the rest)
 - [ ] Animations use only `transform` and `opacity`
 - [ ] Responsive at 320px, 768px, 1024px, 1440px

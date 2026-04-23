@@ -59,54 +59,77 @@ Blend of **minimalist-editorial** and **soft-premium** aesthetics. Think Notion 
 
 ## Typography Rules
 
+Typography follows the **KLE Tech University Brand Guidebook** (ch. 4): **Lora** (primary, serif) for headings, **Outfit** (secondary, sans) for body and UI. The KLE guidebook is authoritative — IEEE KLETU SB is a sub-brand and inherits the parent university's typographic system.
+
 ### Allowed Fonts
-- **Section titles (`h2`, `.section__title`):** `IBM Plex Sans` weight **700** via the `--font-display` token, rendered in **pure black** (`var(--color-text)`). This is the engineering-professional voice of the site; do not swap it for a different sans.
-- **Heading accents (`em`, `.amp`, `.serif-accent` inside an `h2`):** `Instrument Serif` **italic**, weight **400**, colored **KLETU red** (`var(--kletu-red)` / `#C12F41`). This is the ONE brand moment per heading — a two-tone editorial contrast (black sans + red italic serif). Do not style accent spans any other way (no outlines, no gold, no all-red headings).
-- **Hero, body, h3/h4, buttons, nav:** `Outfit`. Commit to this sans for everything outside h2 and monospace.
+- **Section titles (`h2`, `.section__title`) and hero headline:** `Lora` weight **600** via the `--font-display` token, in sentence case, rendered in **pure black** (`var(--color-text)`). Lora is the brand primary — a contemporary serif with calligraphic roots, moderate contrast, well-suited for headers. Do not swap it for a sans-serif.
+- **Heading accents (`em`, `.amp`, `.serif-accent` inside an `h2`):** `Lora` **italic**, weight **400**, colored **KLE Deep Red** (`var(--kletu-deep-red)` / `#6B170D`). This matches the brand's "Faculty of *Design*" hierarchy (guidebook page 24) and the `Leveraging *Knowledge*` tagline treatment. The effect is tone-on-tone serif (upright Lora + italic Lora in deep red) — a subtle editorial brand moment, not a high-contrast tricolor. Do not style accent spans any other way (no outlines, no gold, no sans-serif accents, no bright logo red, no full-red headings).
+- **Body, h3/h4, buttons, nav, tags, UI labels:** `Outfit`. Commit to this sans for everything outside h2/hero and monospace.
+- **In-line titles / small uppercase labels:** `Outfit` Medium or Semibold, uppercase, `letter-spacing: 0.05em–0.1em` (per guidebook hierarchy page 24).
 - **Monospace (dates, chapter meta, footer hierarchy):** `JetBrains Mono`.
 
 ### Banned Fonts
-Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
+Inter, Roboto, Open Sans, Arial, Helvetica, IBM Plex Sans, Instrument Serif, Unbounded — use only **Lora + Outfit + JetBrains Mono**.
 
 ### Typography Specs
-- Hero headline: large, tight tracking (`letter-spacing: -0.02em` to `-0.04em`), line-height `1.1`
+- Hero headline: `Lora` weight 600, tight tracking (`letter-spacing: -0.02em` to `-0.03em`), line-height `1.1`. The hero is the first brand moment — let Lora carry it.
 - Body text: **pure black `#000000`** via the `--color-text` / `--text-primary` tokens. Do not hardcode `#111111` or `#1a1a1a` — always reference the token.
-- Body line-height: `1.6` for legibility
-- Secondary/muted text: `var(--color-text-muted)` = `#787774` (warm gray) — preserve for hierarchy; do not flip muted text to pure black.
-- Section titles: `clamp(2rem, 5.2vw, 3.5rem)`, `font-weight: 700`, `letter-spacing: -0.015em`, `line-height: 1.1`, `text-align: center`, `text-wrap: balance`. Main heading fills with `var(--color-text)` (black). Accent spans inside h2 (`em`, `.amp`, `.serif-accent`) switch to `Instrument Serif` italic weight 400 in `var(--kletu-red)` — every heading should have exactly one such accent word/glyph to carry the brand moment.
-- Max body text width: ~65 characters (`max-w-prose` or `max-w-3xl`)
-- Use `text-wrap: balance` on headings to prevent orphans
-- Sentence case everywhere — no unnecessary Title Case or ALL CAPS.
-- **No eyebrow pills** above section headings. The black-and-red h2 carries the section identity on its own — do not re-introduce `<span class="eyebrow">` labels in new sections.
-- **Every section `h2` should include an accent span.** Wrap the key word (or the `&` between two nouns) in `<em>`, `<span class="amp">`, or `<span class="serif-accent">` so the Instrument Serif italic red treatment has something to land on. A heading with no accent span loses the brand moment and looks incomplete.
+- Body line-height: `1.6` for legibility.
+- Secondary/muted text: `var(--color-text-muted)` = `#6B5E58` (**KLE Quicksand**, warm neutral) — preserve for hierarchy; do not flip muted text to pure black.
+- Darker secondary text (card captions, meta): `var(--kletu-slate)` / `#433B36`.
+- Section titles: `clamp(2rem, 5.2vw, 3.5rem)`, `font-family: Lora`, `font-weight: 600`, `letter-spacing: -0.01em`, `line-height: 1.15`, `text-align: center`, `text-wrap: balance`. Main heading fills with `var(--color-text)` (black). Accent spans switch to `Lora` italic weight 400 in `var(--kletu-deep-red)`.
+- Max body text width: ~65 characters (`max-w-prose` or `max-w-3xl`).
+- Use `text-wrap: balance` on headings to prevent orphans.
+- Sentence case everywhere — no unnecessary Title Case or ALL CAPS (uppercase is reserved for small in-line labels and tag pills).
+- **No eyebrow pills** above section headings. The Lora h2 with its italic deep-red accent carries the section identity on its own — do not re-introduce `<span class="eyebrow">` labels in new sections.
+- **Every section `h2` should include an accent span.** Wrap the key word (or the `&` between two nouns) in `<em>`, `<span class="amp">`, or `<span class="serif-accent">` so the italic deep-red treatment has something to land on. A heading with no accent span loses the brand moment and looks incomplete.
 
 ---
 
 ## Color Palette
 
+The palette is the **KLE Tech University Brand Guidebook** palette (ch. 3). Every color used on the site must come from a token in `base.css` — never hardcode a hex. Deep Red is the primary "star" color; logo red is minimal; nutmeg and the pastel neutrals ground the warm-premium feel.
+
 ### Primary (Warm Monochrome)
-- **Background/Canvas:** `#FFFFFF` or warm off-white `#F7F6F3` / `#FBFBFA` — via `--color-bg` / `--color-surface-alt`.
-- **Card surfaces:** `var(--color-surface)` (`#FFFFFF`).
+- **Background/Canvas:** `#FBFBFA` (near-white) via `--color-bg`.
+- **Card surfaces:** `var(--color-surface)` = `#FFFFFF` (brand white).
+- **Secondary surface / tinted sections:** `var(--color-surface-alt)` = `#F7F1EE` (**KLE Ivory**).
 - **Text primary:** `var(--color-text)` / `var(--text-primary)` = **`#000000`** (pure black).
-- **Text secondary:** `var(--color-text-muted)` = `#787774` (warm gray).
+- **Text secondary (muted):** `var(--color-text-muted)` = `#6B5E58` (**KLE Quicksand**, warm neutral).
+- **Text darker secondary:** `var(--kletu-slate)` = `#433B36` — for card captions, meta, tighter hierarchy contrast.
 - **Borders/Dividers:** `var(--color-border)` = `#EAEAEA` — always `1px solid`.
 
-### KLETU Brand Colors (section-heading accents only)
-- **KLETU red:** `var(--kletu-red)` = `#C12F41`. Used exclusively on the `em` / `.amp` / `.serif-accent` accent span inside each `h2`. The main heading text stays black.
-- **KLETU gold:** `var(--kletu-gold)` = `#D4A84B`. Reserved — do not use on text or backgrounds without design approval. Available for future brand accents.
-- Do not apply KLETU red to body copy, buttons, links, full headings, or decoration. It is reserved for the single italic-serif accent word inside each section heading.
+### KLE Tech Brand Colors (use per guidebook proportions)
+| Token | Hex | Name | Usage |
+|---|---|---|---|
+| `--kletu-deep-red` | `#6B170D` | **Deep Red** | **Primary brand color** — heading accent spans (`em` / `.amp` / `.serif-accent`), occasional bold-color section backgrounds, featured brand moments. Pair with ivory/sand. |
+| `--kletu-red` | `#BF383C` | Logo Red | **Minimal** — only for small accent elements (bullet dots, the `section-tag` square, decorative underlines). Never on text, CTAs, or backgrounds. |
+| `--kletu-nutmeg` | `#BFA682` | Nutmeg | Secondary accent — pairs with deep red. Good for highlight backgrounds, CTA underlines, italic pull-quote color on dark backgrounds. |
+| `--kletu-ivory` | `#F7F1EE` | Ivory | Surface/background tint — tertiary sections, tinted cards. |
+| `--kletu-sand` | `#E3D9C7` | Sand | Subtle warm accent for dividers, chart fills, decorative shapes. |
+| `--kletu-quicksand` | `#6B5E58` | Quicksand | Muted body/meta text. |
+| `--kletu-slate` | `#433B36` | Slate | Secondary text, captions, darker footer text. |
+| `--kletu-gold` | `#D4A84B` | Gold | Reserved — legacy token, do not use without design approval. |
 
-### Accent (ONE only — IEEE blue)
+### Color Proportions (from guidebook ch. 3, page 20)
+- **Deep Red** is the star — use as primary branded color.
+- **Nutmeg** complements and highlights — works well for CTAs and adding warmth.
+- **White** dominates backgrounds; **Black/Slate** dominates text.
+- **Pastel neutrals** (Ivory, Sand, Quicksand) are quiet supporting tones for backgrounds and decoration.
+- **Logo red is used minimally** — only as accent to highlight elements, never as CTA or primary text color.
+
+### Accent (ONE only — IEEE blue, sub-brand identity)
 - `var(--color-accent)` = `#1F6C9F` (desaturated IEEE blue), pastel tint `var(--color-accent-soft-bg)` = `#E1F3FE`.
 - Saturation stays below 80%.
-- Use sparingly: CTAs, active nav states, tags, small highlights. Never combine with KLETU red in the same element.
+- Use sparingly: CTAs, active nav states, tags, small highlights that reference IEEE identity. Never combine with KLE red/deep-red in the same element.
 
 ### Banned Colors
-- Hardcoded hex values for text/background/borders — reference tokens from `base.css`.
+- Hardcoded hex values for text/background/borders — always reference tokens from `base.css`.
 - Neon anything, purple AI gradients, oversaturated accents.
 - Gradient text.
 - Bright colored hero section backgrounds.
-- KLETU red used anywhere other than the accent span inside an `h2`.
+- Logo red (`#BF383C`) used as text color, CTA fill, or any large background.
+- Deep red used anywhere outside heading accent spans and occasional large branded sections (get design approval first).
 
 ---
 
@@ -129,7 +152,7 @@ Inter, Roboto, Open Sans, Arial, Helvetica — these scream "default AI output"
 - **Asymmetric bento grids** for event showcases or feature sections
 - **Split-screen hero** — text on one side, visual on the other (not centered text over image)
 - **Stacked scroll sections** with generous whitespace between
-- **Section headers** — a centered black IBM Plex `h2` with exactly one Instrument Serif italic red accent span (`em` / `.amp` / `.serif-accent`), optionally followed by a centered `.section__subtitle` paragraph. No eyebrow label above it.
+- **Section headers** — a centered black Lora `h2` with exactly one Lora italic deep-red accent span (`em` / `.amp` / `.serif-accent`), optionally followed by a centered `.section__subtitle` paragraph. No eyebrow label above it.
 
 ---
 
@@ -286,7 +309,7 @@ Each page is owned by one contributor. Ownership is obvious from filenames.
 ### Shared foundations — what lives where
 
 **`css/base.css`** provides:
-- Design tokens as CSS variables: `--color-bg`, `--color-surface`, `--color-surface-alt`, `--color-text` (pure black), `--color-text-muted`, `--color-border`, `--color-accent`, `--color-accent-soft-bg`, `--color-accent-soft-text`, `--kletu-red`, `--kletu-gold`, `--font-sans`, `--font-mono`, `--font-serif`, `--font-display` (IBM Plex Sans — section titles), spacing scale (`--space-1` … `--space-28`), `--radius-sm/md/lg/pill`, motion (`--ease-out`, `--dur-fast/med/slow`), layout (`--container-max`, `--container-pad`).
+- Design tokens as CSS variables: `--color-bg`, `--color-surface`, `--color-surface-alt` (Ivory), `--color-text` (pure black), `--color-text-muted` (Quicksand), `--color-border`, `--color-accent` (IEEE blue), `--color-accent-soft-bg`, `--color-accent-soft-text`, full KLE palette (`--kletu-red`, `--kletu-deep-red`, `--kletu-nutmeg`, `--kletu-ivory`, `--kletu-sand`, `--kletu-quicksand`, `--kletu-slate`, `--kletu-gold`), `--font-sans` (Outfit), `--font-mono` (JetBrains Mono), `--font-serif` (Lora — used for italic heading accents), `--font-display` (Lora — section titles and hero), spacing scale (`--space-1` … `--space-28`), `--radius-sm/md/lg/pill`, motion (`--ease-out`, `--dur-fast/med/slow`), layout (`--container-max`, `--container-pad`).
 - Reset, base typography (h1-h4, p, `.eyebrow`, `.text-muted`, `.mono`).
 - Shared classes: `.container`, `.skip-link`, `.nav` (+ `.nav__brand`, `.nav__links`, `.nav__toggle`, `.is-scrolled`, `.is-open`), `.btn` + `.btn--primary` / `.btn--ghost`, `.card`, `.tag`, `.footer` + `.footer__grid`, `.reveal` (+ `prefers-reduced-motion` handling).
 
@@ -310,12 +333,13 @@ Because the site is multi-page, in-page section anchors (`href="#about"`, `href=
 
 Before considering any section complete, verify:
 
-- [ ] No banned fonts (Inter, Roboto, etc.) present
-- [ ] Section titles use `IBM Plex Sans` bold in black (`var(--color-text)`) — no outline, no strip, no eyebrow above
-- [ ] Every section `h2` contains exactly one accent span (`em` / `.amp` / `.serif-accent`) rendered in Instrument Serif italic KLETU red
+- [ ] No banned fonts (Inter, Roboto, IBM Plex Sans, Instrument Serif, Unbounded, etc.) present — only Lora + Outfit + JetBrains Mono
+- [ ] Section titles use `Lora` weight 600 in black (`var(--color-text)`) — no outline, no strip, no eyebrow above
+- [ ] Every section `h2` contains exactly one accent span (`em` / `.amp` / `.serif-accent`) rendered in **Lora italic weight 400 in KLE Deep Red** (`var(--kletu-deep-red)` / `#6B170D`)
 - [ ] Primary text references `var(--color-text)` / `var(--text-primary)` (resolves to `#000000`) — no hardcoded `#111111` or `#1a1a1a`
-- [ ] Muted text kept as `var(--color-text-muted)` — not flipped to black
-- [ ] KLETU red appears ONLY on heading accent spans — never on body copy, buttons, links, full headings, or decoration
+- [ ] Muted text kept as `var(--color-text-muted)` (Quicksand `#6B5E58`) — not flipped to black
+- [ ] Deep red appears ONLY on heading accent spans (or on rare approved branded sections) — never on body copy, buttons, links, full headings
+- [ ] Logo red (`#BF383C`) used minimally — small decorative accents only, never as text/CTA/background
 - [ ] Only ONE accent color used, saturation < 80%
 - [ ] Section padding minimum `py-20` equivalent
 - [ ] All cards use `1px solid #EAEAEA` or similar — no generic shadow+border combo

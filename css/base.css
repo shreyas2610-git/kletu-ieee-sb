@@ -6,34 +6,40 @@
 
 /* ---------- Design tokens ------------------------------------------------- */
 :root {
-  /* Canvas & surfaces */
+  /* Canvas & surfaces (aligned with KLE Tech brand: white + ivory) */
   --color-bg: #FBFBFA;
   --color-surface: #FFFFFF;
-  --color-surface-alt: #F7F6F3;
+  --color-surface-alt: #F7F1EE;        /* KLE Ivory */
 
-  /* Text */
+  /* Text — Quicksand (brand warm neutral) for muted, black for primary */
   --color-text: #000000;
-  --color-text-muted: #787774;
+  --color-text-muted: #6B5E58;          /* KLE Quicksand */
 
   /* Lines */
   --color-border: #EAEAEA;
   --color-border-soft: rgba(0, 0, 0, 0.06);
 
-  /* Accent (desaturated IEEE blue) */
+  /* Accent (desaturated IEEE blue) — used sparingly, IEEE identity nod */
   --color-accent: #1F6C9F;
   --color-accent-soft-bg: #E1F3FE;
   --color-accent-soft-text: #1F6C9F;
 
-  /* Typography */
+  /* Typography — per KLE Tech Brand Guidebook:
+     Primary (headings) = Lora serif, Secondary (body/UI) = Outfit sans */
   --font-sans: "Outfit", system-ui, sans-serif;
-  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-display: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-serif: "Lora", Georgia, serif;
+  --font-display: "Lora", Georgia, serif;
 
-  /* KLETU identity (used in section heading strips) */
-  --kletu-red: #C12F41;
-  --kletu-gold: #D4A84B;
-  --heading-strip-bg: #C12F41;
+  /* KLE Tech brand palette (full — per Brand Guidebook ch. 3) */
+  --kletu-red: #BF383C;                 /* Logo red — minimal accent use only */
+  --kletu-deep-red: #6B170D;            /* Primary "star" brand color */
+  --kletu-nutmeg: #BFA682;              /* Warm beige secondary */
+  --kletu-ivory: #F7F1EE;               /* Pastel neutral bg */
+  --kletu-sand: #E3D9C7;                /* Pastel neutral */
+  --kletu-quicksand: #6B5E58;           /* Warm muted neutral */
+  --kletu-slate: #433B36;               /* Dark text neutral */
+  --kletu-gold: #D4A84B;                /* Legacy — reserved */
 
   /* Spacing scale */
   --space-1: 0.25rem;
@@ -92,14 +98,15 @@ h1, h2, h3, h4 {
 }
 h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.04em; }
 
-/* Section headings: KLETU dark red fill, IBM Plex Sans bold.
-   Override at the .section__title layer if a page needs a different treatment. */
+/* Section headings: Lora (brand primary font) in sentence case, black.
+   Accent span (em / .amp / .serif-accent) = Lora italic in KLE Deep Red.
+   Per Brand Guidebook: Deep Red is the dominant brand color; logo red is minimal. */
 h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5.2vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   text-align: center;
   color: var(--color-text);
 }
@@ -108,7 +115,7 @@ h2 em {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: var(--kletu-red);
+  color: var(--kletu-deep-red);
   padding: 0;
 }
 h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }

@@ -2,15 +2,15 @@
    IEEE KLETU Student Branch — Style System
    ============================================ */
 
-/* --- Custom Properties --- */
+/* --- Custom Properties (aligned with KLE Tech Brand Guidebook) --- */
 :root {
-  --bg-canvas: #F7F6F3;
+  --bg-canvas: #FBFBFA;
   --bg-white: #FFFFFF;
-  --bg-surface: #F9F9F8;
+  --bg-surface: #F7F1EE;          /* KLE Ivory */
 
   --text-primary: #000000;
-  --text-secondary: #4a4a47;
-  --text-tertiary: #6e6e6a;
+  --text-secondary: #433B36;       /* KLE Slate */
+  --text-tertiary: #6B5E58;        /* KLE Quicksand */
 
   --border: #EAEAEA;
   --border-light: rgba(0, 0, 0, 0.04);
@@ -20,11 +20,15 @@
   --accent-light: #e8f2fc;
   --accent-text: #1a5a8f;
 
-  /* KLETU identity colors — used in section heading strip */
-  --kletu-red: #C12F41;
-  --kletu-gold: #D4A84B;
-  --heading-strip-bg: #C12F41;
-  --font-display: 'IBM Plex Sans', system-ui, sans-serif;
+  /* KLE Tech brand palette (Brand Guidebook ch. 3) */
+  --kletu-red: #BF383C;            /* Logo red — minimal accent use */
+  --kletu-deep-red: #6B170D;       /* Primary "star" brand color */
+  --kletu-nutmeg: #BFA682;         /* Warm beige secondary */
+  --kletu-ivory: #F7F1EE;
+  --kletu-sand: #E3D9C7;
+  --kletu-quicksand: #6B5E58;
+  --kletu-slate: #433B36;
+  --kletu-gold: #D4A84B;           /* Legacy — reserved */
 
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.02);
   --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.04);
@@ -36,8 +40,10 @@
   --radius-xl: 24px;
   --radius-pill: 9999px;
 
+  /* Brand fonts: Lora (primary, headings) + Outfit (secondary, body) */
   --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-display: 'Lora', Georgia, serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -656,21 +662,20 @@ input, textarea, select {
   margin-bottom: 16px;
 }
 
-/* Heading: black IBM Plex with serif-italic red accent (variant 6) */
+/* Heading: Lora (brand primary) in sentence case, black;
+   accent span (em / .amp / .serif-accent) = Lora italic in KLE Deep Red */
 .section__title {
   display: block;
   margin-top: 0;
   margin-bottom: 0;
   font-family: var(--font-display);
   font-size: clamp(2rem, 5.2vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   text-align: center;
   text-wrap: balance;
-  color: var(--color-text);
-  -webkit-text-stroke: 0;
-  text-stroke: 0;
+  color: var(--text-primary);
 }
 
 .section__title .amp,
@@ -679,9 +684,7 @@ input, textarea, select {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: var(--kletu-red);
-  -webkit-text-stroke: 0;
-  text-stroke: 0;
+  color: var(--kletu-deep-red);
   padding: 0;
 }
 
@@ -692,10 +695,10 @@ input, textarea, select {
 }
 
 .section__subtitle {
-  max-width: 560px;
+  max-width: 640px;
   margin-inline: auto;
-  font-size: 1.0625rem;
-  line-height: 1.6;
+  font-size: clamp(1.125rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
   color: var(--text-secondary);
   margin-top: 20px;
   text-align: center;
@@ -773,78 +776,170 @@ input, textarea, select {
 /* ============================================
    About Section
    ============================================ */
-.about__grid {
+/* Numbered editorial list — shared by About and Contact sections.
+   Lists break out of the container to full viewport width; row content is
+   re-aligned to the container's inner edge via dynamic padding. */
+.about__list,
+.contact__list {
+  list-style: none;
+  padding: 0;
+  margin: 56px 0 0;
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+  border-top: 1px solid var(--border);
+}
+
+.about__item,
+.contact__item {
+  position: relative;
   display: grid;
-  gap: 48px;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 28px max(1.5rem, calc(50vw - (var(--container) / 2) + 1.5rem));
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s var(--ease-out);
 }
 
-@media (min-width: 900px) {
-  .about__grid {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 64px;
-    align-items: start;
-  }
+/* Left accent bar appears on hover (deep red, brand primary) */
+.about__item::before,
+.contact__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--kletu-deep-red);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
-.about__lead {
-  font-size: 1.125rem;
-  line-height: 1.65;
-  color: var(--text-primary);
-  margin-bottom: 16px;
+.about__item:hover,
+.about__item:focus-within,
+.contact__item:hover,
+.contact__item:focus-within {
+  background: var(--kletu-ivory);
 }
 
-.about__text p {
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-  line-height: 1.7;
+.about__item:hover::before,
+.about__item:focus-within::before,
+.contact__item:hover::before,
+.contact__item:focus-within::before {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
-.about__text p:last-child {
-  margin-bottom: 0;
+.about__item-num,
+.contact__item-num {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  color: var(--kletu-sand);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: color 0.3s var(--ease-out);
 }
 
-.about__highlights {
+.about__item:hover .about__item-num,
+.contact__item:hover .contact__item-num {
+  color: var(--kletu-nutmeg);
+}
+
+.about__item-body,
+.contact__item-body {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 6px;
+  min-width: 0;
 }
 
-.about__highlight-card {
-  padding: 24px;
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  transition: box-shadow 0.3s var(--ease-out);
-}
-
-.about__highlight-card:hover {
-  box-shadow: var(--shadow-hover);
-}
-
-.about__highlight-icon {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: var(--accent);
-  background: var(--accent-light);
-  border-radius: var(--radius-sm);
-  margin-bottom: 14px;
-}
-
-.about__highlight-card h3 {
-  font-size: 0.9375rem;
+.about__item-title,
+.contact__item-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.125rem);
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin-bottom: 6px;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin: 0;
+  transition: color 0.3s var(--ease-out);
 }
 
-.about__highlight-card p {
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: var(--text-secondary);
+.about__item:hover .about__item-title,
+.contact__item:hover .contact__item-title {
+  color: var(--kletu-deep-red);
+}
+
+.about__item-tag,
+.contact__item-tag {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  margin: 0;
+  max-width: 60ch;
+}
+
+.about__item-cta,
+.contact__item-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--text-primary);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background 0.2s var(--ease-out), transform 0.15s var(--ease-out);
+}
+
+.about__item-cta::after,
+.contact__item-cta::after {
+  content: '\2192';
+  font-size: 0.9rem;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.about__item:hover .about__item-cta,
+.contact__item:hover .contact__item-cta {
+  background: var(--kletu-deep-red);
+}
+
+.about__item-cta:hover::after,
+.about__item:hover .about__item-cta::after,
+.contact__item-cta:hover::after,
+.contact__item:hover .contact__item-cta::after {
+  transform: translateX(3px);
+}
+
+@media (max-width: 720px) {
+  .about__list,
+  .contact__list { margin-top: 40px; }
+  .about__item,
+  .contact__item {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "num body"
+      ".   cta";
+    row-gap: 14px;
+    padding-block: 22px;
+    padding-inline: 1rem;
+  }
+  .about__item-num,
+  .contact__item-num { grid-area: num; align-self: start; padding-top: 4px; }
+  .about__item-body,
+  .contact__item-body { grid-area: body; }
+  .about__item-cta,
+  .contact__item-cta { grid-area: cta; justify-self: start; }
+  .about__item-title,
+  .contact__item-title { font-size: 1.4rem; }
+  .about__item-tag,
+  .contact__item-tag { font-size: 0.95rem; }
 }
 
 
@@ -906,9 +1001,9 @@ input, textarea, select {
 .chapter-card__media {
   position: relative;
   aspect-ratio: 1 / 1;
-  background: var(--bg-canvas);
+  background: var(--kletu-ivory);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1011,130 +1106,236 @@ input, textarea, select {
 
 
 /* ============================================
-   Contact Section
+   Contact Section — editorial rows with brand tints + choreographed hover
    ============================================ */
 .contact {
-  background: var(--bg-white);
+  /* Soft rose — a light tint of --kletu-deep-red. Scope to the section so
+     it's easy to tweak without touching the global palette. */
+  --contact-bg: #F0DFDA;
+  background: var(--contact-bg);
 }
 
-.contact__layout {
-  display: grid;
-  gap: 48px;
+/* Header stays dark: black Lora heading, deep-red italic accent, muted subtitle */
+.contact .section__title { color: var(--text-primary); }
+.contact .section__title em,
+.contact .section__title .amp,
+.contact .section__title .serif-accent {
+  color: var(--kletu-deep-red);
 }
+.contact .section__subtitle { color: var(--kletu-slate); }
 
-@media (min-width: 900px) {
-  .contact__layout {
-    grid-template-columns: 1fr 1.1fr;
-    gap: 64px;
-    align-items: start;
-  }
-}
-
-.contact__desc {
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin-top: 16px;
-}
-
-.contact__details {
+/* Override shared list: contact gets permanent tinted "shelves" — full-width bands */
+.contact__list {
+  border-top: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 36px;
+  gap: 0;                       /* bands touch for clean editorial strip */
 }
 
-.contact__detail {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
+.contact__item {
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  padding-block: 36px;
+  padding-inline: max(1.5rem, calc(50vw - (var(--container) / 2) + 1.5rem));
+  border-bottom: 0;
+  border-radius: 0;             /* full-bleed bands, no rounded corners */
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.contact__detail i {
-  font-size: 1.25rem;
-  color: var(--accent);
-  margin-top: 3px;
+/* All rows share the section's rose bg so the canvas reads as one piece */
+.contact__item:nth-child(odd),
+.contact__item:nth-child(even) {
+  background: var(--contact-bg);
+}
+
+/* Decorative italic serif ampersand watermark — animates in on hover */
+.contact__item::after {
+  content: '&';
+  position: absolute;
+  right: 18px;
+  bottom: -40px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--kletu-deep-red);
+  opacity: 0;
+  transform: translate(14px, 8px) rotate(-6deg);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact__item:hover::after {
+  opacity: 0.08;
+  transform: translate(0, 0) rotate(0deg);
+}
+
+/* Row hover — deepen the rose tint so the row "warms up" against the canvas */
+.contact__item:hover,
+.contact__item:focus-within {
+  background: #E6CFC8;           /* 1 step deeper than --contact-bg */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(107, 23, 13, 0.08);
+}
+.contact__item {
+  transition: background 0.4s var(--ease-out), transform 0.4s var(--ease-out),
+              box-shadow 0.4s var(--ease-out);
+}
+
+/* Keep row content above the decorative glyph */
+.contact__item-num,
+.contact__item-icon,
+.contact__item-body,
+.contact__item-cta { position: relative; z-index: 1; }
+
+/* Number — deeper, warmer, with tiny idle tilt on hover */
+.contact__item-num {
+  color: var(--kletu-nutmeg);
+  transition: color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+.contact__item:hover .contact__item-num {
+  color: var(--kletu-deep-red);
+  transform: translateX(-2px);
+}
+
+/* Icon badge — circular, deep-red by default; on hover inverts with a halo and tilts */
+.contact__item-icon {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--kletu-deep-red);
+  color: #fff;
+  font-size: 1.5rem;
   flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(107, 23, 13, 0);
+  transition: background 0.4s var(--ease-out), color 0.4s var(--ease-out),
+              transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+.contact__item-icon i { line-height: 1; }
+
+.contact__item:hover .contact__item-icon {
+  background: #fff;
+  color: var(--kletu-deep-red);
+  transform: rotate(-8deg) scale(1.08);
+  box-shadow: 0 0 0 8px rgba(107, 23, 13, 0.1);
 }
 
-.contact__detail strong {
-  display: block;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-  margin-bottom: 2px;
-}
-
-.contact__detail span {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* Contact Form */
-.contact__form-wrap {
-  padding: 32px;
-  background: var(--bg-canvas);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-}
-
-.contact__form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form__group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form__group label {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.form__group input,
-.form__group select,
-.form__group textarea {
-  padding: 10px 14px;
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
-  outline: none;
-}
-
-.form__group input::placeholder,
-.form__group textarea::placeholder {
-  color: var(--text-tertiary);
-}
-
-.form__group input:focus,
-.form__group select:focus,
-.form__group textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(26, 111, 181, 0.08);
-}
-
-.form__group select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 256 256'%3E%3Cpath fill='%23787774' d='M213.66 101.66l-80 80a8 8 0 01-11.32 0l-80-80A8 8 0 0148 88h160a8 8 0 015.66 13.66z'/%3E%3C/svg%3E");
+/* Title — animated gradient underline that draws left-to-right on hover */
+.contact__item-title {
+  display: inline;
+  background-image: linear-gradient(var(--kletu-deep-red), var(--kletu-deep-red));
+  background-size: 0% 2px;
+  background-position: 0 100%;
   background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 14px;
-  padding-right: 36px;
+  padding-bottom: 4px;
+  transition: background-size 0.55s var(--ease-out), color 0.3s var(--ease-out);
+}
+.contact__item:hover .contact__item-title {
+  background-size: 100% 2px;
+  color: var(--kletu-deep-red);
 }
 
-.form__group textarea {
-  resize: vertical;
-  min-height: 100px;
+/* Tag — subtle rise on hover */
+.contact__item-tag {
+  transition: transform 0.4s var(--ease-out), color 0.3s var(--ease-out);
+}
+.contact__item:hover .contact__item-tag {
+  transform: translateY(-1px);
+  color: var(--kletu-slate);
+}
+
+/* CTA — ghost button with deep-red wipe-fill from left on hover */
+.contact__item-cta {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  color: var(--kletu-deep-red);
+  border: 1.5px solid var(--kletu-deep-red);
+  padding: 11px 22px;
+  z-index: 0;
+  isolation: isolate;
+}
+
+.contact__item-cta > span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.35s var(--ease-out);
+}
+
+.contact__item-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--kletu-deep-red);
+  transform: translateX(-101%);
+  transition: transform 0.45s var(--ease-out);
+  z-index: 0;
+}
+
+.contact__item-cta::after {
+  content: '\2192';
+  position: relative;
+  z-index: 1;
+  margin-left: 2px;
+  transition: transform 0.35s var(--ease-out), color 0.35s var(--ease-out);
+  color: var(--kletu-deep-red);
+}
+
+.contact__item:hover .contact__item-cta::before,
+.contact__item-cta:hover::before { transform: translateX(0); }
+
+.contact__item:hover .contact__item-cta > span,
+.contact__item-cta:hover > span { color: #fff; }
+
+.contact__item:hover .contact__item-cta::after,
+.contact__item-cta:hover::after {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* Replace shared about-style black CTA override for contact */
+.contact__item:hover .contact__item-cta {
+  background: transparent;      /* keep wipe effect */
+}
+
+/* Mobile: compact layout, icon hidden for clarity */
+@media (max-width: 720px) {
+  .contact__list { gap: 0; }
+  .contact__item {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "num body"
+      ".   cta";
+    padding-block: 22px;
+    padding-inline: 1rem;
+    row-gap: 12px;
+    column-gap: 18px;
+  }
+  .contact__item-num   { grid-area: num; align-self: start; padding-top: 2px; }
+  .contact__item-icon  { display: none; }
+  .contact__item-body  { grid-area: body; }
+  .contact__item-cta   { grid-area: cta; justify-self: start; }
+  .contact__item::after { font-size: 7rem; bottom: -18px; right: -6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact__item,
+  .contact__item::after,
+  .contact__item-num,
+  .contact__item-icon,
+  .contact__item-title,
+  .contact__item-tag,
+  .contact__item-cta,
+  .contact__item-cta::before,
+  .contact__item-cta::after {
+    transition: none !important;
+  }
 }
 
 
@@ -1266,9 +1467,15 @@ input, textarea, select {
 /* ============================================
    Stagger delays for grid items
    ============================================ */
-.about__highlights .reveal:nth-child(1) { transition-delay: 0ms; }
-.about__highlights .reveal:nth-child(2) { transition-delay: 80ms; }
-.about__highlights .reveal:nth-child(3) { transition-delay: 160ms; }
+.about__list .reveal:nth-child(1) { transition-delay: 0ms; }
+.about__list .reveal:nth-child(2) { transition-delay: 80ms; }
+.about__list .reveal:nth-child(3) { transition-delay: 160ms; }
+.about__list .reveal:nth-child(4) { transition-delay: 240ms; }
+
+.contact__grid .reveal:nth-child(1) { transition-delay: 0ms; }
+.contact__grid .reveal:nth-child(2) { transition-delay: 80ms; }
+.contact__grid .reveal:nth-child(3) { transition-delay: 160ms; }
+.contact__grid .reveal:nth-child(4) { transition-delay: 240ms; }
 
 .hero__stats .reveal:nth-child(1) { transition-delay: 0ms; }
 .hero__stats .reveal:nth-child(2) { transition-delay: 80ms; }

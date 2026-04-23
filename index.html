@@ -12,7 +12,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
@@ -28,7 +28,7 @@
   <header class="navbar" id="navbar">
     <div class="navbar__wrap">
       <a href="#" class="navbar__logo">
-        <img src="assets/images/logo.png" alt="IEEE KLETU Logo" class="navbar__logo-img">
+        <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="navbar__logo-img">
       </a>
 
       <span class="navbar__title">IEEE KLETU SB</span>
@@ -122,44 +122,43 @@
       <div class="container">
         <div class="section__header">
           <h2 class="section__title reveal">Where technology <em class="serif-accent">meets community</em></h2>
+          <p class="section__subtitle reveal">A home for students who build, research, and lead &mdash; plugged into IEEE's global network.</p>
         </div>
 
-        <div class="about__grid">
-          <div class="about__text reveal">
-            <p class="about__lead">
-              The IEEE Student Branch at KLE Technological University is a dynamic hub for students passionate about technology, research, and innovation. Operating under the IEEE Bangalore Section and the North Karnataka SubSection, we bridge the gap between academic learning and real-world engineering.
-            </p>
-            <p>
-              Our branch brings together students from diverse engineering disciplines, providing them access to IEEE's global network of professionals, cutting-edge publications, and technical resources. Through workshops, hackathons, guest lectures, and collaborative projects, we cultivate the next generation of technology leaders.
-            </p>
-            <p>
-              With active societies spanning computer science, power electronics, robotics, and more, every student finds a community that matches their passion.
-            </p>
-          </div>
-          <div class="about__highlights">
-            <div class="about__highlight-card reveal">
-              <div class="about__highlight-icon">
-                <i class="ph ph-globe-hemisphere-west"></i>
-              </div>
-              <h3>Global network</h3>
-              <p>Access to IEEE's worldwide community of 400,000+ members across 160 countries.</p>
+        <ol class="about__list">
+          <li class="about__item reveal">
+            <span class="about__item-num">01</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Global network</h3>
+              <p class="about__item-tag">Plug into IEEE's 400,000+ members across 160 countries.</p>
             </div>
-            <div class="about__highlight-card reveal">
-              <div class="about__highlight-icon">
-                <i class="ph ph-books"></i>
-              </div>
-              <h3>Technical resources</h3>
-              <p>IEEE Xplore, conferences, standards, and publications at your fingertips.</p>
+            <a href="#" class="about__item-cta">Explore</a>
+          </li>
+          <li class="about__item reveal">
+            <span class="about__item-num">02</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Technical resources</h3>
+              <p class="about__item-tag">IEEE Xplore, standards, journals, and conferences on tap.</p>
             </div>
-            <div class="about__highlight-card reveal">
-              <div class="about__highlight-icon">
-                <i class="ph ph-users-three"></i>
-              </div>
-              <h3>Peer community</h3>
-              <p>Collaborate with like-minded students on projects, research, and competitions.</p>
+            <a href="#" class="about__item-cta">Explore</a>
+          </li>
+          <li class="about__item reveal">
+            <span class="about__item-num">03</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Hands-on projects</h3>
+              <p class="about__item-tag">Workshops, hackathons, and research across five chapters.</p>
             </div>
-          </div>
-        </div>
+            <a href="#" class="about__item-cta">Explore</a>
+          </li>
+          <li class="about__item reveal">
+            <span class="about__item-num">04</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Career runway</h3>
+              <p class="about__item-tag">Mentorship, internships, and industry access from day one.</p>
+            </div>
+            <a href="#" class="about__item-cta">Explore</a>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -180,7 +179,7 @@
             <ul class="chapters-carousel__track" data-carousel-track>
               <li class="chapter-card">
                 <div class="chapter-card__media">
-                  <img src="assets/images/societies/cs.png" alt="IEEE Computer Society logo" onerror="this.onerror=null;this.src='assets/images/logo.png';this.classList.add('chapter-card__media-img--placeholder');">
+                  <img src="assets/images/societies/cs.png" alt="IEEE Computer Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
                 </div>
                 <div class="chapter-card__body">
                   <h3 class="chapter-card__name">Computer Society</h3>
@@ -190,7 +189,7 @@
 
               <li class="chapter-card">
                 <div class="chapter-card__media">
-                  <img src="assets/images/societies/pes.png" alt="IEEE Power Electronics Society logo" onerror="this.onerror=null;this.src='assets/images/logo.png';this.classList.add('chapter-card__media-img--placeholder');">
+                  <img src="assets/images/societies/pes.png" alt="IEEE Power Electronics Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
                 </div>
                 <div class="chapter-card__body">
                   <h3 class="chapter-card__name">Power Electronics Society</h3>
@@ -200,7 +199,7 @@
 
               <li class="chapter-card">
                 <div class="chapter-card__media">
-                  <img src="assets/images/societies/ras.png" alt="IEEE Robotics and Automation Society logo" onerror="this.onerror=null;this.src='assets/images/logo.png';this.classList.add('chapter-card__media-img--placeholder');">
+                  <img src="assets/images/societies/ras.png" alt="IEEE Robotics and Automation Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
                 </div>
                 <div class="chapter-card__body">
                   <h3 class="chapter-card__name">Robotics &amp; Automation Society</h3>
@@ -210,7 +209,7 @@
 
               <li class="chapter-card">
                 <div class="chapter-card__media">
-                  <img src="assets/images/affinity/wie.png" alt="IEEE Women in Engineering logo" onerror="this.onerror=null;this.src='assets/images/logo.png';this.classList.add('chapter-card__media-img--placeholder');">
+                  <img src="assets/images/affinity/wie.png" alt="IEEE Women in Engineering logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
                 </div>
                 <div class="chapter-card__body">
                   <h3 class="chapter-card__name">Women in Engineering</h3>
@@ -220,7 +219,7 @@
 
               <li class="chapter-card">
                 <div class="chapter-card__media">
-                  <img src="assets/images/affinity/comsoc.png" alt="IEEE Communications Society logo" onerror="this.onerror=null;this.src='assets/images/logo.png';this.classList.add('chapter-card__media-img--placeholder');">
+                  <img src="assets/images/affinity/comsoc.png" alt="IEEE Communications Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
                 </div>
                 <div class="chapter-card__body">
                   <h3 class="chapter-card__name">Communications Society</h3>
@@ -242,79 +241,47 @@
       <div class="container">
         <div class="section__header">
           <h2 class="section__title reveal">Let's <em class="serif-accent">connect</em></h2>
+          <p class="section__subtitle reveal">Pick the channel that works for you &mdash; we read every message.</p>
         </div>
-        <div class="contact__layout">
-          <div class="contact__info">
-            <p class="contact__desc reveal">
-              Have questions about IEEE membership, upcoming events, or want to collaborate? Reach out to us.
-            </p>
 
-            <div class="contact__details reveal">
-              <div class="contact__detail">
-                <i class="ph ph-map-pin"></i>
-                <div>
-                  <strong>Location</strong>
-                  <span>KLE Technological University, BVB Campus,<br>Vidyanagar, Hubballi, Karnataka 580031</span>
-                </div>
-              </div>
-              <div class="contact__detail">
-                <i class="ph ph-envelope-simple"></i>
-                <div>
-                  <strong>Email</strong>
-                  <span>ieee.sb@kletech.ac.in</span>
-                </div>
-              </div>
-              <div class="contact__detail">
-                <i class="ph ph-instagram-logo"></i>
-                <div>
-                  <strong>Instagram</strong>
-                  <span>@ieee_kletu</span>
-                </div>
-              </div>
-              <div class="contact__detail">
-                <i class="ph ph-linkedin-logo"></i>
-                <div>
-                  <strong>LinkedIn</strong>
-                  <span>IEEE KLETU Student Branch</span>
-                </div>
-              </div>
+        <ol class="contact__list">
+          <li class="contact__item reveal">
+            <span class="contact__item-num">01</span>
+            <span class="contact__item-icon" aria-hidden="true"><i class="ph ph-map-pin"></i></span>
+            <div class="contact__item-body">
+              <h3 class="contact__item-title">Visit us</h3>
+              <p class="contact__item-tag">KLE Technological University, Vidyanagar, Hubballi &mdash; 580031.</p>
             </div>
-          </div>
-
-          <div class="contact__form-wrap reveal">
-            <form class="contact__form" id="contactForm">
-              <div class="form__group">
-                <label for="name">Full name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
-              </div>
-              <div class="form__group">
-                <label for="email">Email address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
-              </div>
-              <div class="form__group">
-                <label for="subject">Subject</label>
-                <select id="subject" name="subject">
-                  <option value="" disabled selected>Select a topic</option>
-                  <option value="membership">IEEE Membership</option>
-                  <option value="events">Events</option>
-                  <option value="societies">Societies &amp; Chapters</option>
-                  <option value="collaboration">Collaboration</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div class="form__group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary btn--full">
-                Send message
-                <span class="btn__icon-wrap">
-                  <i class="ph ph-paper-plane-tilt"></i>
-                </span>
-              </button>
-            </form>
-          </div>
-        </div>
+            <a href="https://maps.google.com/?q=KLE+Technological+University+Hubballi" target="_blank" rel="noopener" class="contact__item-cta"><span>Open map</span></a>
+          </li>
+          <li class="contact__item reveal">
+            <span class="contact__item-num">02</span>
+            <span class="contact__item-icon" aria-hidden="true"><i class="ph ph-envelope-simple"></i></span>
+            <div class="contact__item-body">
+              <h3 class="contact__item-title">Email</h3>
+              <p class="contact__item-tag">ieee.sb@kletech.ac.in</p>
+            </div>
+            <a href="mailto:ieee.sb@kletech.ac.in" class="contact__item-cta"><span>Send email</span></a>
+          </li>
+          <li class="contact__item reveal">
+            <span class="contact__item-num">03</span>
+            <span class="contact__item-icon" aria-hidden="true"><i class="ph ph-instagram-logo"></i></span>
+            <div class="contact__item-body">
+              <h3 class="contact__item-title">Instagram</h3>
+              <p class="contact__item-tag">@ieee_kletu &mdash; event recaps, member features, behind-the-scenes.</p>
+            </div>
+            <a href="https://instagram.com/ieee_kletu" target="_blank" rel="noopener" class="contact__item-cta"><span>Follow</span></a>
+          </li>
+          <li class="contact__item reveal">
+            <span class="contact__item-num">04</span>
+            <span class="contact__item-icon" aria-hidden="true"><i class="ph ph-linkedin-logo"></i></span>
+            <div class="contact__item-body">
+              <h3 class="contact__item-title">LinkedIn</h3>
+              <p class="contact__item-tag">IEEE KLETU Student Branch &mdash; announcements and alumni network.</p>
+            </div>
+            <a href="#" class="contact__item-cta"><span>Connect</span></a>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -326,7 +293,7 @@
       <div class="footer__grid">
         <div class="footer__brand-col">
           <div class="footer__brand">
-            <img src="assets/images/logo.png" alt="IEEE KLETU Logo" class="footer__logo" onerror="this.style.display='none';">
+            <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="footer__logo" onerror="this.style.display='none';">
             <span class="footer__brand-name">IEEE KLETU</span>
           </div>
           <p class="footer__tagline">KLE Technological University<br>IEEE Student Branch</p>
