@@ -1,0 +1,415 @@
+/* ==========================================================================
+   events.css — page-specific styles for upcoming-events.html + past-events.html
+   Relies on tokens / fonts / .container / .section / .section__title from
+   css/style.css. Only layout + event-card visuals live here.
+   ========================================================================== */
+
+/* ---------- Page hero ---------------------------------------------------- */
+.events-hero {
+  padding: 160px 24px 72px;
+  background: var(--bg-canvas);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.events-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.events-hero::after {
+  /* Huge decorative italic ampersand — brand watermark */
+  content: '&';
+  position: absolute;
+  right: -2rem;
+  bottom: -6rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(14rem, 30vw, 24rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--kletu-deep-red);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.events-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kletu-quicksand);
+  margin-bottom: 20px;
+}
+
+.events-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.events-hero__title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--kletu-deep-red);
+}
+
+.events-hero__lead {
+  max-width: 640px;
+  font-size: clamp(1.125rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0 0 36px;
+}
+
+.events-hero__jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.events-hero__jump a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kletu-deep-red);
+  background: transparent;
+  border: 1.5px solid var(--kletu-deep-red);
+  border-radius: var(--radius-sm);
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.15s var(--ease-out);
+}
+
+.events-hero__jump a:hover {
+  background: var(--kletu-deep-red);
+  color: #fff;
+}
+
+.events-hero__jump a:active { transform: scale(0.98); }
+
+.events-hero__jump i { font-size: 0.9rem; }
+
+
+/* ---------- Section wrappers -------------------------------------------- */
+.events-section {
+  background: var(--bg-white);
+}
+
+.events-section--past {
+  background: var(--kletu-ivory);
+}
+
+.events-section__header {
+  text-align: center;
+  margin-bottom: 64px;
+  position: relative;
+}
+
+/* Count — editorial ribbon with flanking rule lines */
+.events-section__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kletu-slate);
+}
+
+.events-section__count::before,
+.events-section__count::after {
+  content: '';
+  display: inline-block;
+  width: clamp(32px, 8vw, 64px);
+  height: 1px;
+  background: var(--kletu-nutmeg);
+}
+
+/* Detail — italic serif second line (nearest or most-recent date) */
+.events-section__detail {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--kletu-quicksand);
+}
+
+.events-section__detail strong {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kletu-deep-red);
+  margin-right: 10px;
+}
+
+.events-section__detail[hidden] { display: none; }
+
+
+/* ---------- Grid of event cards ----------------------------------------- */
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 640px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+
+/* ---------- Event card -------------------------------------------------- */
+.event-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-white);
+  border: 1px solid var(--kletu-sand);      /* warm beige — visible on both white and ivory sections */
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(67, 59, 54, 0.05);   /* subtle always-on shadow gives the card physical presence */
+  transition: border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+}
+
+.event-card:hover {
+  border-color: rgba(107, 23, 13, 0.22);
+  box-shadow: 0 16px 40px rgba(107, 23, 13, 0.10);
+  transform: translateY(-4px);
+}
+
+/* Full-card link wraps image + body; CTA stays focus-able for keyboard users */
+.event-card__link {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  color: inherit;
+  text-decoration: none;
+}
+
+.event-card__link:focus-visible {
+  outline: 2px solid var(--kletu-deep-red);
+  outline-offset: -2px;
+}
+
+/* Media — 4:3 aspect, image fills, date badge on top-right */
+.event-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--kletu-ivory);
+}
+
+.event-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.event-card:hover .event-card__media img {
+  transform: scale(1.04);
+}
+
+/* Fallback when image is missing — show a subtle pattern instead of broken icon */
+.event-card__media-img--placeholder {
+  opacity: 0.18;
+  filter: grayscale(0.3);
+  object-fit: contain;
+  padding: 28%;
+}
+
+.event-card__date {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 3px;
+  text-align: center;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.event-card__date-day {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.event-card__date-month {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--kletu-quicksand);
+  margin-top: 2px;
+}
+
+/* Category tag — top-right corner, optional */
+.event-card__category {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background: var(--kletu-deep-red);
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+
+/* Body */
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 22px 26px;
+}
+
+.event-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0 0 10px;
+  text-wrap: balance;
+  transition: color 0.3s var(--ease-out);
+}
+
+.event-card:hover .event-card__title {
+  color: var(--kletu-deep-red);
+}
+
+.event-card__description {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-tertiary);
+  margin: 0 0 20px;
+  /* Clamp to ~3 lines for visual consistency across cards */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--kletu-deep-red);
+  transition: gap 0.3s var(--ease-out);
+}
+
+.event-card__cta i {
+  font-size: 0.9rem;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.event-card:hover .event-card__cta i {
+  transform: translateX(4px);
+}
+
+
+/* ---------- Empty state ------------------------------------------------- */
+.events-empty {
+  text-align: center;
+  padding: 48px 24px;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--kletu-quicksand);
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+}
+
+
+/* ---------- Past section: slightly muted cards -------------------------- */
+.events-section--past .event-card {
+  background: #fff;
+}
+
+
+/* ---------- Entry animation for rendered cards -------------------------- */
+.event-card {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out),
+              border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+  transition-delay: calc(var(--card-index, 0) * 60ms);
+}
+
+.event-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover transforms override translateY — re-apply explicitly */
+.event-card.is-visible:hover {
+  transform: translateY(-4px);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .event-card,
+  .event-card__media img,
+  .event-card__title,
+  .event-card__cta,
+  .event-card__cta i {
+    transition: none !important;
+  }
+  .event-card { opacity: 1; transform: none; }
+  .event-card:hover { transform: none; }
+}

@@ -79,17 +79,110 @@
       hamburger.setAttribute('aria-expanded', 'false');
       mobileMenu.classList.remove('open');
       document.body.style.overflow = '';
+      // Collapse any open mobile dropdowns
+      mobileMenu.querySelectorAll('[data-mobile-dropdown].is-open').forEach(function (item) {
+        item.classList.remove('is-open');
+        var trig = item.querySelector('[data-mobile-dropdown-trigger]');
+        if (trig) trig.setAttribute('aria-expanded', 'false');
+      });
     }
 
     hamburger.addEventListener('click', toggleMenu);
 
-    var mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(function (link) {
+    // Close when a leaf link (real URL) is clicked; ignore dropdown trigger buttons.
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', closeMenu);
     });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
+    });
+  }
+
+  // --- Desktop Navbar Dropdowns ---
+  function initNavDropdowns() {
+    var items = document.querySelectorAll('[data-dropdown]');
+    if (!items.length) return;
+
+    function closeAll(except) {
+      items.forEach(function (item) {
+        if (item === except) return;
+        item.classList.remove('is-open');
+        var trig = item.querySelector('[data-dropdown-trigger]');
+        if (trig) trig.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    items.forEach(function (item) {
+      var trigger = item.querySelector('[data-dropdown-trigger]');
+      if (!trigger) return;
+
+      // Click: toggle
+      trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = !item.classList.contains('is-open');
+        closeAll(item);
+        item.classList.toggle('is-open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+      });
+
+      // Hover: open on desktop (hover-capable devices only)
+      if (window.matchMedia('(hover: hover)').matches) {
+        item.addEventListener('mouseenter', function () {
+          closeAll(item);
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        });
+        item.addEventListener('mouseleave', function () {
+          item.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      // Keyboard: Escape closes, Arrow Down moves focus into panel
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          item.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+          trigger.blur();
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+          var firstLink = item.querySelector('[data-dropdown-panel] a');
+          if (firstLink) firstLink.focus();
+        }
+      });
+    });
+
+    // Click outside closes all
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('[data-dropdown]')) closeAll(null);
+    });
+  }
+
+  // --- Mobile Menu Dropdowns (accordion) ---
+  function initMobileDropdowns() {
+    var items = document.querySelectorAll('[data-mobile-dropdown]');
+    if (!items.length) return;
+
+    items.forEach(function (item) {
+      var trigger = item.querySelector('[data-mobile-dropdown-trigger]');
+      if (!trigger) return;
+
+      trigger.addEventListener('click', function () {
+        var open = !item.classList.contains('is-open');
+        // Close siblings for a cleaner single-open accordion
+        items.forEach(function (other) {
+          if (other !== item) {
+            other.classList.remove('is-open');
+            var t = other.querySelector('[data-mobile-dropdown-trigger]');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          }
+        });
+        item.classList.toggle('is-open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+      });
     });
   }
 
@@ -265,7 +358,9 @@
   function init() {
     initRevealAnimations();
     initNavbar();
+    initNavDropdowns();
     initMobileMenu();
+    initMobileDropdowns();
     initCounters();
     initSmoothScroll();
     initActiveNavHighlight();

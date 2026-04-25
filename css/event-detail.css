@@ -1,0 +1,212 @@
+/* ==========================================================================
+   event-detail.css — shared styles for any individual event detail page
+   under /events/*.html. Uses tokens from css/style.css.
+   ========================================================================== */
+
+.event-detail {
+  padding-top: 120px;
+  padding-bottom: 96px;
+  background: var(--bg-canvas);
+}
+
+.event-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kletu-quicksand);
+  margin-bottom: 36px;
+  transition: color 0.2s var(--ease-out), gap 0.3s var(--ease-out);
+}
+
+.event-detail__back:hover {
+  color: var(--kletu-deep-red);
+  gap: 12px;
+}
+
+.event-detail__back i { font-size: 0.9rem; transition: transform 0.3s var(--ease-out); }
+.event-detail__back:hover i { transform: translateX(-3px); }
+
+.event-detail__header {
+  max-width: 820px;
+  margin-bottom: 56px;
+}
+
+.event-detail__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kletu-quicksand);
+  margin-bottom: 18px;
+}
+
+.event-detail__meta-sep {
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--kletu-quicksand);
+}
+
+.event-detail__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.event-detail__title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--kletu-deep-red);
+}
+
+.event-detail__lead {
+  max-width: 640px;
+  font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.event-detail__hero {
+  margin: 0 0 64px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--kletu-ivory);
+}
+
+.event-detail__hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 560px;
+  object-fit: cover;
+}
+
+/* Long-form body — prose column with proper vertical rhythm */
+.event-detail__content {
+  max-width: 720px;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.event-detail__content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 48px 0 16px;
+}
+
+.event-detail__content h2:first-child { margin-top: 0; }
+
+.event-detail__content h2 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--kletu-deep-red);
+}
+
+.event-detail__content h3 {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 32px 0 12px;
+}
+
+.event-detail__content p,
+.event-detail__content ul,
+.event-detail__content ol {
+  margin: 0 0 20px;
+}
+
+.event-detail__content ul,
+.event-detail__content ol {
+  padding-left: 24px;
+}
+
+.event-detail__content li { margin-bottom: 8px; }
+
+.event-detail__content a {
+  color: var(--kletu-deep-red);
+  border-bottom: 1px solid currentColor;
+  transition: color 0.2s var(--ease-out);
+}
+
+.event-detail__content a:hover {
+  color: #4a0e07;
+}
+
+.event-detail__content blockquote {
+  margin: 32px 0;
+  padding: 4px 0 4px 24px;
+  border-left: 3px solid var(--kletu-deep-red);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.event-detail__content img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 32px 0;
+}
+
+/* Fact strip (date, venue, audience) — optional */
+.event-detail__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  padding: 28px 32px;
+  margin: 0 0 48px;
+  background: var(--kletu-ivory);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.event-detail__fact strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kletu-quicksand);
+  margin-bottom: 6px;
+}
+
+.event-detail__fact span {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .event-detail { padding-top: 96px; }
+  .event-detail__header { margin-bottom: 40px; }
+  .event-detail__hero { margin-bottom: 40px; }
+  .event-detail__content h2 { margin-top: 36px; }
+  .event-detail__facts { padding: 22px; }
+}

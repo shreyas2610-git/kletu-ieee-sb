@@ -31,16 +31,36 @@
         <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="navbar__logo-img">
       </a>
 
-      <span class="navbar__title">IEEE KLETU SB</span>
-
       <nav class="navbar__inner">
         <ul class="navbar__links" id="navLinks">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Societies</a></li>
-          <li><a href="#">Affinity Groups</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#">Upcoming</a></li>
-          <li><a href="#" class="navbar__cta">Contact Us</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Events
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="upcoming-events.html">Upcoming events</a></li>
+              <li><a href="past-events.html">Past events</a></li>
+            </ul>
+          </li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Society
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="societies.html">Societies</a></li>
+              <li><a href="affinity-groups.html">Affinity groups</a></li>
+            </ul>
+          </li>
+
+          <li><a href="office-bearers.html">Office bearers</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="important-links.html">Important links</a></li>
         </ul>
 
         <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -55,12 +75,34 @@
   <!-- Mobile Menu Overlay -->
   <div class="mobile-menu" id="mobileMenu">
     <ul class="mobile-menu__links">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Societies</a></li>
-      <li><a href="#">Affinity Groups</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#">Upcoming</a></li>
-      <li><a href="#">Contact Us</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Events
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="upcoming-events.html">Upcoming events</a></li>
+          <li><a href="past-events.html">Past events</a></li>
+        </ul>
+      </li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Society
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="societies.html">Societies</a></li>
+          <li><a href="affinity-groups.html">Affinity groups</a></li>
+        </ul>
+      </li>
+
+      <li><a href="office-bearers.html">Office bearers</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="important-links.html">Important links</a></li>
     </ul>
   </div>
 
@@ -87,13 +129,8 @@
           Fostering innovation, technical excellence, and professional growth through a vibrant community of engineers and researchers.
         </p>
         <div class="hero__actions reveal">
-          <a href="#" class="btn btn--primary">
-            Explore the branch
-            <span class="btn__icon-wrap">
-              <i class="ph ph-arrow-down"></i>
-            </span>
-          </a>
-          <a href="#" class="btn btn--ghost">Get in touch</a>
+          <a href="#societies" class="btn btn--primary">Explore the branch</a>
+          <a href="#contact" class="btn btn--ghost">Get in touch</a>
         </div>
       </div>
 
@@ -112,9 +149,6 @@
         </div>
       </div>
 
-      <div class="hero__scroll-hint">
-        <i class="ph ph-caret-down"></i>
-      </div>
     </section>
 
     <!-- About Section -->

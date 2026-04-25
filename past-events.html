@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past events &mdash; IEEE KLETU Student Branch</title>
+  <meta name="description" content="A growing archive of events hosted by IEEE KLE Technological University Student Branch &mdash; recordings, recaps, and write-ups.">
+  <meta property="og:title" content="Past events &mdash; IEEE KLETU Student Branch">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/events.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="navbar" id="navbar">
+    <div class="navbar__wrap">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="navbar__logo-img">
+      </a>
+
+      <nav class="navbar__inner">
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Events
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="upcoming-events.html">Upcoming events</a></li>
+              <li><a href="past-events.html">Past events</a></li>
+            </ul>
+          </li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Society
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="societies.html">Societies</a></li>
+              <li><a href="affinity-groups.html">Affinity groups</a></li>
+            </ul>
+          </li>
+
+          <li><a href="office-bearers.html">Office bearers</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="important-links.html">Important links</a></li>
+        </ul>
+
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Events
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="upcoming-events.html">Upcoming events</a></li>
+          <li><a href="past-events.html">Past events</a></li>
+        </ul>
+      </li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Society
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="societies.html">Societies</a></li>
+          <li><a href="affinity-groups.html">Affinity groups</a></li>
+        </ul>
+      </li>
+
+      <li><a href="office-bearers.html">Office bearers</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="important-links.html">Important links</a></li>
+    </ul>
+  </div>
+
+  <main id="main" class="events-page">
+
+    <section class="events-hero">
+      <div class="container">
+        <span class="events-hero__eyebrow">IEEE KLETU Student Branch &middot; Archive</span>
+        <h1 class="events-hero__title">
+          Past <em>events</em>
+        </h1>
+        <p class="events-hero__lead">
+          A growing archive of what we've hosted &mdash; recordings, recaps, and write-ups. Every card links through to a full page on the event.
+        </p>
+        <nav class="events-hero__jump" aria-label="Related">
+          <a href="upcoming-events.html">See what's upcoming <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section events-section events-section--past" id="past">
+      <div class="container">
+        <header class="events-section__header">
+          <span class="events-section__count" data-events-count="past">&mdash;</span>
+          <span class="events-section__detail" data-events-detail="past" hidden></span>
+        </header>
+
+        <div class="events-grid" data-events-target="past" aria-live="polite">
+          <!-- Rendered by js/events.js -->
+        </div>
+
+        <p class="events-empty" data-events-empty="past" hidden>
+          No past events to show yet.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand-col">
+          <div class="footer__brand">
+            <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="footer__logo" onerror="this.style.display='none';">
+            <span class="footer__brand-name">IEEE KLETU</span>
+          </div>
+          <p class="footer__tagline">KLE Technological University<br>IEEE Student Branch</p>
+          <div class="footer__hierarchy">
+            <span>IEEE &rarr; Region 10 &rarr; Bangalore Section &rarr; North Karnataka SubSection</span>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="upcoming-events.html">Upcoming events</a></li>
+            <li><a href="past-events.html">Past events</a></li>
+            <li><a href="societies.html">Societies</a></li>
+            <li><a href="office-bearers.html">Office bearers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>IEEE resources</h4>
+          <ul>
+            <li><a href="https://www.ieee.org" target="_blank" rel="noopener">IEEE Global</a></li>
+            <li><a href="https://ieeebangalore.org" target="_blank" rel="noopener">Bangalore Section</a></li>
+            <li><a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">IEEE Xplore</a></li>
+            <li><a href="https://www.ieee.org/membership" target="_blank" rel="noopener">Join IEEE</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Societies</h4>
+          <ul>
+            <li><a href="societies.html">Computer Society</a></li>
+            <li><a href="societies.html">Power Electronics Society</a></li>
+            <li><a href="societies.html">Robotics &amp; Automation</a></li>
+            <li><a href="affinity-groups.html">Women in Engineering</a></li>
+            <li><a href="affinity-groups.html">ComSoc</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 IEEE KLETU Student Branch. All rights reserved.</span>
+        <span class="footer__ieee-note">IEEE and the IEEE logo are registered trademarks of the Institute of Electrical and Electronics Engineers, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/events-data.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>
