@@ -1,0 +1,318 @@
+/* ==========================================================================
+   societies.css — shared styles for societies.html and affinity-groups.html.
+   Tokens come from style.css.
+
+   Layout: full-bleed banner (image swap target) → full-bleed square tab strip
+           → container-bound content panel.
+   ========================================================================== */
+
+/* The page wrapper just clears the floating navbar. */
+.society-page {
+  padding-top: clamp(80px, 11vw, 120px);
+}
+
+/* Visually-hidden h1 for structure / SEO without taking layout space */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ---------- Banner (full-bleed image swap slot) ------------------------- */
+.society-banner {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 24 / 9;
+  background: var(--kletu-ivory);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--kletu-sand);
+}
+
+@media (max-width: 720px) {
+  .society-banner { aspect-ratio: 16 / 9; }
+}
+
+.society-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+/* Fallback when the active society has no image yet — show the IEEE KLETU
+   logo at low opacity (same treatment as event-card placeholders). */
+.society-banner__img--placeholder {
+  width: auto;
+  height: 38%;
+  max-width: 260px;
+  object-fit: contain;
+  opacity: 0.18;
+  filter: grayscale(0.3);
+}
+
+
+/* ---------- Tab strip (full-bleed, square, attached to banner) ---------- */
+.society-tabs {
+  display: flex;
+  width: 100%;
+  margin: 0 0 64px;
+  padding: 0;
+  background: var(--kletu-ivory);
+  border-bottom: 1px solid var(--kletu-sand);
+  border-radius: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.society-tabs::-webkit-scrollbar { display: none; }
+
+.society-tab {
+  flex: 1 1 0;
+  min-width: 110px;
+  padding: 22px 18px;
+  font-family: var(--font-display);
+  font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--kletu-sand);
+  border-radius: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
+}
+
+.society-tab:last-child { border-right: 0; }
+
+.society-tab:hover {
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--text-primary);
+}
+
+.society-tab.is-active {
+  background: var(--kletu-deep-red);
+  color: #fff;
+}
+
+/* Don't lighten on hover when active */
+.society-tab.is-active:hover {
+  background: var(--kletu-deep-red);
+  color: #fff;
+}
+
+.society-tab:focus-visible {
+  outline: 2px solid var(--kletu-deep-red);
+  outline-offset: -2px;
+}
+
+@media (max-width: 720px) {
+  .society-tabs { margin-bottom: 48px; }
+  .society-tab {
+    flex: 0 0 auto;
+    min-width: 96px;
+    padding: 16px 14px;
+  }
+}
+
+
+/* ---------- Content panel (container-bound) ----------------------------- */
+.society-content-section {
+  padding: 0 0 96px;
+}
+
+.society-content {
+  position: relative;
+}
+
+.society-panel {
+  display: grid;
+  gap: 32px;
+  animation: society-panel-in 0.45s var(--ease-out);
+}
+
+@keyframes society-panel-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Head — big abbr + meta column */
+.society-panel__head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: start;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--kletu-sand);
+}
+
+.society-panel__abbr {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--kletu-deep-red);
+  white-space: nowrap;
+}
+
+.society-panel__head-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding-top: 8px;
+}
+
+.society-panel__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kletu-quicksand);
+}
+
+.society-panel__status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--kletu-quicksand);
+}
+
+.society-panel__status-dot[data-status="active"] {
+  background: #2f8a4a;
+  box-shadow: 0 0 0 4px rgba(47, 138, 74, 0.14);
+}
+
+.society-panel__status-dot[data-status="petition-endorsed"] {
+  background: var(--kletu-nutmeg);
+  box-shadow: 0 0 0 4px rgba(191, 166, 130, 0.18);
+}
+
+.society-panel__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 3.4vw, 2.375rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.society-panel__tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  line-height: 1.45;
+  color: var(--kletu-deep-red);
+  margin: 0;
+  max-width: 56ch;
+}
+
+.society-panel__description {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 65ch;
+}
+
+
+/* ---------- Office-bearer link group ------------------------------------ */
+.society-panel__office-bearers {
+  display: grid;
+  gap: 18px;
+  padding-top: 28px;
+  border-top: 1px solid var(--kletu-sand);
+}
+
+.society-panel__office-bearers-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kletu-quicksand);
+}
+
+.society-panel__ob-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ob-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  background: var(--kletu-ivory);
+  border: 1px solid var(--kletu-sand);
+  border-radius: 4px;
+  transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out),
+              color 0.25s var(--ease-out), transform 0.15s var(--ease-out),
+              box-shadow 0.25s var(--ease-out);
+}
+
+.ob-link i {
+  font-size: 0.95rem;
+  color: var(--kletu-quicksand);
+  transition: transform 0.25s var(--ease-out), color 0.25s var(--ease-out);
+}
+
+.ob-link:hover {
+  background: var(--kletu-deep-red);
+  border-color: var(--kletu-deep-red);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(107, 23, 13, 0.16);
+}
+
+.ob-link:hover i {
+  color: #fff;
+  transform: translate(2px, -2px);
+}
+
+
+/* ---------- Mobile head: stack abbr above meta -------------------------- */
+@media (max-width: 720px) {
+  .society-panel__head {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .society-panel__abbr {
+    font-size: 4.25rem;
+  }
+}
+
+
+/* ---------- Reduced motion --------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .society-banner img,
+  .society-tab,
+  .ob-link,
+  .ob-link i { transition: none !important; }
+  .society-panel { animation: none !important; }
+}
