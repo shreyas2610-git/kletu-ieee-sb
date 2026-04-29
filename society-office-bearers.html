@@ -127,12 +127,23 @@
 
   <main id="main" class="ob-page">
 
-    <div class="society-tabs">
-      <button class="society-tab active" data-society="cs">CS</button>
-      <button class="society-tab" data-society="comsoc">ComSoc</button>
-      <button class="society-tab" data-society="pes">PES</button>
-      <button class="society-tab" data-society="pels">PELS</button>
-      <button class="society-tab" data-society="ras">RAS</button>
+    <div class="society-tabs-container">
+      <div class="society-tabs">
+        <button class="society-tab active" data-society="cs">CS</button>
+        <button class="society-tab" data-society="comsoc">ComSoc</button>
+        <button class="society-tab" data-society="pes">PES</button>
+        <button class="society-tab" data-society="pels">PELS</button>
+        <button class="society-tab" data-society="ras">RAS</button>
+      </div>
+      <div class="society-tabs-mobile">
+        <select class="society-select" aria-label="Select Society">
+          <option value="cs">CS</option>
+          <option value="comsoc">ComSoc</option>
+          <option value="pes">PES</option>
+          <option value="pels">PELS</option>
+          <option value="ras">RAS</option>
+        </select>
+      </div>
     </div>
 
     <!-- CS Content -->
