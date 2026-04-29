@@ -147,3 +147,76 @@
 .ob-grid > .reveal:nth-child(6) { transition-delay: 500ms; }
 .ob-grid > .reveal:nth-child(7) { transition-delay: 600ms; }
 .ob-grid > .reveal:nth-child(8) { transition-delay: 700ms; }
+.ob-grid > .reveal:nth-child(9) { transition-delay: 800ms; }
+.ob-grid > .reveal:nth-child(10) { transition-delay: 900ms; }
+.ob-grid > .reveal:nth-child(11) { transition-delay: 1000ms; }
+.ob-grid > .reveal:nth-child(12) { transition-delay: 1100ms; }
+.ob-grid > .reveal:nth-child(13) { transition-delay: 1200ms; }
+.ob-grid > .reveal:nth-child(14) { transition-delay: 1300ms; }
+.ob-grid > .reveal:nth-child(15) { transition-delay: 1400ms; }
+.ob-grid > .reveal:nth-child(16) { transition-delay: 1500ms; }
+.ob-grid > .reveal:nth-child(17) { transition-delay: 1600ms; }
+.ob-grid > .reveal:nth-child(18) { transition-delay: 1700ms; }
+.ob-grid > .reveal:nth-child(19) { transition-delay: 1800ms; }
+.ob-grid > .reveal:nth-child(20) { transition-delay: 1900ms; }
+
+/* Society Tabs */
+.society-tabs {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  background: var(--kletu-ivory);
+  overflow-x: auto;
+}
+
+.society-tab {
+  flex: 1;
+  min-width: 120px;
+  padding: 16px 20px;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  border-right: 1px solid var(--border);
+}
+
+.society-tab:last-child {
+  border-right: none;
+}
+
+.society-tab.active {
+  background: var(--kletu-deep-red);
+  color: var(--bg-white);
+}
+
+.society-content {
+  display: none;
+  animation: fadeIn 0.4s var(--ease-out);
+}
+
+.society-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.society-logo-wrapper {
+  text-align: center;
+  padding: 60px 20px 20px;
+  background: var(--bg-canvas);
+}
+
+.society-logo-wrapper img {
+  max-width: 200px;
+  max-height: 120px;
+  margin: 0 auto;
+  object-fit: contain;
+}

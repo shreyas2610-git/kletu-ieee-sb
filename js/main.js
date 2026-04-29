@@ -330,6 +330,38 @@
     });
   }
 
+  // --- Society Tabs ---
+  function initSocietyTabs() {
+    var tabs = document.querySelectorAll('.society-tab');
+    var contents = document.querySelectorAll('.society-content');
+    if (!tabs.length || !contents.length) return;
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var targetId = tab.getAttribute('data-society');
+        
+        // Remove active class from all tabs and contents
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        contents.forEach(function (c) { c.classList.remove('active'); });
+        
+        // Add active class to clicked tab and corresponding content
+        tab.classList.add('active');
+        var targetContent = document.getElementById('society-' + targetId);
+        if (targetContent) {
+          targetContent.classList.add('active');
+          // Retrigger reveal animations for newly shown elements
+          var reveals = targetContent.querySelectorAll('.reveal');
+          reveals.forEach(function(r) {
+            r.classList.remove('revealed');
+            setTimeout(function() {
+              r.classList.add('revealed');
+            }, 50);
+          });
+        }
+      });
+    });
+  }
+
   // --- Contact Form (placeholder handler) ---
   function initContactForm() {
     var form = document.getElementById('contactForm');
@@ -366,6 +398,7 @@
     initActiveNavHighlight();
     initChaptersCarousel();
     initContactForm();
+    initSocietyTabs();
   }
 
   if (document.readyState === 'loading') {
