@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements &mdash; IEEE KLETU Student Branch</title>
+  <meta name="description" content="Milestones and recognition earned by the IEEE KLE Technological University Student Branch — awards, events, membership growth, and research.">
+  <meta property="og:title" content="Achievements &mdash; IEEE KLETU Student Branch">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/about-achievements.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── Navbar — verbatim from index.html ─────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__wrap">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="navbar__logo-img">
+      </a>
+
+      <nav class="navbar__inner">
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Events
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="upcoming-events.html">Upcoming events</a></li>
+              <li><a href="past-events.html">Past events</a></li>
+            </ul>
+          </li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Society
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="societies.html">Societies</a></li>
+              <li><a href="affinity-groups.html">Affinity groups</a></li>
+            </ul>
+          </li>
+
+          <li><a href="office-bearers.html">Office bearers</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="important-links.html">Important links</a></li>
+        </ul>
+
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Mobile Menu — verbatim from index.html ────────────────────────── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Events
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="upcoming-events.html">Upcoming events</a></li>
+          <li><a href="past-events.html">Past events</a></li>
+        </ul>
+      </li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Society
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="societies.html">Societies</a></li>
+          <li><a href="affinity-groups.html">Affinity groups</a></li>
+        </ul>
+      </li>
+
+      <li><a href="office-bearers.html">Office bearers</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="important-links.html">Important links</a></li>
+    </ul>
+  </div>
+
+  <main id="main">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         PAGE HERO — events-hero style (no building image, editorial)
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="ach-hero">
+      <div class="container">
+        <span class="ach-hero__eyebrow">IEEE KLETU Student Branch &middot; Recognition</span>
+        <h1 class="ach-hero__title">
+          A record of <em>achievement</em>
+        </h1>
+        <p class="ach-hero__lead">
+          Milestones earned by the branch, its members, and the community we've built since 2009 &mdash; across awards, events, research, and membership.
+        </p>
+      </div>
+
+      <!-- Decorative watermark glyph — same device as events-hero -->
+      <span class="ach-hero__watermark" aria-hidden="true">#</span>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         ACHIEVEMENTS — numbered editorial list, same .about__list pattern
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section ach-list-section" id="achievements">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">What the branch <em class="serif-accent">has earned</em></h2>
+          <p class="section__subtitle reveal">
+            Each entry below represents a real milestone &mdash; replace with your branch's actual data as it grows.
+          </p>
+        </div>
+
+        <ol class="about__list">
+
+          <li class="about__item reveal">
+            <span class="about__item-num">01</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Avinya Shishir 2025 &mdash; recognition</h3>
+              <p class="about__item-tag">
+                Recognized among the top-performing IEEE Student Branches at Avinya Shishir 2025, the annual IEEE Bangalore Section student symposium, for outstanding event management and membership engagement throughout the academic year.
+              </p>
+            </div>
+            <span class="about__item-year">2025</span>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">02</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Computer Society chapter approved</h3>
+              <p class="about__item-tag">
+                The IEEE Computer Society Student Branch Chapter received formal approval on 04 December 2026, making it the branch's first fully ratified society chapter and opening access to CS-specific resources, conferences, and funding.
+              </p>
+            </div>
+            <span class="about__item-year">2026</span>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">03</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">IEEEXtreme &mdash; national standing</h3>
+              <p class="about__item-tag">
+                KLETU teams representing the branch achieved a competitive national ranking in IEEEXtreme, the 24-hour global programming competition, competing against teams from institutions across India and 60+ countries.
+              </p>
+            </div>
+            <span class="about__item-year">2024</span>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">04</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">150+ active members</h3>
+              <p class="about__item-tag">
+                The branch crossed 150 paid IEEE members in a single academic year &mdash; one of the stronger membership counts in the North Karnataka subsection &mdash; reflecting sustained outreach, chapter programming, and peer referrals.
+              </p>
+            </div>
+            <span class="about__item-year">2024</span>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">05</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">20+ events in one academic year</h3>
+              <p class="about__item-tag">
+                Organized more than 20 technical and professional development events in 2023&ndash;24 &mdash; workshops, hackathons, paper presentation contests, industry visits, and career seminars &mdash; setting a new branch record.
+              </p>
+            </div>
+            <span class="about__item-year">2024</span>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">06</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">IEEE Xplore publications</h3>
+              <p class="about__item-tag">
+                Research papers authored by branch members were published on IEEE Xplore following presentations at IEEE-sponsored conferences, establishing a research culture at the branch and creating a visible track record for future students.
+              </p>
+            </div>
+            <span class="about__item-year">2023</span>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">07</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">WIE affinity group petitioned</h3>
+              <p class="about__item-tag">
+                Submitted and progressed the petition for a Women in Engineering Affinity Group under the branch, creating a dedicated platform for gender inclusivity in STEM at KLE Technological University.
+              </p>
+            </div>
+            <span class="about__item-year">2023</span>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">08</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">IEEE Distinguished Speaker Program</h3>
+              <p class="about__item-tag">
+                Hosted IEEE Distinguished Speaker Program sessions featuring researchers from industry and academia, drawing attendance from students across Hubballi and providing exposure to globally recognized technical expertise.
+              </p>
+            </div>
+            <span class="about__item-year">2022</span>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         TIMELINE — milestone spine
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section ach-timeline-section">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">Fifteen years <em class="serif-accent">of progress</em></h2>
+          <p class="section__subtitle reveal">
+            Selected milestones from the branch's journey, from a founding cohort to a multi-chapter community.
+          </p>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline__item reveal" style="--reveal-index: 0">
+            <span class="timeline__year">2009</span>
+            <div class="timeline__body">
+              <h3 class="timeline__title">Branch founded</h3>
+              <p class="timeline__text">IEEE Student Branch established at KLE Technological University with an initial cohort of students and the support of the IEEE Bangalore Section.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal" style="--reveal-index: 1">
+            <span class="timeline__year">2013</span>
+            <div class="timeline__body">
+              <h3 class="timeline__title">First society chapter</h3>
+              <p class="timeline__text">Launched the first society-level chapter, expanding technical programming and giving students access to discipline-specific IEEE resources.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal" style="--reveal-index: 2">
+            <span class="timeline__year">2018</span>
+            <div class="timeline__body">
+              <h3 class="timeline__title">IEEEXtreme participation begins</h3>
+              <p class="timeline__text">First KLETU team registers for IEEEXtreme, starting a tradition of competitive programming participation that continues each year.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal" style="--reveal-index: 3">
+            <span class="timeline__year">2020</span>
+            <div class="timeline__body">
+              <h3 class="timeline__title">Virtual pivot during the pandemic</h3>
+              <p class="timeline__text">Pivoted to online events, conducting 10+ webinars and virtual workshops in 2020 alone, maintaining community momentum through disrupted semesters.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal" style="--reveal-index: 4">
+            <span class="timeline__year">2023</span>
+            <div class="timeline__body">
+              <h3 class="timeline__title">Research publications on IEEE Xplore</h3>
+              <p class="timeline__text">Branch members publish research papers through IEEE conferences, establishing the branch as a research-active student community.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal" style="--reveal-index: 5">
+            <span class="timeline__year">2025</span>
+            <div class="timeline__body">
+              <h3 class="timeline__title">Avinya Shishir recognition</h3>
+              <p class="timeline__text">Recognized at the IEEE Bangalore Section's annual student symposium for outstanding branch activities, capping the strongest academic year in branch history.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer — verbatim from index.html ─────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand-col">
+          <div class="footer__brand">
+            <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="footer__logo" onerror="this.style.display='none';">
+            <span class="footer__brand-name">IEEE KLETU</span>
+          </div>
+          <p class="footer__tagline">KLE Technological University<br>IEEE Student Branch</p>
+          <div class="footer__hierarchy">
+            <span>IEEE &rarr; Region 10 &rarr; Bangalore Section &rarr; North Karnataka SubSection</span>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="societies.html">Societies</a></li>
+            <li><a href="affinity-groups.html">Affinity groups</a></li>
+            <li><a href="upcoming-events.html">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>IEEE resources</h4>
+          <ul>
+            <li><a href="https://www.ieee.org" target="_blank" rel="noopener">IEEE Global</a></li>
+            <li><a href="https://ieeebangalore.org" target="_blank" rel="noopener">Bangalore Section</a></li>
+            <li><a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">IEEE Xplore</a></li>
+            <li><a href="https://www.ieee.org/membership" target="_blank" rel="noopener">Join IEEE</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Societies</h4>
+          <ul>
+            <li><a href="societies.html">Computer Society</a></li>
+            <li><a href="societies.html">Power Electronics Society</a></li>
+            <li><a href="societies.html">Robotics &amp; Automation</a></li>
+            <li><a href="affinity-groups.html">Women in Engineering</a></li>
+            <li><a href="affinity-groups.html">ComSoc</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year></span> IEEE KLETU Student Branch. All rights reserved.</span>
+        <span class="footer__ieee-note">IEEE and the IEEE logo are registered trademarks of the Institute of Electrical and Electronics Engineers, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
