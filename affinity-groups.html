@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affinity groups &mdash; IEEE KLETU Student Branch</title>
+  <meta name="description" content="Affinity Groups of IEEE KLE Technological University Student Branch — Women in Engineering (WIE) and Communications Society (ComSoc).">
+  <meta property="og:title" content="Affinity groups &mdash; IEEE KLETU Student Branch">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/affinity-groups.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ===== NAVBAR (verbatim from index.html) ===== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__wrap">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="navbar__logo-img">
+      </a>
+
+      <nav class="navbar__inner">
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Events
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="upcoming-events.html">Upcoming events</a></li>
+              <li><a href="past-events.html">Past events</a></li>
+            </ul>
+          </li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Society
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="societies.html">Societies</a></li>
+              <li><a href="affinity-groups.html">Affinity groups</a></li>
+            </ul>
+          </li>
+
+          <li><a href="office-bearers.html">Office bearers</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="important-links.html">Important links</a></li>
+        </ul>
+
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Events <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="upcoming-events.html">Upcoming events</a></li>
+          <li><a href="past-events.html">Past events</a></li>
+        </ul>
+      </li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Society <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="societies.html">Societies</a></li>
+          <li><a href="affinity-groups.html">Affinity groups</a></li>
+        </ul>
+      </li>
+
+      <li><a href="office-bearers.html">Office bearers</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="important-links.html">Important links</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main">
+
+    <!-- Page Hero -->
+    <section class="ag-hero">
+      <div class="container">
+        <div class="ag-hero__inner">
+          <div class="ag-hero__text">
+            <span class="ag-hero__eyebrow">IEEE KLETU Student Branch &middot; Affinity Groups</span>
+            <h1 class="ag-hero__title">
+              Community <em>&amp;</em> inclusion
+            </h1>
+            <p class="ag-hero__lead">
+              Affinity groups broaden the IEEE community — creating space for engineers who share a professional interest, background, or identity. Our two groups focus on gender equity in engineering and the discipline of communications technology.
+            </p>
+            <a href="societies.html" class="ag-hero__link">
+              View societies <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="ag-hero__watermark" aria-hidden="true">AG</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro band: what are affinity groups -->
+    <section class="ag-intro">
+      <div class="container">
+        <div class="ag-intro__grid reveal">
+          <div class="ag-intro__item">
+            <i class="ph ph-users-three ag-intro__icon" aria-hidden="true"></i>
+            <h3 class="ag-intro__heading">What is an affinity group?</h3>
+            <p class="ag-intro__body">
+              IEEE affinity groups are formal communities within a student branch that gather members around a shared characteristic — professional, personal, or interest-based. They operate alongside technical chapters and carry their own programming, leadership, and IEEE recognition.
+            </p>
+          </div>
+          <div class="ag-intro__item">
+            <i class="ph ph-certificate ag-intro__icon" aria-hidden="true"></i>
+            <h3 class="ag-intro__heading">How to join</h3>
+            <p class="ag-intro__body">
+              Membership in any affinity group at KLETU is open to all IEEE student members, regardless of gender, discipline, or year. Reach out to the group's liaison or watch the branch's social media for membership drives and onboarding sessions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Affinity Groups List -->
+    <section class="ag-list" id="affinity-groups">
+      <div class="container">
+
+        <!-- ---- Women in Engineering ---- -->
+        <article class="ag-row reveal" id="wie" aria-labelledby="wie-title">
+          <div class="ag-row__index" aria-hidden="true">01</div>
+
+          <div class="ag-row__logo-wrap">
+            <div class="ag-row__logo-ring ag-row__logo-ring--wie">
+              <img
+                src="assets/images/affinity/wie.png"
+                alt="IEEE Women in Engineering logo"
+                class="ag-row__logo"
+                onerror="this.onerror=null;this.src='assets/images/logo.webp';"
+              >
+            </div>
+          </div>
+
+          <div class="ag-row__body">
+            <div class="ag-row__meta">
+              <span class="ag-row__abbr">WIE</span>
+              <span class="ag-row__status ag-row__status--pending">
+                <span class="ag-row__status-dot"></span>Petition in approval
+              </span>
+              <span class="ag-row__type">Affinity Group</span>
+            </div>
+
+            <h2 class="ag-row__title" id="wie-title">
+              Women in <em>Engineering</em>
+            </h2>
+
+            <p class="ag-row__desc">
+              IEEE Women in Engineering is one of the largest international professional organisations dedicated to promoting women engineers and scientists, and inspiring girls around the world to follow their academic interests into a career in engineering. The WIE affinity group at KLETU creates a peer network, mentoring opportunities, and events that celebrate and support women in technical disciplines — while remaining welcoming to all members who share these values.
+            </p>
+
+            <ul class="ag-row__pillars" aria-label="Focus areas">
+              <li class="ag-row__pillar">
+                <i class="ph ph-handshake" aria-hidden="true"></i>
+                Mentoring
+              </li>
+              <li class="ag-row__pillar">
+                <i class="ph ph-chalkboard-teacher" aria-hidden="true"></i>
+                Career development
+              </li>
+              <li class="ag-row__pillar">
+                <i class="ph ph-gender-female" aria-hidden="true"></i>
+                Gender equity
+              </li>
+              <li class="ag-row__pillar">
+                <i class="ph ph-users" aria-hidden="true"></i>
+                Peer networking
+              </li>
+            </ul>
+
+            <div class="ag-row__facts">
+              <div class="ag-row__fact">
+                <span class="ag-row__fact-label">Status</span>
+                <span class="ag-row__fact-value">Petition endorsed</span>
+              </div>
+              <div class="ag-row__fact">
+                <span class="ag-row__fact-label">Abbreviation</span>
+                <span class="ag-row__fact-value">IEEE WIE</span>
+              </div>
+              <div class="ag-row__fact">
+                <span class="ag-row__fact-label">Membership</span>
+                <span class="ag-row__fact-value">Open to all IEEE members</span>
+              </div>
+              <div class="ag-row__fact">
+                <span class="ag-row__fact-label">Global members</span>
+                <span class="ag-row__fact-value">20,000+ worldwide</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="ag-divider" aria-hidden="true"></div>
+
+        <!-- ---- Communications Society ---- -->
+        <article class="ag-row reveal" id="comsoc" aria-labelledby="comsoc-title">
+          <div class="ag-row__index" aria-hidden="true">02</div>
+
+          <div class="ag-row__logo-wrap">
+            <div class="ag-row__logo-ring ag-row__logo-ring--comsoc">
+              <img
+                src="assets/images/affinity/comsoc.png"
+                alt="IEEE Communications Society logo"
+                class="ag-row__logo"
+                onerror="this.onerror=null;this.src='assets/images/logo.webp';"
+              >
+            </div>
+          </div>
+
+          <div class="ag-row__body">
+            <div class="ag-row__meta">
+              <span class="ag-row__abbr">ComSoc</span>
+              <span class="ag-row__status ag-row__status--active">
+                <span class="ag-row__status-dot"></span>Membership open
+              </span>
+              <span class="ag-row__type">Affinity Group</span>
+            </div>
+
+            <h2 class="ag-row__title" id="comsoc-title">
+              Communications <em>Society</em>
+            </h2>
+
+            <p class="ag-row__desc">
+              The IEEE Communications Society (ComSoc) is among the most recognised technical societies in electrical engineering, with a focus on the science and practice of information exchange — from optical networks and wireless systems to Internet protocols and signal processing. The KLETU ComSoc chapter is actively running a membership promotion, welcoming students interested in the full stack of modern communications technology, from physical-layer design to network architecture.
+            </p>
+
+            <ul class="ag-row__pillars" aria-label="Focus areas">
+              <li class="ag-row__pillar">
+                <i class="ph ph-wifi-high" aria-hidden="true"></i>
+                Wireless systems
+              </li>
+              <li class="ag-row__pillar">
+                <i class="ph ph-wave-sine" aria-hidden="true"></i>
+                Signal processing
+              </li>
+              <li class="ag-row__pillar">
+                <i class="ph ph-network" aria-hidden="true"></i>
+                Network protocols
+              </li>
+              <li class="ag-row__pillar">
+                <i class="ph ph-broadcast" aria-hidden="true"></i>
+                Optical comms
+              </li>
+            </ul>
+
+            <!-- Active membership promo callout -->
+            <div class="ag-row__promo">
+              <i class="ph ph-megaphone ag-row__promo-icon" aria-hidden="true"></i>
+              <div>
+                <span class="ag-row__promo-label">Membership drive active</span>
+                <p class="ag-row__promo-text">ComSoc is currently running a membership promotion. Contact the branch to find out how to join this semester.</p>
+              </div>
+            </div>
+
+            <div class="ag-row__facts">
+              <div class="ag-row__fact">
+                <span class="ag-row__fact-label">Status</span>
+                <span class="ag-row__fact-value">Active — promo ongoing</span>
+              </div>
+              <div class="ag-row__fact">
+                <span class="ag-row__fact-label">Abbreviation</span>
+                <span class="ag-row__fact-value">ComSoc / COM-CHMDS</span>
+              </div>
+              <div class="ag-row__fact">
+                <span class="ag-row__fact-label">Membership</span>
+                <span class="ag-row__fact-value">Open — promotion running</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Bottom CTA strip -->
+    <section class="ag-cta">
+      <div class="container">
+        <div class="ag-cta__inner reveal">
+          <div class="ag-cta__text">
+            <h2 class="ag-cta__heading">Looking for <em>technical chapters?</em></h2>
+            <p class="ag-cta__sub">CS, PES, and RAS live under our societies umbrella — domain-focused chapters for computing, power, and robotics.</p>
+          </div>
+          <a href="societies.html" class="btn btn--primary">
+            View societies
+            <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (verbatim from index.html) ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand-col">
+          <div class="footer__brand">
+            <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="footer__logo" onerror="this.style.display='none';">
+            <span class="footer__brand-name">IEEE KLETU</span>
+          </div>
+          <p class="footer__tagline">KLE Technological University<br>IEEE Student Branch</p>
+          <div class="footer__hierarchy">
+            <span>IEEE &rarr; Region 10 &rarr; Bangalore Section &rarr; North Karnataka SubSection</span>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="upcoming-events.html">Upcoming events</a></li>
+            <li><a href="past-events.html">Past events</a></li>
+            <li><a href="societies.html">Societies</a></li>
+            <li><a href="office-bearers.html">Office bearers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>IEEE resources</h4>
+          <ul>
+            <li><a href="https://www.ieee.org" target="_blank" rel="noopener">IEEE Global</a></li>
+            <li><a href="https://ieeebangalore.org" target="_blank" rel="noopener">Bangalore Section</a></li>
+            <li><a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">IEEE Xplore</a></li>
+            <li><a href="https://www.ieee.org/membership" target="_blank" rel="noopener">Join IEEE</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Societies</h4>
+          <ul>
+            <li><a href="societies.html">Computer Society</a></li>
+            <li><a href="societies.html">Power Electronics Society</a></li>
+            <li><a href="societies.html">Robotics &amp; Automation</a></li>
+            <li><a href="affinity-groups.html">Women in Engineering</a></li>
+            <li><a href="affinity-groups.html">ComSoc</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 IEEE KLETU Student Branch. All rights reserved.</span>
+        <span class="footer__ieee-note">IEEE and the IEEE logo are registered trademarks of the Institute of Electrical and Electronics Engineers, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/affinity-groups.js"></script>
+</body>
+</html>
