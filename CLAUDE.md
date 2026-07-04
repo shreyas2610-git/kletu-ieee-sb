@@ -21,14 +21,16 @@ Static landing page for a college IEEE Student Branch. The design must feel **cl
 | Society | Abbreviation | Status |
 |---------|-------------|--------|
 | Computer Society | CS | Approved (04/12/2026) |
-| Power Electronics Society | PES | Petition in approval stage |
-| Robotics and Automation Society | RAS | Petition in approval stage |
+| Power Electronics Society | PELS | Approved (04/12/2026) |
+| Power & Energy Society | PES | Approved (04/12/2026) |
+| Robotics and Automation Society | RAS | Approved (04/12/2026) |
+| Council on Electronic Design Automation | CEDA | Approved (04/12/2026) |
+| Circuits and Systems Society | CASS | Approved (04/12/2026) |
 
 ### Affinity Groups
 | Group | Abbreviation | Status |
 |-------|-------------|--------|
-| Women in Engineering | WIE | Petition in approval stage |
-| Communications Society | ComSoc / COM-CHMDS | Active (membership promo ongoing) |
+| Women in Engineering | WIE | Approved (04/12/2026) |
 
 ### Hero Section
 - Full-width college building image (`assets/images/bvb.jpg`) with overlay

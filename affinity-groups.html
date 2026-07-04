@@ -23,7 +23,7 @@
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- ===== NAVBAR (verbatim from index.html) ===== -->
+  <!-- ===== NAVBAR ===== -->
   <header class="navbar" id="navbar">
     <div class="navbar__wrap">
       <a href="index.html" class="navbar__logo">
@@ -57,7 +57,18 @@
             </ul>
           </li>
 
-          <li><a href="office-bearers.html">Office bearers</a></li>
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Office bearers
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="execom.html">Execom</a></li>
+              <li><a href="stb-office-bearers.html">STB Office Bearers</a></li>
+              <li><a href="society-office-bearers.html">Society Office Bearers</a></li>
+              <li><a href="affinity-office-bearers.html">Affinity Office Bearers</a></li>
+            </ul>
+          </li>
           <li><a href="achievements.html">Achievements</a></li>
           <li><a href="important-links.html">Important links</a></li>
         </ul>
@@ -97,7 +108,17 @@
         </ul>
       </li>
 
-      <li><a href="office-bearers.html">Office bearers</a></li>
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Office bearers <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="execom.html">Execom</a></li>
+          <li><a href="stb-office-bearers.html">STB Office Bearers</a></li>
+          <li><a href="society-office-bearers.html">Society Office Bearers</a></li>
+          <li><a href="affinity-office-bearers.html">Affinity Office Bearers</a></li>
+        </ul>
+      </li>
       <li><a href="achievements.html">Achievements</a></li>
       <li><a href="important-links.html">Important links</a></li>
     </ul>
@@ -116,7 +137,7 @@
               Community <em>&amp;</em> inclusion
             </h1>
             <p class="ag-hero__lead">
-              Affinity groups broaden the IEEE community — creating space for engineers who share a professional interest, background, or identity. Our two groups focus on gender equity in engineering and the discipline of communications technology.
+              Affinity groups broaden the IEEE community — creating space for engineers who share a professional interest, background, or identity. Our group focuses on gender equity in engineering.
             </p>
             <a href="societies.html" class="ag-hero__link">
               View societies <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -171,8 +192,8 @@
           <div class="ag-row__body">
             <div class="ag-row__meta">
               <span class="ag-row__abbr">WIE</span>
-              <span class="ag-row__status ag-row__status--pending">
-                <span class="ag-row__status-dot"></span>Petition in approval
+              <span class="ag-row__status ag-row__status--active">
+                <span class="ag-row__status-dot"></span>Active
               </span>
               <span class="ag-row__type">Affinity Group</span>
             </div>
@@ -207,7 +228,7 @@
             <div class="ag-row__facts">
               <div class="ag-row__fact">
                 <span class="ag-row__fact-label">Status</span>
-                <span class="ag-row__fact-value">Petition endorsed</span>
+                <span class="ag-row__fact-value">Group approved</span>
               </div>
               <div class="ag-row__fact">
                 <span class="ag-row__fact-label">Abbreviation</span>
@@ -222,84 +243,12 @@
                 <span class="ag-row__fact-value">20,000+ worldwide</span>
               </div>
             </div>
-          </div>
-        </article>
 
-        <div class="ag-divider" aria-hidden="true"></div>
-
-        <!-- ---- Communications Society ---- -->
-        <article class="ag-row reveal" id="comsoc" aria-labelledby="comsoc-title">
-          <div class="ag-row__index" aria-hidden="true">02</div>
-
-          <div class="ag-row__logo-wrap">
-            <div class="ag-row__logo-ring ag-row__logo-ring--comsoc">
-              <img
-                src="assets/images/affinity/comsoc.png"
-                alt="IEEE Communications Society logo"
-                class="ag-row__logo"
-                onerror="this.onerror=null;this.src='assets/images/logo.webp';"
-              >
-            </div>
-          </div>
-
-          <div class="ag-row__body">
-            <div class="ag-row__meta">
-              <span class="ag-row__abbr">ComSoc</span>
-              <span class="ag-row__status ag-row__status--active">
-                <span class="ag-row__status-dot"></span>Membership open
-              </span>
-              <span class="ag-row__type">Affinity Group</span>
-            </div>
-
-            <h2 class="ag-row__title" id="comsoc-title">
-              Communications <em>Society</em>
-            </h2>
-
-            <p class="ag-row__desc">
-              The IEEE Communications Society (ComSoc) is among the most recognised technical societies in electrical engineering, with a focus on the science and practice of information exchange — from optical networks and wireless systems to Internet protocols and signal processing. The KLETU ComSoc chapter is actively running a membership promotion, welcoming students interested in the full stack of modern communications technology, from physical-layer design to network architecture.
-            </p>
-
-            <ul class="ag-row__pillars" aria-label="Focus areas">
-              <li class="ag-row__pillar">
-                <i class="ph ph-wifi-high" aria-hidden="true"></i>
-                Wireless systems
-              </li>
-              <li class="ag-row__pillar">
-                <i class="ph ph-wave-sine" aria-hidden="true"></i>
-                Signal processing
-              </li>
-              <li class="ag-row__pillar">
-                <i class="ph ph-network" aria-hidden="true"></i>
-                Network protocols
-              </li>
-              <li class="ag-row__pillar">
-                <i class="ph ph-broadcast" aria-hidden="true"></i>
-                Optical comms
-              </li>
-            </ul>
-
-            <!-- Active membership promo callout -->
-            <div class="ag-row__promo">
-              <i class="ph ph-megaphone ag-row__promo-icon" aria-hidden="true"></i>
-              <div>
-                <span class="ag-row__promo-label">Membership drive active</span>
-                <p class="ag-row__promo-text">ComSoc is currently running a membership promotion. Contact the branch to find out how to join this semester.</p>
-              </div>
-            </div>
-
-            <div class="ag-row__facts">
-              <div class="ag-row__fact">
-                <span class="ag-row__fact-label">Status</span>
-                <span class="ag-row__fact-value">Active — promo ongoing</span>
-              </div>
-              <div class="ag-row__fact">
-                <span class="ag-row__fact-label">Abbreviation</span>
-                <span class="ag-row__fact-value">ComSoc / COM-CHMDS</span>
-              </div>
-              <div class="ag-row__fact">
-                <span class="ag-row__fact-label">Membership</span>
-                <span class="ag-row__fact-value">Open — promotion running</span>
-              </div>
+            <div class="ag-row__action" style="margin-top: 1.5rem;">
+              <a href="affinity-office-bearers.html?tab=wie" class="btn btn--ghost">
+                View office bearers
+                <i class="ph ph-users" aria-hidden="true" style="margin-left: 0.5rem;"></i>
+              </a>
             </div>
           </div>
         </article>
@@ -313,7 +262,7 @@
         <div class="ag-cta__inner reveal">
           <div class="ag-cta__text">
             <h2 class="ag-cta__heading">Looking for <em>technical chapters?</em></h2>
-            <p class="ag-cta__sub">CS, PES, and RAS live under our societies umbrella — domain-focused chapters for computing, power, and robotics.</p>
+            <p class="ag-cta__sub">CS, PELS, PES, RAS, CEDA, and CASS live under our societies umbrella — domain-focused chapters for computing, power, and robotics.</p>
           </div>
           <a href="societies.html" class="btn btn--primary">
             View societies
@@ -325,7 +274,7 @@
 
   </main>
 
-  <!-- ===== FOOTER (verbatim from index.html) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
@@ -344,10 +293,11 @@
           <h4>Quick links</h4>
           <ul>
             <li><a href="about.html">About</a></li>
+            <li><a href="societies.html">Societies</a></li>
+            <li><a href="affinity-groups.html">Affinity groups</a></li>
             <li><a href="upcoming-events.html">Upcoming events</a></li>
             <li><a href="past-events.html">Past events</a></li>
-            <li><a href="societies.html">Societies</a></li>
-            <li><a href="office-bearers.html">Office bearers</a></li>
+            <li><a href="execom.html">Office bearers</a></li>
           </ul>
         </div>
 
@@ -366,9 +316,11 @@
           <ul>
             <li><a href="societies.html">Computer Society</a></li>
             <li><a href="societies.html">Power Electronics Society</a></li>
-            <li><a href="societies.html">Robotics &amp; Automation</a></li>
+            <li><a href="societies.html">Power &amp; Energy Society</a></li>
+            <li><a href="societies.html">Robotics &amp; Automation Society</a></li>
+            <li><a href="societies.html">Design Automation (CEDA)</a></li>
+            <li><a href="societies.html">Circuits &amp; Systems (CASS)</a></li>
             <li><a href="affinity-groups.html">Women in Engineering</a></li>
-            <li><a href="affinity-groups.html">ComSoc</a></li>
           </ul>
         </div>
       </div>

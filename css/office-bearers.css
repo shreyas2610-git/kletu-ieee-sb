@@ -71,71 +71,107 @@
 }
 
 .ob-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 20px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  background: var(--bg-white);
+  border: 1px solid var(--kletu-sand);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(67, 59, 54, 0.05);
+  transition: border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out);
 }
 
 .ob-card:hover {
+  border-color: rgba(107, 23, 13, 0.22);
+  box-shadow: 0 16px 40px rgba(107, 23, 13, 0.10);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .ob-card__media {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius-sm);
+  position: relative;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: var(--kletu-sand);
-  border: 1px solid var(--border-light);
+  background: var(--kletu-ivory);
 }
 
 .ob-card__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s var(--ease-out);
+  transition: transform 0.6s var(--ease-out);
 }
 
 .ob-card:hover .ob-card__media img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
+/* Role label below the image */
+.ob-card__role-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--kletu-deep-red);
+  margin-bottom: 6px;
+}
+
+/* Body */
 .ob-card__body {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  flex: 1;
+  padding: 24px 22px 26px;
+  text-align: left;
 }
 
 .ob-card__name {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
-  margin: 0;
+  margin: 0 0 8px;
+  transition: color 0.3s var(--ease-out);
 }
 
-.ob-card__role {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.4;
-  margin: 0;
+.ob-card:hover .ob-card__name {
+  color: var(--kletu-deep-red);
 }
 
-.ob-card__meta {
-  margin-top: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.ob-card__description {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-tertiary);
+  margin: 0 0 20px;
+}
+
+/* LinkedIn link */
+.ob-card__linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--kletu-deep-red);
+  text-decoration: none;
+  transition: gap 0.3s var(--ease-out);
+}
+
+.ob-card__linkedin i {
+  font-size: 0.9rem;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.ob-card:hover .ob-card__linkedin i {
+  transform: translateX(4px);
 }
 
 /* Staggered Reveal Animation for Cards */
@@ -259,4 +295,73 @@
   max-height: 120px;
   margin: 0 auto;
   object-fit: contain;
+}
+
+/* Image alignment helpers for office bearer heads */
+.ob-img-align-top {
+  object-position: center top !important;
+}
+
+.ob-img-align-top-5 {
+  object-position: center 5% !important;
+}
+
+.ob-img-align-top-10 {
+  object-position: center 10% !important;
+}
+
+.ob-img-align-top-15 {
+  object-position: center 15% !important;
+}
+
+.ob-img-align-top-20 {
+  object-position: center 20% !important;
+}
+
+.ob-img-align-top-25 {
+  object-position: center 25% !important;
+}
+
+.ob-img-align-top-30 {
+  object-position: center 30% !important;
+}
+
+.ob-img-zoom-out {
+  object-fit: contain !important;
+  background-color: var(--kletu-ivory) !important;
+}
+
+/* Pull-up Stacking Section Animation */
+.ob-pull-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-canvas) !important;
+  z-index: 2;
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.05); /* Overlay shadow */
+  padding-top: 60px;
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.ob-pull-section .ob-grid {
+  transform: translateY(180px);
+  opacity: 0;
+  transition: transform 1.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1.3s ease-out;
+}
+
+.ob-pull-section.revealed .ob-grid {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.ob-pull-section .ob-year-title {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s ease-out;
+  transition-delay: 100ms;
+}
+
+.ob-pull-section.revealed .ob-year-title {
+  transform: translateY(0);
+  opacity: 1;
 }

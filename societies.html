@@ -23,7 +23,7 @@
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- ===== NAVBAR (verbatim from index.html) ===== -->
+  <!-- ===== NAVBAR ===== -->
   <header class="navbar" id="navbar">
     <div class="navbar__wrap">
       <a href="index.html" class="navbar__logo">
@@ -57,7 +57,18 @@
             </ul>
           </li>
 
-          <li><a href="office-bearers.html">Office bearers</a></li>
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Office bearers
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="execom.html">Execom</a></li>
+              <li><a href="stb-office-bearers.html">STB Office Bearers</a></li>
+              <li><a href="society-office-bearers.html">Society Office Bearers</a></li>
+              <li><a href="affinity-office-bearers.html">Affinity Office Bearers</a></li>
+            </ul>
+          </li>
           <li><a href="achievements.html">Achievements</a></li>
           <li><a href="important-links.html">Important links</a></li>
         </ul>
@@ -97,7 +108,17 @@
         </ul>
       </li>
 
-      <li><a href="office-bearers.html">Office bearers</a></li>
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Office bearers <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="execom.html">Execom</a></li>
+          <li><a href="stb-office-bearers.html">STB Office Bearers</a></li>
+          <li><a href="society-office-bearers.html">Society Office Bearers</a></li>
+          <li><a href="affinity-office-bearers.html">Affinity Office Bearers</a></li>
+        </ul>
+      </li>
       <li><a href="achievements.html">Achievements</a></li>
       <li><a href="important-links.html">Important links</a></li>
     </ul>
@@ -116,7 +137,7 @@
               Student branch <em>societies</em>
             </h1>
             <p class="societies-hero__lead">
-              Three technical chapters operating under IEEE KLETU — each a focused community where members engage with cutting-edge research, hands-on projects, and professional development in their domain.
+              Six technical chapters operating under IEEE KLETU — each a focused community where members engage with cutting-edge research, hands-on projects, and professional development in their domain.
             </p>
             <a href="affinity-groups.html" class="societies-hero__link">
               View affinity groups <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -196,19 +217,26 @@
                 <span class="society-row__fact-value">Open to all students</span>
               </div>
             </div>
+
+            <div class="society-row__action" style="margin-top: 1.5rem;">
+              <a href="society-office-bearers.html?tab=cs" class="btn btn--ghost">
+                View office bearers
+                <i class="ph ph-users" aria-hidden="true" style="margin-left: 0.5rem;"></i>
+              </a>
+            </div>
           </div>
         </article>
 
         <div class="society-divider" aria-hidden="true"></div>
 
         <!-- ---- Power Electronics Society ---- -->
-        <article class="society-row reveal" id="pes" aria-labelledby="pes-title">
+        <article class="society-row reveal" id="pels" aria-labelledby="pels-title">
           <div class="society-row__index" aria-hidden="true">02</div>
 
           <div class="society-row__logo-wrap">
             <div class="society-row__logo-ring">
               <img
-                src="assets/images/societies/pes.png"
+                src="assets/images/societies/pels.png"
                 alt="IEEE Power Electronics Society logo"
                 class="society-row__logo"
                 onerror="this.onerror=null;this.src='assets/images/logo.webp';"
@@ -218,18 +246,19 @@
 
           <div class="society-row__body">
             <div class="society-row__meta">
-              <span class="society-row__abbr">PES</span>
-              <span class="society-row__status society-row__status--pending">
-                <span class="society-row__status-dot"></span>Petition in approval
+              <span class="society-row__abbr">PELS</span>
+              <span class="society-row__status society-row__status--active">
+                <span class="society-row__status-dot"></span>Active
               </span>
+              <span class="society-row__date">Approved 04 Dec 2026</span>
             </div>
 
-            <h2 class="society-row__title" id="pes-title">
+            <h2 class="society-row__title" id="pels-title">
               Power Electronics <em>Society</em>
             </h2>
 
             <p class="society-row__desc">
-              Power electronics sits at the heart of every modern energy system — from EV drivetrains and solar inverters to industrial motor drives. The PES chapter connects students with the engineering discipline that converts and controls electrical power. Members engage with design challenges in converters, renewable energy integration, and smart grid technologies, supported by IEEE PES's extensive publication library and global conference network.
+              The IEEE Power Electronics Society chapter facilitates the development of power electronics technology, which is critical to modern power conversion systems. At KLETU, the chapter connects students with the systems that control and convert electrical power, spanning EV drivetrains, solar inverters, and high-efficiency converters, while promoting research in energy conservation.
             </p>
 
             <ul class="society-row__pillars" aria-label="Focus areas">
@@ -246,7 +275,7 @@
                 EV systems
               </li>
               <li class="society-row__pillar">
-                <i class="ph ph-graph" aria-hidden="true"></i>
+                <i class="ph ph-grid-four" aria-hidden="true"></i>
                 Smart grids
               </li>
             </ul>
@@ -254,7 +283,84 @@
             <div class="society-row__facts">
               <div class="society-row__fact">
                 <span class="society-row__fact-label">Status</span>
-                <span class="society-row__fact-value">Petition endorsed</span>
+                <span class="society-row__fact-value">Chapter approved</span>
+              </div>
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Abbreviation</span>
+                <span class="society-row__fact-value">IEEE PELS</span>
+              </div>
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Membership</span>
+                <span class="society-row__fact-value">Open to all students</span>
+              </div>
+            </div>
+
+            <div class="society-row__action" style="margin-top: 1.5rem;">
+              <a href="society-office-bearers.html?tab=pels" class="btn btn--ghost">
+                View office bearers
+                <i class="ph ph-users" aria-hidden="true" style="margin-left: 0.5rem;"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <div class="society-divider" aria-hidden="true"></div>
+
+        <!-- ---- Power & Energy Society ---- -->
+        <article class="society-row reveal" id="pes" aria-labelledby="pes-title">
+          <div class="society-row__index" aria-hidden="true">03</div>
+
+          <div class="society-row__logo-wrap">
+            <div class="society-row__logo-ring">
+              <img
+                src="assets/images/societies/pes.png"
+                alt="IEEE Power &amp; Energy Society logo"
+                class="society-row__logo"
+                onerror="this.onerror=null;this.src='assets/images/logo.webp';"
+              >
+            </div>
+          </div>
+
+          <div class="society-row__body">
+            <div class="society-row__meta">
+              <span class="society-row__abbr">PES</span>
+              <span class="society-row__status society-row__status--active">
+                <span class="society-row__status-dot"></span>Active
+              </span>
+              <span class="society-row__date">Approved 04 Dec 2026</span>
+            </div>
+
+            <h2 class="society-row__title" id="pes-title">
+              Power <span class="amp">&amp;</span> Energy Society
+            </h2>
+
+            <p class="society-row__desc">
+              The Power & Energy Society is the leading provider of scientific and engineering information on electric power and energy. The KLETU PES chapter introduces students to the challenges of generating, transmitting, and distributing electrical power. Members focus on grid modernization, renewable energy integration, energy storage systems, and sustainable practices.
+            </p>
+
+            <ul class="society-row__pillars" aria-label="Focus areas">
+              <li class="society-row__pillar">
+                <i class="ph ph-factory" aria-hidden="true"></i>
+                Power systems
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-plugs-connected" aria-hidden="true"></i>
+                Grid integration
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-battery-charging" aria-hidden="true"></i>
+                Energy storage
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-leaf" aria-hidden="true"></i>
+                Sustainability
+              </li>
+            </ul>
+
+            <div class="society-row__facts">
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Status</span>
+                <span class="society-row__fact-value">Chapter approved</span>
               </div>
               <div class="society-row__fact">
                 <span class="society-row__fact-label">Abbreviation</span>
@@ -265,6 +371,13 @@
                 <span class="society-row__fact-value">Open to all students</span>
               </div>
             </div>
+
+            <div class="society-row__action" style="margin-top: 1.5rem;">
+              <a href="society-office-bearers.html?tab=pes" class="btn btn--ghost">
+                View office bearers
+                <i class="ph ph-users" aria-hidden="true" style="margin-left: 0.5rem;"></i>
+              </a>
+            </div>
           </div>
         </article>
 
@@ -272,7 +385,7 @@
 
         <!-- ---- Robotics & Automation Society ---- -->
         <article class="society-row reveal" id="ras" aria-labelledby="ras-title">
-          <div class="society-row__index" aria-hidden="true">03</div>
+          <div class="society-row__index" aria-hidden="true">04</div>
 
           <div class="society-row__logo-wrap">
             <div class="society-row__logo-ring">
@@ -288,9 +401,10 @@
           <div class="society-row__body">
             <div class="society-row__meta">
               <span class="society-row__abbr">RAS</span>
-              <span class="society-row__status society-row__status--pending">
-                <span class="society-row__status-dot"></span>Petition in approval
+              <span class="society-row__status society-row__status--active">
+                <span class="society-row__status-dot"></span>Active
               </span>
+              <span class="society-row__date">Approved 04 Dec 2026</span>
             </div>
 
             <h2 class="society-row__title" id="ras-title">
@@ -298,7 +412,7 @@
             </h2>
 
             <p class="society-row__desc">
-              Robotics and automation are reshaping manufacturing, healthcare, logistics, and exploration. The RAS chapter gives students a structured entry point into this interdisciplinary field — combining mechanical design, control systems, embedded programming, and AI. From building autonomous robots to studying manipulation algorithms, members work on problems that span the full stack of a robotic system.
+              The Robotics and Automation Society chapter provides a structured platform for students to explore the interdisciplinary field of robotics. Integrating mechanical design, electronic control systems, embedded systems, and machine learning, members work on building autonomous systems, motion planning, and intelligent automation for real-world applications.
             </p>
 
             <ul class="society-row__pillars" aria-label="Focus areas">
@@ -312,18 +426,18 @@
               </li>
               <li class="society-row__pillar">
                 <i class="ph ph-cpu" aria-hidden="true"></i>
-                Embedded systems
+                Embedded platforms
               </li>
               <li class="society-row__pillar">
-                <i class="ph ph-path" aria-hidden="true"></i>
-                Motion planning
+                <i class="ph ph-eye" aria-hidden="true"></i>
+                Computer vision
               </li>
             </ul>
 
             <div class="society-row__facts">
               <div class="society-row__fact">
                 <span class="society-row__fact-label">Status</span>
-                <span class="society-row__fact-value">Petition endorsed</span>
+                <span class="society-row__fact-value">Chapter approved</span>
               </div>
               <div class="society-row__fact">
                 <span class="society-row__fact-label">Abbreviation</span>
@@ -333,6 +447,167 @@
                 <span class="society-row__fact-label">Membership</span>
                 <span class="society-row__fact-value">Open to all students</span>
               </div>
+            </div>
+
+            <div class="society-row__action" style="margin-top: 1.5rem;">
+              <a href="society-office-bearers.html?tab=ras" class="btn btn--ghost">
+                View office bearers
+                <i class="ph ph-users" aria-hidden="true" style="margin-left: 0.5rem;"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <div class="society-divider" aria-hidden="true"></div>
+
+        <!-- ---- Council on Electronic Design Automation ---- -->
+        <article class="society-row reveal" id="ceda" aria-labelledby="ceda-title">
+          <div class="society-row__index" aria-hidden="true">05</div>
+
+          <div class="society-row__logo-wrap">
+            <div class="society-row__logo-ring">
+              <img
+                src="assets/images/societies/ceda.png"
+                alt="IEEE Council on Electronic Design Automation logo"
+                class="society-row__logo"
+                onerror="this.onerror=null;this.src='assets/images/logo.webp';"
+              >
+            </div>
+          </div>
+
+          <div class="society-row__body">
+            <div class="society-row__meta">
+              <span class="society-row__abbr">CEDA</span>
+              <span class="society-row__status society-row__status--active">
+                <span class="society-row__status-dot"></span>Active
+              </span>
+              <span class="society-row__date">Approved 04 Dec 2026</span>
+            </div>
+
+            <h2 class="society-row__title" id="ceda-title">
+              Council on Electronic Design <em>Automation</em>
+            </h2>
+
+            <p class="society-row__desc">
+              IEEE CEDA focuses on the advancement of computer-aided design (CAD) algorithms, system-level design methodologies, and hardware-software co-design. The KLETU CEDA chapter provides students with opportunities to engage in VLSI design, logic synthesis, hardware security, and electronic design automation tools that power next-generation silicon chips.
+            </p>
+
+            <ul class="society-row__pillars" aria-label="Focus areas">
+              <li class="society-row__pillar">
+                <i class="ph ph-waveform" aria-hidden="true"></i>
+                VLSI systems
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-pencil-ruler" aria-hidden="true"></i>
+                CAD algorithms
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-shield-check" aria-hidden="true"></i>
+                Hardware security
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-squares-four" aria-hidden="true"></i>
+                SoC design
+              </li>
+            </ul>
+
+            <div class="society-row__facts">
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Status</span>
+                <span class="society-row__fact-value">Chapter approved</span>
+              </div>
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Abbreviation</span>
+                <span class="society-row__fact-value">IEEE CEDA</span>
+              </div>
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Membership</span>
+                <span class="society-row__fact-value">Open to all students</span>
+              </div>
+            </div>
+
+            <div class="society-row__action" style="margin-top: 1.5rem;">
+              <a href="society-office-bearers.html?tab=ceda" class="btn btn--ghost">
+                View office bearers
+                <i class="ph ph-users" aria-hidden="true" style="margin-left: 0.5rem;"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <div class="society-divider" aria-hidden="true"></div>
+
+        <!-- ---- Circuits and Systems Society ---- -->
+        <article class="society-row reveal" id="cass" aria-labelledby="cass-title">
+          <div class="society-row__index" aria-hidden="true">06</div>
+
+          <div class="society-row__logo-wrap">
+            <div class="society-row__logo-ring">
+              <img
+                src="assets/images/societies/cass.png"
+                alt="IEEE Circuits and Systems Society logo"
+                class="society-row__logo"
+                onerror="this.onerror=null;this.src='assets/images/logo.webp';"
+              >
+            </div>
+          </div>
+
+          <div class="society-row__body">
+            <div class="society-row__meta">
+              <span class="society-row__abbr">CASS</span>
+              <span class="society-row__status society-row__status--active">
+                <span class="society-row__status-dot"></span>Active
+              </span>
+              <span class="society-row__date">Approved 04 Dec 2026</span>
+            </div>
+
+            <h2 class="society-row__title" id="cass-title">
+              Circuits <span class="amp">&amp;</span> Systems Society
+            </h2>
+
+            <p class="society-row__desc">
+              The Circuits and Systems Society focuses on the theory, analysis, design, and practical implementation of circuits, and the application of circuit theoretic techniques. The KLETU CASS chapter connects students with design methodologies for analog, digital, and mixed-signal circuits, sensor interfaces, and neuromorphic processing systems.
+            </p>
+
+            <ul class="society-row__pillars" aria-label="Focus areas">
+              <li class="society-row__pillar">
+                <i class="ph ph-pulse" aria-hidden="true"></i>
+                Analog circuits
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-hash" aria-hidden="true"></i>
+                Digital systems
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-wave-sine" aria-hidden="true"></i>
+                Signal processing
+              </li>
+              <li class="society-row__pillar">
+                <i class="ph ph-brain" aria-hidden="true"></i>
+                Neuromorphic systems
+              </li>
+            </ul>
+
+            <div class="society-row__facts">
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Status</span>
+                <span class="society-row__fact-value">Chapter approved</span>
+              </div>
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Abbreviation</span>
+                <span class="society-row__fact-value">IEEE CASS</span>
+              </div>
+              <div class="society-row__fact">
+                <span class="society-row__fact-label">Membership</span>
+                <span class="society-row__fact-value">Open to all students</span>
+              </div>
+            </div>
+
+            <div class="society-row__action" style="margin-top: 1.5rem;">
+              <a href="society-office-bearers.html?tab=cass" class="btn btn--ghost">
+                View office bearers
+                <i class="ph ph-users" aria-hidden="true" style="margin-left: 0.5rem;"></i>
+              </a>
             </div>
           </div>
         </article>
@@ -346,7 +621,7 @@
         <div class="societies-cta__inner reveal">
           <div class="societies-cta__text">
             <h2 class="societies-cta__heading">Looking for <em>affinity groups?</em></h2>
-            <p class="societies-cta__sub">WIE and ComSoc live under our affinity groups umbrella — inclusive communities alongside the technical chapters.</p>
+            <p class="societies-cta__sub">Women in Engineering (WIE) lives under our affinity groups umbrella — an inclusive community alongside the technical chapters.</p>
           </div>
           <a href="affinity-groups.html" class="btn btn--primary">
             View affinity groups
@@ -377,10 +652,11 @@
           <h4>Quick links</h4>
           <ul>
             <li><a href="about.html">About</a></li>
+            <li><a href="societies.html">Societies</a></li>
+            <li><a href="affinity-groups.html">Affinity groups</a></li>
             <li><a href="upcoming-events.html">Upcoming events</a></li>
             <li><a href="past-events.html">Past events</a></li>
-            <li><a href="societies.html">Societies</a></li>
-            <li><a href="office-bearers.html">Office bearers</a></li>
+            <li><a href="execom.html">Office bearers</a></li>
           </ul>
         </div>
 
@@ -399,9 +675,11 @@
           <ul>
             <li><a href="societies.html">Computer Society</a></li>
             <li><a href="societies.html">Power Electronics Society</a></li>
-            <li><a href="societies.html">Robotics &amp; Automation</a></li>
+            <li><a href="societies.html">Power &amp; Energy Society</a></li>
+            <li><a href="societies.html">Robotics &amp; Automation Society</a></li>
+            <li><a href="societies.html">Design Automation (CEDA)</a></li>
+            <li><a href="societies.html">Circuits &amp; Systems (CASS)</a></li>
             <li><a href="affinity-groups.html">Women in Engineering</a></li>
-            <li><a href="affinity-groups.html">ComSoc</a></li>
           </ul>
         </div>
       </div>

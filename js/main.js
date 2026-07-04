@@ -368,7 +368,6 @@
         });
       }
     }
-
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
         switchSociety(tab.getAttribute('data-society'));
@@ -380,6 +379,26 @@
         switchSociety(e.target.value);
       });
     });
+
+    // Check URL query param or hash on load
+    var urlParams = new URLSearchParams(window.location.search);
+    var initTab = urlParams.get('tab') || urlParams.get('society');
+    if (!initTab && window.location.hash) {
+      var hash = window.location.hash.substring(1);
+      if (hash.startsWith('society-')) {
+        initTab = hash.substring(8);
+      } else {
+        initTab = hash;
+      }
+    }
+    if (initTab) {
+      var hasTab = Array.from(tabs).some(function(t) {
+        return t.getAttribute('data-society') === initTab;
+      });
+      if (hasTab) {
+        switchSociety(initTab);
+      }
+    }
   }
 
   // --- Contact Form (placeholder handler) ---
