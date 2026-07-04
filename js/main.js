@@ -330,6 +330,58 @@
     });
   }
 
+  // --- Society Tabs ---
+  function initSocietyTabs() {
+    var tabs = document.querySelectorAll('.society-tab');
+    var contents = document.querySelectorAll('.society-content');
+    var selects = document.querySelectorAll('.society-select');
+    
+    if ((!tabs.length && !selects.length) || !contents.length) return;
+
+    function switchSociety(targetId) {
+      // Update buttons
+      tabs.forEach(function (t) {
+        if (t.getAttribute('data-society') === targetId) {
+          t.classList.add('active');
+        } else {
+          t.classList.remove('active');
+        }
+      });
+
+      // Update select values to keep in sync
+      selects.forEach(function(s) {
+        s.value = targetId;
+      });
+
+      // Update contents
+      contents.forEach(function (c) { c.classList.remove('active'); });
+      var targetContent = document.getElementById('society-' + targetId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+        // Retrigger reveal animations for newly shown elements
+        var reveals = targetContent.querySelectorAll('.reveal');
+        reveals.forEach(function(r) {
+          r.classList.remove('revealed');
+          setTimeout(function() {
+            r.classList.add('revealed');
+          }, 50);
+        });
+      }
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        switchSociety(tab.getAttribute('data-society'));
+      });
+    });
+
+    selects.forEach(function(select) {
+      select.addEventListener('change', function(e) {
+        switchSociety(e.target.value);
+      });
+    });
+  }
+
   // --- Contact Form (placeholder handler) ---
   function initContactForm() {
     var form = document.getElementById('contactForm');
@@ -366,6 +418,7 @@
     initActiveNavHighlight();
     initChaptersCarousel();
     initContactForm();
+    initSocietyTabs();
   }
 
   if (document.readyState === 'loading') {
