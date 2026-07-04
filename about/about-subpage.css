@@ -1,0 +1,336 @@
+/* ==========================================================================
+   about-subpage.css
+   Shared styles for about/history.html and about/mission.html.
+   All tokens come from css/style.css — nothing is hardcoded here.
+   Load order: style.css → about-achievements.css → about-subpage.css
+   ========================================================================== */
+
+
+/* ==========================================================================
+   SUB-PAGE HERO
+   Editorial header — same language as .events-hero in events.css
+   ========================================================================== */
+
+.subpage-hero {
+  padding: 160px 0 72px;
+  background: var(--bg-canvas);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative watermark — same device as .events-hero::after */
+.subpage-hero__watermark {
+  position: absolute;
+  right: -1rem;
+  bottom: -6rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(12rem, 28vw, 22rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--kletu-deep-red);
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+}
+
+.subpage-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kletu-quicksand);
+  margin-bottom: 20px;
+}
+
+.subpage-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+/* Italic deep-red accent — brand heading pattern */
+.subpage-hero__title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--kletu-deep-red);
+}
+
+.subpage-hero__lead {
+  max-width: 600px;
+  font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0 0 40px;
+}
+
+/* Sub-nav inlined inside the hero */
+.about-subnav--inline {
+  position: static;
+  border-bottom: none;
+  background: transparent;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.about-subnav--inline .about-subnav__list {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .subpage-hero { padding: 130px 0 56px; }
+  .subpage-hero__title { font-size: clamp(2rem, 8vw, 3rem); }
+}
+
+
+/* ==========================================================================
+   BREADCRUMB
+   ========================================================================== */
+
+.subpage-breadcrumb {
+  margin-bottom: 24px;
+}
+
+.subpage-breadcrumb ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+
+.subpage-breadcrumb a {
+  color: var(--text-tertiary);
+  transition: color var(--ease-out) 200ms;
+}
+
+.subpage-breadcrumb a:hover { color: var(--kletu-deep-red); }
+
+.subpage-breadcrumb i {
+  font-size: 0.6875rem;
+  opacity: 0.5;
+}
+
+.subpage-breadcrumb [aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+
+/* ==========================================================================
+   NARRATIVE CONTENT (history.html)
+   Prose article with left-spine year markers
+   ========================================================================== */
+
+.subpage-content {
+  background: var(--bg-white);
+}
+
+.subpage-content__wrap {
+  max-width: 860px;
+  padding-block: var(--space-20);
+}
+
+@media (min-width: 768px) {
+  .subpage-content__wrap { padding-block: var(--space-28); }
+}
+
+/* Each dated chapter */
+.subpage-chapter {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 48px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 64px;
+}
+
+.subpage-chapter:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Meta column — year + rule */
+.subpage-chapter__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.subpage-chapter__year {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--kletu-quicksand);
+  white-space: nowrap;
+}
+
+/* Vertical rule below the year */
+.subpage-chapter__rule {
+  display: block;
+  width: 1px;
+  flex: 1;
+  background: var(--border);
+  min-height: 40px;
+}
+
+/* Body column */
+.subpage-chapter__body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.subpage-chapter__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.8vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Italic deep-red accent in chapter titles */
+.subpage-chapter__title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--kletu-deep-red);
+}
+
+.subpage-chapter__body p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* Pull-quote — left border, italic serif */
+.subpage-pullquote {
+  margin: 8px 0 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--kletu-deep-red);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+/* Responsive — collapse meta column on mobile */
+@media (max-width: 640px) {
+  .subpage-chapter {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-bottom: 48px;
+    margin-bottom: 48px;
+  }
+
+  .subpage-chapter__meta {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .subpage-chapter__rule {
+    width: auto;
+    height: 1px;
+    flex: 1;
+    min-height: auto;
+  }
+}
+
+
+/* ==========================================================================
+   NEXT PAGE STRIP
+   Thin editorial footer linking to the next sub-page
+   ========================================================================== */
+
+.subpage-nav-strip {
+  border-top: 1px solid var(--border);
+  background: var(--bg-canvas);
+}
+
+.subpage-nav-strip__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+  transition: background var(--ease-out) 200ms;
+}
+
+.subpage-nav-strip__link:hover .subpage-nav-strip__title {
+  color: var(--kletu-deep-red);
+}
+
+.subpage-nav-strip__link:hover i {
+  transform: translateX(4px);
+}
+
+.subpage-nav-strip__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.subpage-nav-strip__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color var(--ease-out) 200ms;
+}
+
+.subpage-nav-strip__title i {
+  font-size: 1rem;
+  transition: transform var(--ease-out) 250ms;
+}
+
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .subpage-nav-strip__title,
+  .subpage-nav-strip__title i,
+  .subpage-breadcrumb a,
+  .subpage-chapter__title {
+    transition: none !important;
+  }
+
+  .subpage-nav-strip__link:hover i {
+    transform: none;
+  }
+}

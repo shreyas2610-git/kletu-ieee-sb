@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About &mdash; IEEE KLETU Student Branch</title>
+  <meta name="description" content="Learn about the IEEE KLE Technological University Student Branch — our history, mission, and the community we're building under the IEEE Bangalore Section.">
+  <meta property="og:title" content="About &mdash; IEEE KLETU Student Branch">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/about-achievements.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── Navbar — verbatim from index.html ─────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__wrap">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="navbar__logo-img">
+      </a>
+
+      <nav class="navbar__inner">
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Events
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="upcoming-events.html">Upcoming events</a></li>
+              <li><a href="past-events.html">Past events</a></li>
+            </ul>
+          </li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Society
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="societies.html">Societies</a></li>
+              <li><a href="affinity-groups.html">Affinity groups</a></li>
+            </ul>
+          </li>
+
+          <li><a href="office-bearers.html">Office bearers</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="important-links.html">Important links</a></li>
+        </ul>
+
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Mobile Menu — verbatim from index.html ────────────────────────── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Events
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="upcoming-events.html">Upcoming events</a></li>
+          <li><a href="past-events.html">Past events</a></li>
+        </ul>
+      </li>
+
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Society
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="societies.html">Societies</a></li>
+          <li><a href="affinity-groups.html">Affinity groups</a></li>
+        </ul>
+      </li>
+
+      <li><a href="office-bearers.html">Office bearers</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="important-links.html">Important links</a></li>
+    </ul>
+  </div>
+
+  <main id="main">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         HERO — same structure as index.html hero, adapted for About page
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <img src="assets/images/bvb.webp" alt="KLE Technological University campus" class="hero__bg-img"
+             onerror="this.parentElement.classList.add('hero__bg--fallback');">
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content">
+        <div class="hero__badge reveal">
+          <span class="hero__badge-dot"></span>
+          IEEE Bangalore Section &middot; North Karnataka SubSection
+        </div>
+
+        <h1 class="hero__title reveal">
+          <span class="hero__title-ieee">IEEE</span>
+          <span class="hero__title-college">KLE Technological University</span>
+          <span class="hero__title-branch">Student Branch</span>
+        </h1>
+
+        <p class="hero__subtitle reveal">
+          Fostering innovation, technical excellence, and professional growth
+          through a vibrant community of engineers and researchers.
+        </p>
+
+        <div class="hero__actions reveal">
+          <a href="#about-overview" class="btn btn--primary">Explore the branch</a>
+          <a href="about/history.html" class="btn btn--ghost">Our history</a>
+        </div>
+      </div>
+
+      <!-- Stats bar — same as index.html -->
+      <div class="hero__stats">
+        <div class="hero__stat reveal">
+          <span class="hero__stat-number" data-count="150">0</span><span class="hero__stat-plus">+</span>
+          <span class="hero__stat-label">Members</span>
+        </div>
+        <div class="hero__stat reveal">
+          <span class="hero__stat-number" data-count="15">0</span><span class="hero__stat-plus">+</span>
+          <span class="hero__stat-label">Years active</span>
+        </div>
+        <div class="hero__stat reveal">
+          <span class="hero__stat-number" data-count="20">0</span><span class="hero__stat-plus">+</span>
+          <span class="hero__stat-label">Events per year</span>
+        </div>
+        <div class="hero__stat reveal">
+          <span class="hero__stat-number" data-count="5">0</span>
+          <span class="hero__stat-label">Chapters &amp; affinity groups</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         ABOUT SUB-NAV — quick jumps to sub-pages (dropdown equivalent)
+    ═══════════════════════════════════════════════════════════════════ -->
+    <nav class="about-subnav" aria-label="About sub-pages">
+      <div class="container">
+        <ul class="about-subnav__list">
+          <li><a href="about.html" class="about-subnav__link about-subnav__link--active" aria-current="page">Overview</a></li>
+          <li><a href="about/history.html" class="about-subnav__link">History</a></li>
+          <li><a href="about/mission.html" class="about-subnav__link">Mission &amp; vision</a></li>
+          <li><a href="about/faculty-advisor.html" class="about-subnav__link">Faculty advisor</a></li>
+          <li><a href="office-bearers.html" class="about-subnav__link">Office bearers</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         WHO WE ARE — numbered editorial list (same .about__list pattern)
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section about" id="about-overview">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">Where technology <em class="serif-accent">meets community</em></h2>
+          <p class="section__subtitle reveal">
+            A home for students who build, research, and lead &mdash; plugged into IEEE's global network of 400,000+ engineers in 160 countries.
+          </p>
+        </div>
+
+        <ol class="about__list">
+          <li class="about__item reveal">
+            <span class="about__item-num">01</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Who we are</h3>
+              <p class="about__item-tag">
+                The IEEE Student Branch at KLE Technological University, Hubballi, is one of the most active branches in the North Karnataka subsection of the IEEE Bangalore Section &mdash; founded on the conviction that great engineers are made, not just taught.
+              </p>
+            </div>
+            <a href="about/history.html" class="about__item-cta">Our history</a>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">02</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Our mission</h3>
+              <p class="about__item-tag">
+                To foster technical excellence, professional development, and innovation among engineering students &mdash; through events, industry connections, and a culture where curiosity is the norm.
+              </p>
+            </div>
+            <a href="about/mission.html" class="about__item-cta">Read more</a>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">03</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Global network</h3>
+              <p class="about__item-tag">
+                Membership connects students to IEEE Xplore, standards libraries, journals, and a professional community spanning every engineering discipline worldwide.
+              </p>
+            </div>
+            <a href="important-links.html" class="about__item-cta">IEEE resources</a>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">04</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Hands-on projects</h3>
+              <p class="about__item-tag">
+                Workshops, hackathons, paper presentations, and research collaborations across five chapters &mdash; every semester, every year.
+              </p>
+            </div>
+            <a href="upcoming-events.html" class="about__item-cta">Upcoming events</a>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">05</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Career runway</h3>
+              <p class="about__item-tag">
+                Mentorship, internship drives, industry guest lectures, and IEEEXtreme participation &mdash; preparing students for the world from day one on campus.
+              </p>
+            </div>
+            <a href="office-bearers.html" class="about__item-cta">Meet the team</a>
+          </li>
+
+          <li class="about__item reveal">
+            <span class="about__item-num">06</span>
+            <div class="about__item-body">
+              <h3 class="about__item-title">Inclusive community</h3>
+              <p class="about__item-tag">
+                Five chapters and affinity groups &mdash; Computer Society, PES, RAS, WIE, and ComSoc &mdash; ensure every student finds their technical home under the branch.
+              </p>
+            </div>
+            <a href="societies.html" class="about__item-cta">View societies</a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         MISSION & VISION — tinted section, two editorial cards
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section about-mv" id="about-mission">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">Mission <span class="amp">&amp;</span> vision</h2>
+          <p class="section__subtitle reveal">
+            Two sides of the same commitment &mdash; one concrete, one aspirational.
+          </p>
+        </div>
+
+        <div class="mv-grid">
+          <div class="mv-card reveal" style="--reveal-index: 0">
+            <span class="mv-card__label">Mission</span>
+            <h3 class="mv-card__title">What we do, every day</h3>
+            <p>
+              To foster technical excellence, professional development, and innovation among engineering students of KLE Technological University through IEEE's global platform &mdash; by organizing impactful events, facilitating industry connections, promoting research, and building future-ready leaders who contribute meaningfully to technology and society.
+            </p>
+            <a href="about/mission.html" class="mv-card__cta">Read in full <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
+
+          <div class="mv-card mv-card--dark reveal" style="--reveal-index: 1">
+            <span class="mv-card__label mv-card__label--light">Vision</span>
+            <h3 class="mv-card__title">What we're building toward</h3>
+            <p>
+              To be a globally recognized IEEE Student Branch known for producing technically proficient, ethically grounded, and socially responsible engineers who drive meaningful technological change &mdash; and to serve as a model branch for the North Karnataka region.
+            </p>
+            <a href="about/mission.html" class="mv-card__cta mv-card__cta--light">Read in full <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BRANCH FACTS — mono-spaced fact strip, editorial style
+    ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section about-facts">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">The branch <em class="serif-accent">by the numbers</em></h2>
+        </div>
+
+        <dl class="facts-grid">
+          <div class="facts-item reveal" style="--reveal-index: 0">
+            <dt class="facts-item__label">Founded</dt>
+            <dd class="facts-item__value">2009</dd>
+          </div>
+          <div class="facts-item reveal" style="--reveal-index: 1">
+            <dt class="facts-item__label">Active members</dt>
+            <dd class="facts-item__value">150+</dd>
+          </div>
+          <div class="facts-item reveal" style="--reveal-index: 2">
+            <dt class="facts-item__label">IEEE section</dt>
+            <dd class="facts-item__value">Bangalore</dd>
+          </div>
+          <div class="facts-item reveal" style="--reveal-index: 3">
+            <dt class="facts-item__label">Subsection</dt>
+            <dd class="facts-item__value">North Karnataka</dd>
+          </div>
+          <div class="facts-item reveal" style="--reveal-index: 4">
+            <dt class="facts-item__label">Chapters &amp; affinity groups</dt>
+            <dd class="facts-item__value">5</dd>
+          </div>
+          <div class="facts-item reveal" style="--reveal-index: 5">
+            <dt class="facts-item__label">Events per year</dt>
+            <dd class="facts-item__value">20+</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer — verbatim from index.html ─────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand-col">
+          <div class="footer__brand">
+            <img src="assets/images/logo.webp" alt="IEEE KLETU Logo" class="footer__logo" onerror="this.style.display='none';">
+            <span class="footer__brand-name">IEEE KLETU</span>
+          </div>
+          <p class="footer__tagline">KLE Technological University<br>IEEE Student Branch</p>
+          <div class="footer__hierarchy">
+            <span>IEEE &rarr; Region 10 &rarr; Bangalore Section &rarr; North Karnataka SubSection</span>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="societies.html">Societies</a></li>
+            <li><a href="affinity-groups.html">Affinity groups</a></li>
+            <li><a href="upcoming-events.html">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>IEEE resources</h4>
+          <ul>
+            <li><a href="https://www.ieee.org" target="_blank" rel="noopener">IEEE Global</a></li>
+            <li><a href="https://ieeebangalore.org" target="_blank" rel="noopener">Bangalore Section</a></li>
+            <li><a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">IEEE Xplore</a></li>
+            <li><a href="https://www.ieee.org/membership" target="_blank" rel="noopener">Join IEEE</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Societies</h4>
+          <ul>
+            <li><a href="societies.html">Computer Society</a></li>
+            <li><a href="societies.html">Power Electronics Society</a></li>
+            <li><a href="societies.html">Robotics &amp; Automation</a></li>
+            <li><a href="affinity-groups.html">Women in Engineering</a></li>
+            <li><a href="affinity-groups.html">ComSoc</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year></span> IEEE KLETU Student Branch. All rights reserved.</span>
+        <span class="footer__ieee-note">IEEE and the IEEE logo are registered trademarks of the Institute of Electrical and Electronics Engineers, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- shared.js handles: scroll reveal (.reveal → .is-visible), navbar scroll
+       state (.scrolled), desktop dropdowns ([data-dropdown]), mobile menu,
+       mobile dropdowns, smooth-scroll, aria-current, data-year. -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
