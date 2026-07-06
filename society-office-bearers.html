@@ -32,8 +32,6 @@
       <nav class="navbar__inner">
         <ul class="navbar__links" id="navLinks">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-
           <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
             <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
               Events
@@ -84,8 +82,6 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul class="mobile-menu__links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-
       <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
         <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
           Events
@@ -125,47 +121,46 @@
     </ul>
   </div>
 
-  <main id="main" class="ob-page">
+                  <main id="main" class="ob-page">
 
     <div class="society-tabs-container">
       <div class="society-tabs">
-        <button class="society-tab active" data-society="cs">CS</button>
-        <button class="society-tab" data-society="pels">PELS</button>
-        <button class="society-tab" data-society="pes">PES</button>
-        <button class="society-tab" data-society="ras">RAS</button>
+        <button class="society-tab active" data-society="cass">CASS</button>
         <button class="society-tab" data-society="ceda">CEDA</button>
-        <button class="society-tab" data-society="cass">CASS</button>
+        <button class="society-tab" data-society="pes">PES</button>
+        <button class="society-tab" data-society="cs">CS</button>
+        <button class="society-tab" data-society="pels">PELS</button>
+        <button class="society-tab" data-society="ras">RAS</button>
       </div>
       <div class="society-tabs-mobile">
         <select class="society-select" aria-label="Select Society">
+          <option value="cass" selected>CASS</option>
+          <option value="ceda">CEDA</option>
+          <option value="pes">PES</option>
           <option value="cs">CS</option>
           <option value="pels">PELS</option>
-          <option value="pes">PES</option>
           <option value="ras">RAS</option>
-          <option value="ceda">CEDA</option>
-          <option value="cass">CASS</option>
         </select>
       </div>
     </div>
 
-    <!-- CS Content -->
-    <div class="society-content active" id="society-cs">
+    <!-- CASS Content -->
+    <div class="society-content active" id="society-cass">
       <div class="society-logo-wrapper">
-        <img src="assets/images/logo.webp" alt="CS Logo Placeholder">
+        <img src="assets/images/CASS.webp" alt="CASS Logo">
       </div>
       <section class="ob-year-section">
         <div class="container">
           <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
           <div class="ob-grid">
-            <!-- Nisha Veerabhadrappa Dodawad -->
+            <!-- Faculty Advisor -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/cs/NishaDodawad_CSChair.webp" alt="Nisha Veerabhadrappa Dodawad" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Chair</span>
-                <h3 class="ob-card__name">Nisha Veerabhadrappa Dodawad</h3>
-                <p class="ob-card__description">Computer Society Student Branch Chapter Chairperson.</p>
+                <img src="assets/images/logo.webp" alt="Faculty Advisor" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Faculty Advisor</span>
+                <h3 class="ob-card__name">Faculty Advisor</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -173,170 +168,14 @@
               </div>
             </div>
 
-            <!-- Shreyas Shamanur -->
+            <!-- BHUSHAN Sk -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img src="assets/images/office-bearers/cs/ShreyasShamanur_CSViceChair.webp" alt="Shreyas Shamanur" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Vice Chair</span>
-                <h3 class="ob-card__name">Shreyas Shamanur</h3>
-                <p class="ob-card__description">Computer Society Student Branch Chapter Vice Chairperson.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Madhuram Garg -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img src="assets/images/office-bearers/cs/MadhuramGarg_CSTreasurer.webp" alt="Madhuram Garg" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Treasurer</span>
-                <h3 class="ob-card__name">Madhuram Garg</h3>
-                <p class="ob-card__description">Computer Society Student Branch Chapter Treasurer.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Rakshita Kambi -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/cs/RakshitaKambi_CSSecretary.webp" alt="Rakshita Kambi" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Secretary</span>
-                <h3 class="ob-card__name">Rakshita Kambi</h3>
-                <p class="ob-card__description">Computer Society Student Branch Chapter Secretary.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Vaibhavi Davanagere -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/cs/VaibhaviDavanagere_CSWebmaster.jpeg" alt="Vaibhavi Davanagere" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Webmaster</span>
-                <h3 class="ob-card__name">Vaibhavi Davanagere</h3>
-                <p class="ob-card__description">Computer Society Student Branch Chapter Webmaster.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- PELS Content -->
-    <div class="society-content" id="society-pels">
-      <div class="society-logo-wrapper">
-        <img src="assets/images/logo.webp" alt="PELS Logo Placeholder">
-      </div>
-      <section class="ob-year-section">
-        <div class="container">
-          <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
-          <div class="ob-grid">
-            <!-- Amitvikram Yeri -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img src="assets/images/office-bearers/pels/AmitvikramYeri_PELSChair.webp" alt="Amitvikram Yeri" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Chair</span>
-                <h3 class="ob-card__name">Amitvikram Yeri</h3>
-                <p class="ob-card__description">Power Electronics Society Student Branch Chapter Chairperson.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Sanjana I Kulkarni -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/pels/SanjanaKulkarni_PELSViceChair.webp" alt="Sanjana I Kulkarni" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Vice Chair</span>
-                <h3 class="ob-card__name">Sanjana I Kulkarni</h3>
-                <p class="ob-card__description">Power Electronics Society Student Branch Chapter Vice Chairperson.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Disha Sanjeev Joshi -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/pels/DishaJoshi_PELSSecretary.webp" alt="Disha Sanjeev Joshi" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Secretary</span>
-                <h3 class="ob-card__name">Disha Sanjeev Joshi</h3>
-                <p class="ob-card__description">Power Electronics Society Student Branch Chapter Secretary.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Rakshita Shripad Bhat -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img class="ob-img-align-top-5" src="assets/images/office-bearers/pels/RakshitaBhat_PELSTreasurer.webp" alt="Rakshita Shripad Bhat" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Treasurer</span>
-                <h3 class="ob-card__name">Rakshita Shripad Bhat</h3>
-                <p class="ob-card__description">Power Electronics Society Student Branch Chapter Treasurer.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- PES Content -->
-    <div class="society-content" id="society-pes">
-      <div class="society-logo-wrapper">
-        <img src="assets/images/logo.webp" alt="PES Logo Placeholder">
-      </div>
-      <section class="ob-year-section">
-        <div class="container">
-          <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
-          <div class="ob-grid">
-            <!-- Sarthak Kulkarni -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img src="assets/images/office-bearers/pes/Sarthak_Kulkarni-Chair_PES.webp" alt="Sarthak Kulkarni" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+                <img src="assets/images/b5db6aa8-b643-480b-964e-95f499476d0c - Bhushan kotekar.jpeg" alt="BHUSHAN Sk" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
               </div>
               <div class="ob-card__body">
                 <span class="ob-card__role-label">Chair</span>
-                <h3 class="ob-card__name">Sarthak Kulkarni</h3>
-                <p class="ob-card__description">Power &amp; Energy Society Student Branch Chapter Chairperson.</p>
+                <h3 class="ob-card__name">BHUSHAN Sk</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -344,15 +183,14 @@
               </div>
             </div>
 
-            <!-- Anmol Patil -->
+            <!-- Purvik R -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img src="assets/images/office-bearers/pes/AnmolPatil_PESViceChair.webp" alt="Anmol Patil" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Vice Chair</span>
-                <h3 class="ob-card__name">Anmol Patil</h3>
-                <p class="ob-card__description">Power &amp; Energy Society Student Branch Chapter Vice Chairperson.</p>
+                <img src="assets/images/Purvik R_vice_chair - Purvik R.webp" alt="Purvik R" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Vice Chair</span>
+                <h3 class="ob-card__name">Purvik R</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -360,44 +198,14 @@
               </div>
             </div>
 
-            <!-- HARISH BHADRAKALI -->
+            <!-- Anshu Kiran Kanchugar -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/pes/HarishBhadrakali_PESTreasurer.webp" alt="HARISH BHADRAKALI" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Treasurer</span>
-                <h3 class="ob-card__name">HARISH BHADRAKALI</h3>
-                <p class="ob-card__description">Power &amp; Energy Society Student Branch Chapter Treasurer.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
+                <img src="assets/images/AnshuKiranKanchugar_CASS-Secretary - Anshu Kanchugar.webp" alt="Anshu Kiran Kanchugar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- RAS Content -->
-    <div class="society-content" id="society-ras">
-      <div class="society-logo-wrapper">
-        <img src="assets/images/logo.webp" alt="RAS Logo Placeholder">
-      </div>
-      <section class="ob-year-section">
-        <div class="container">
-          <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
-          <div class="ob-grid">
-            <!-- Chidanand S Karennavar -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img class="ob-img-align-top-20" src="assets/images/office-bearers/ras/ChidanandKarennavar_RASChair.webp" alt="Chidanand S Karennavar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Chair</span>
-                <h3 class="ob-card__name">Chidanand S Karennavar</h3>
-                <p class="ob-card__description">Robotics and Automation Society Student Branch Chapter Chairperson.</p>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Secretary</span>
+                <h3 class="ob-card__name">Anshu Kiran Kanchugar</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -405,15 +213,14 @@
               </div>
             </div>
 
-            <!-- Minal M Dhamnekar -->
+            <!-- Nikhil Jalalpure -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img src="assets/images/office-bearers/ras/MinalDhamnekar_RASViceChair.webp" alt="Minal M Dhamnekar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Vice Chair</span>
-                <h3 class="ob-card__name">Minal M Dhamnekar</h3>
-                <p class="ob-card__description">Robotics and Automation Society Student Branch Chapter Vice Chairperson.</p>
+                <img src="assets/images/NikhilJalalpure_Treasurer - Nikhil Jalalpure.webp" alt="Nikhil Jalalpure" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Treasurer</span>
+                <h3 class="ob-card__name">Nikhil Jalalpure</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -421,15 +228,14 @@
               </div>
             </div>
 
-            <!-- Shlok Vengurlekar -->
+            <!-- Anusha Patil -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/ras/ShlokVengurlekar_RASSecretary.webp" alt="Shlok Vengurlekar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Secretary</span>
-                <h3 class="ob-card__name">Shlok Vengurlekar</h3>
-                <p class="ob-card__description">Robotics and Automation Society Student Branch Chapter Secretary.</p>
+                <img src="assets/images/AnushaPatil_WebMaster-1 - 01fe23bev045.webp" alt="Anusha Patil" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Webmaster</span>
+                <h3 class="ob-card__name">Anusha Patil</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -437,15 +243,14 @@
               </div>
             </div>
 
-            <!-- Srushti G Joshi -->
+            <!-- Navaneet R K -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/ras/SrushtiJoshi_RASTreasurer.webp" alt="Srushti G Joshi" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Treasurer</span>
-                <h3 class="ob-card__name">Srushti G Joshi</h3>
-                <p class="ob-card__description">Robotics and Automation Society Student Branch Chapter Treasurer.</p>
+                <img class="ob-img-align-top-30" src="assets/images/Navaneet R K _Co secretary_CASS - Navaneet K.webp" alt="Navaneet R K" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Co Secretary</span>
+                <h3 class="ob-card__name">Navaneet R K</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -453,15 +258,14 @@
               </div>
             </div>
 
-            <!-- Godwin Anthony -->
+            <!-- Disha Kshatriya -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img class="ob-img-align-top" src="assets/images/office-bearers/ras/GodwinAnthony_RASWebmaster.webp" alt="Godwin Anthony" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Webmaster</span>
-                <h3 class="ob-card__name">Godwin Anthony</h3>
-                <p class="ob-card__description">Robotics and Automation Society Student Branch Chapter Webmaster.</p>
+                <img src="assets/images/DishaKshatriya_EventCoordinator.webp - Disha.webp" alt="Disha Kshatriya" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Event Coord</span>
+                <h3 class="ob-card__name">Disha Kshatriya</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -476,21 +280,35 @@
     <!-- CEDA Content -->
     <div class="society-content" id="society-ceda">
       <div class="society-logo-wrapper">
-        <img src="assets/images/logo.webp" alt="CEDA Logo Placeholder">
+        <img src="assets/images/CEDA.webp" alt="CEDA Logo">
       </div>
       <section class="ob-year-section">
         <div class="container">
           <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
           <div class="ob-grid">
+            <!-- Faculty Advisor -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/logo.webp" alt="Faculty Advisor" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Faculty Advisor</span>
+                <h3 class="ob-card__name">Faculty Advisor</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
             <!-- Amruta Singh -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img src="assets/images/office-bearers/ceda/AmrutaSingh_CEDAChair.webp" alt="Amruta Singh" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Chair</span>
+                <img src="assets/images/AmrutaSingh_STB_EventCoordinator_CEDAChair.webp" alt="Amruta Singh" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Chair</span>
                 <h3 class="ob-card__name">Amruta Singh</h3>
-                <p class="ob-card__description">Council on Electronic Design Automation Student Branch Chapter Chairperson.</p>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -501,12 +319,41 @@
             <!-- Pranjwal Hukkeri -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img src="assets/images/office-bearers/ceda/PranjwalHukkeri_CEDAViceChair.webp" alt="Pranjwal Hukkeri" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Vice Chair</span>
+                <img src="assets/images/PranjwalHukkeri_CEDAViceChair - Pranjwal Hukkeri.webp" alt="Pranjwal Hukkeri" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Vice Chair</span>
                 <h3 class="ob-card__name">Pranjwal Hukkeri</h3>
-                <p class="ob-card__description">Council on Electronic Design Automation Student Branch Chapter Vice Chairperson.</p>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Abhinav Pujar -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top" src="assets/images/AbhinavPujar_Treasurer_CEDAsecretary - Abhinav Pujar.webp" alt="Abhinav Pujar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Secretary</span>
+                <h3 class="ob-card__name">Abhinav Pujar</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Bhumi R Hanehalli -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/BhumHanehalli_CEDA_Webmaster - Bhumi Hanehalli.webp" alt="Bhumi R Hanehalli" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Webmaster</span>
+                <h3 class="ob-card__name">Bhumi R Hanehalli</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -518,24 +365,23 @@
       </section>
     </div>
 
-    <!-- CASS Content -->
-    <div class="society-content" id="society-cass">
+    <!-- PES Content -->
+    <div class="society-content" id="society-pes">
       <div class="society-logo-wrapper">
-        <img src="assets/images/logo.webp" alt="CASS Logo Placeholder">
+        <img src="assets/images/PES.webp" alt="PES Logo">
       </div>
       <section class="ob-year-section">
         <div class="container">
           <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
           <div class="ob-grid">
-            <!-- BHUSHAN Sk -->
+            <!-- Faculty Advisor -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img src="assets/images/office-bearers/cass/BhushanSk_CASSChair.jpeg" alt="BHUSHAN Sk" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Chair</span>
-                <h3 class="ob-card__name">BHUSHAN Sk</h3>
-                <p class="ob-card__description">Circuits &amp; Systems Society Student Branch Chapter Chairperson.</p>
+                <img src="assets/images/logo.webp" alt="Faculty Advisor" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Faculty Advisor</span>
+                <h3 class="ob-card__name">Faculty Advisor</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -543,15 +389,14 @@
               </div>
             </div>
 
-            <!-- Purvik R -->
+            <!-- Sarthak Kulkarni -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img src="assets/images/office-bearers/cass/PurvikR_CASSViceChair.webp" alt="Purvik R" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Vice Chair</span>
-                <h3 class="ob-card__name">Purvik R</h3>
-                <p class="ob-card__description">Circuits &amp; Systems Society Student Branch Chapter Vice Chairperson.</p>
+                <img src="assets/images/office-bearers/pes/Sarthak_Kulkarni-Chair_PES.webp" class="ob-img-align-top" alt="Sarthak Kulkarni" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Chair</span>
+                <h3 class="ob-card__name">Sarthak Kulkarni</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -559,15 +404,14 @@
               </div>
             </div>
 
-            <!-- Anshu Kiran Kanchugar -->
+            <!-- Anmol Patil -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img src="assets/images/office-bearers/cass/AnshuKanchugar_CASSSecretary.webp" alt="Anshu Kiran Kanchugar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Secretary</span>
-                <h3 class="ob-card__name">Anshu Kiran Kanchugar</h3>
-                <p class="ob-card__description">Circuits &amp; Systems Society Student Branch Chapter Secretary.</p>
+                <img src="assets/images/AnmolPatil_PRLeadSTB-PESViceChair - Anmol Patil.webp" alt="Anmol Patil" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Vice Chair</span>
+                <h3 class="ob-card__name">Anmol Patil</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -575,63 +419,14 @@
               </div>
             </div>
 
-            <!-- Navaneet R K -->
+            <!-- HARISH BHADRAKALI -->
             <div class="ob-card reveal">
               <div class="ob-card__media">
-                <img class="ob-img-align-top-30" src="assets/images/office-bearers/cass/NavaneetRK_CASSCoSecretary.webp" alt="Navaneet R K" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Co Secretary</span>
-                <h3 class="ob-card__name">Navaneet R K</h3>
-                <p class="ob-card__description">Circuits &amp; Systems Society Student Branch Chapter Co-secretary.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
+                <img class="ob-img-align-top" src="assets/images/IMG_20260703_202305 - Shanta Bhadrakali.webp" alt="HARISH BHADRAKALI" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
               </div>
-            </div>
-
-            <!-- Nikhil Jalalpure -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img src="assets/images/office-bearers/cass/NikhilJalalpure_CASSTreasurer.webp" alt="Nikhil Jalalpure" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Treasurer</span>
-                <h3 class="ob-card__name">Nikhil Jalalpure</h3>
-                <p class="ob-card__description">Circuits &amp; Systems Society Student Branch Chapter Treasurer.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Anusha Patil -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img src="assets/images/office-bearers/cass/AnushaPatil_CASSWebmaster.webp" alt="Anusha Patil" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Webmaster</span>
-                <h3 class="ob-card__name">Anusha Patil</h3>
-                <p class="ob-card__description">Circuits &amp; Systems Society Student Branch Chapter Webmaster.</p>
-                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
-                  LinkedIn
-                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Disha Kshatriya -->
-            <div class="ob-card reveal">
-              <div class="ob-card__media">
-                <img src="assets/images/office-bearers/cass/DishaKshatriya_CASSEventCoordinator.webp" alt="Disha Kshatriya" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
-            </div>
-            <div class="ob-card__body">
-              <span class="ob-card__role-label">Event Coord</span>
-                <h3 class="ob-card__name">Disha Kshatriya</h3>
-                <p class="ob-card__description">Circuits &amp; Systems Society Student Branch Chapter Event Coordinator.</p>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Treasurer</span>
+                <h3 class="ob-card__name">HARISH BHADRAKALI</h3>
                 <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
                   LinkedIn
                   <i class="ph ph-arrow-right" aria-hidden="true"></i>
@@ -643,7 +438,314 @@
       </section>
     </div>
 
+    <!-- CS Content -->
+    <div class="society-content" id="society-cs">
+      <div class="society-logo-wrapper">
+        <img src="assets/images/CS.webp" alt="CS Logo">
+      </div>
+      <section class="ob-year-section">
+        <div class="container">
+          <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
+          <div class="ob-grid">
+            <!-- Faculty Advisor -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/logo.webp" alt="Faculty Advisor" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Faculty Advisor</span>
+                <h3 class="ob-card__name">Faculty Advisor</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
 
+            <!-- Nisha Veerabhadrappa Dodawad -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top" src="assets/images/Nisha_Dodawad_Joint_Secretary_Chair_CS - Nisha Dodwad.webp" alt="Nisha Veerabhadrappa Dodawad" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Chair</span>
+                <h3 class="ob-card__name">Nisha Veerabhadrappa Dodawad</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Shreyas Shamanur -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/office-bearers/cs/ShreyasShamanur_CSViceChair.webp" alt="Shreyas Shamanur" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Vice Chair</span>
+                <h3 class="ob-card__name">Shreyas Shamanur</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Rakshita Kambi -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/RakshitaKambi_Secretary - rakshita kambi.webp" alt="Rakshita Kambi" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Secretary</span>
+                <h3 class="ob-card__name">Rakshita Kambi</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Madhuram Garg -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/MadhuramGarg_Treasurer - Madhuram Garg.webp" alt="Madhuram Garg" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Treasurer</span>
+                <h3 class="ob-card__name">Madhuram Garg</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Vaibhavi Davanagere -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/VaibhaviDavanagere_WebMaster - VAIBHAVI DAVANAGERE.jpeg" alt="Vaibhavi Davanagere" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Webmaster</span>
+                <h3 class="ob-card__name">Vaibhavi Davanagere</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PELS Content -->
+    <div class="society-content" id="society-pels">
+      <div class="society-logo-wrapper">
+        <img src="assets/images/PELS.webp" alt="PELS Logo">
+      </div>
+      <section class="ob-year-section">
+        <div class="container">
+          <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
+          <div class="ob-grid">
+            <!-- Faculty Advisor -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/logo.webp" alt="Faculty Advisor" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Faculty Advisor</span>
+                <h3 class="ob-card__name">Faculty Advisor</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Amitvikram Yeri -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/Amitvikramyeri_PELSChair - Amit.webp" alt="Amitvikram Yeri" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Chair</span>
+                <h3 class="ob-card__name">Amitvikram Yeri</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Sanjana I Kulkarni -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top" src="assets/images/Sanjana I Kulkarni_Pels Vice chair - 01fe23bee023.webp" alt="Sanjana I Kulkarni" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Vice Chair</span>
+                <h3 class="ob-card__name">Sanjana I Kulkarni</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Disha Sanjeev Joshi -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top" src="assets/images/DishaJoshi_PELSSecretary - Disha Joshi.webp" alt="Disha Sanjeev Joshi" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Secretary</span>
+                <h3 class="ob-card__name">Disha Sanjeev Joshi</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Rakshita Shripad Bhat -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top-5" src="assets/images/Rakshita Bhat_Pels Treasurer - 01fe23bee023.webp" alt="Rakshita Shripad Bhat" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Treasurer</span>
+                <h3 class="ob-card__name">Rakshita Shripad Bhat</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Samarthkumar Hiremath -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/SamarthkumarH_Webmaster_PELSChair - 01fe23bee028.webp" alt="Samarthkumar Hiremath" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Webmaster</span>
+                <h3 class="ob-card__name">Samarthkumar Hiremath</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- RAS Content -->
+    <div class="society-content" id="society-ras">
+      <div class="society-logo-wrapper">
+        <img src="assets/images/RAS.webp" alt="RAS Logo">
+      </div>
+      <section class="ob-year-section">
+        <div class="container">
+          <h2 class="ob-year-title reveal">Class of <span>2026</span></h2>
+          <div class="ob-grid">
+            <!-- Faculty Advisor -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/logo.webp" alt="Faculty Advisor" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Faculty Advisor</span>
+                <h3 class="ob-card__name">Faculty Advisor</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Chidanand S Karennavar -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top-20" src="assets/images/ChidnandKarennavar_RASchair - Chidanand Karennavar.webp" alt="Chidanand S Karennavar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Chair</span>
+                <h3 class="ob-card__name">Chidanand S Karennavar</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Minal M Dhamnekar -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img src="assets/images/MinalDhamnekar_RASVicechair - Minal Dhamnekar.webp" alt="Minal M Dhamnekar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Vice Chair</span>
+                <h3 class="ob-card__name">Minal M Dhamnekar</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Shlok Vengurlekar -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top" src="assets/images/Shlok_Secretary - Shlok Vengurlekar.webp" alt="Shlok Vengurlekar" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Secretary</span>
+                <h3 class="ob-card__name">Shlok Vengurlekar</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Srushti G Joshi -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top" src="assets/images/SrushtiGJoshi_RAS_Treasurer - Srushti Joshi.webp" alt="Srushti G Joshi" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Treasurer</span>
+                <h3 class="ob-card__name">Srushti G Joshi</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Godwin Anthony -->
+            <div class="ob-card reveal">
+              <div class="ob-card__media">
+                <img class="ob-img-align-top" src="assets/images/GodwinAnthony_RASWebmaster - For AI.webp" alt="Godwin Anthony" onerror="this.onerror=null;this.src='assets/images/logo.webp';">
+              </div>
+              <div class="ob-card__body">
+                <span class="ob-card__role-label">Webmaster</span>
+                <h3 class="ob-card__name">Godwin Anthony</h3>
+                <a href="#" class="ob-card__linkedin" target="_blank" rel="noopener">
+                  LinkedIn
+                  <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
   </main>
 
@@ -664,7 +766,6 @@
         <div class="footer__col">
           <h4>Quick links</h4>
           <ul>
-            <li><a href="about.html">About</a></li>
             <li><a href="societies.html">Societies</a></li>
             <li><a href="affinity-groups.html">Affinity groups</a></li>
             <li><a href="upcoming-events.html">Upcoming events</a></li>

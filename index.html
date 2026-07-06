@@ -34,8 +34,6 @@
       <nav class="navbar__inner">
         <ul class="navbar__links" id="navLinks">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-
           <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
             <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
               Events
@@ -87,8 +85,6 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul class="mobile-menu__links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-
       <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
         <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
           Events
@@ -138,14 +134,10 @@
       </div>
 
       <div class="hero__content">
-        <div class="hero__badge reveal">
-          <span class="hero__badge-dot"></span>
-          IEEE Bangalore Section &middot; North Karnataka SubSection
-        </div>
         <h1 class="hero__title reveal">
           <span class="hero__title-ieee">IEEE</span>
           <span class="hero__title-college">KLE Technological University</span>
-          <span class="hero__title-branch">Student Branch</span>
+          <span class="hero__title-branch">STB 62711</span>
         </h1>
         <p class="hero__subtitle reveal">
           Fostering innovation, technical excellence, and professional growth through a vibrant community of engineers and researchers.
@@ -156,66 +148,27 @@
         </div>
       </div>
 
-      <div class="hero__stats">
-        <div class="hero__stat reveal">
-          <span class="hero__stat-number" data-count="150">0</span><span class="hero__stat-plus">+</span>
-          <span class="hero__stat-label">Members</span>
-        </div>
-        <div class="hero__stat reveal">
-          <span class="hero__stat-number" data-count="7">0</span>
-          <span class="hero__stat-label">Chapters &amp; Affinity Groups</span>
-        </div>
-        <div class="hero__stat reveal">
-          <span class="hero__stat-number" data-count="1977">0</span>
-          <span class="hero__stat-label">IEEE Bangalore est.</span>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-      <div class="container">
-        <div class="section__header">
-          <h2 class="section__title reveal">Where technology <em class="serif-accent">meets community</em></h2>
-          <p class="section__subtitle reveal">A home for students who build, research, and lead &mdash; plugged into IEEE's global network.</p>
-        </div>
-
-        <ol class="about__list">
-          <li class="about__item reveal">
-            <span class="about__item-num">01</span>
-            <div class="about__item-body">
-              <h3 class="about__item-title">Global network</h3>
-              <p class="about__item-tag">Plug into IEEE's 400,000+ members across 160 countries.</p>
-            </div>
-            <a href="#" class="about__item-cta">Explore</a>
-          </li>
-          <li class="about__item reveal">
-            <span class="about__item-num">02</span>
-            <div class="about__item-body">
-              <h3 class="about__item-title">Technical resources</h3>
-              <p class="about__item-tag">IEEE Xplore, standards, journals, and conferences on tap.</p>
-            </div>
-            <a href="#" class="about__item-cta">Explore</a>
-          </li>
-          <li class="about__item reveal">
-            <span class="about__item-num">03</span>
-            <div class="about__item-body">
-              <h3 class="about__item-title">Hands-on projects</h3>
-              <p class="about__item-tag">Workshops, hackathons, and research across five chapters.</p>
-            </div>
-            <a href="#" class="about__item-cta">Explore</a>
-          </li>
-          <li class="about__item reveal">
-            <span class="about__item-num">04</span>
-            <div class="about__item-body">
-              <h3 class="about__item-title">Career runway</h3>
-              <p class="about__item-tag">Mentorship, internships, and industry access from day one.</p>
-            </div>
-            <a href="#" class="about__item-cta">Explore</a>
-          </li>
-        </ol>
-      </div>
+      <div class="hero__stats">
+        <div class="hero__stat reveal">
+          <div class="hero__stat-number-wrap">
+            <span class="hero__stat-number" data-count="120">0</span><span class="hero__stat-plus">+</span>
+          </div>
+          <span class="hero__stat-label">Members</span>
+        </div>
+        <div class="hero__stat reveal">
+          <div class="hero__stat-number-wrap">
+            <span class="hero__stat-number" data-count="7">0</span>
+          </div>
+          <span class="hero__stat-label">Chapters &amp; Affinity Groups</span>
+        </div>
+        <div class="hero__stat reveal">
+          <div class="hero__stat-number-wrap">
+            <span class="hero__stat-number" data-count="30">0</span><span class="hero__stat-plus">+</span>
+          </div>
+          <span class="hero__stat-label">Events Conducted</span>
+        </div>
+      </div>
+
     </section>
 
     <!-- Societies & Affinity Groups Section -->
@@ -234,73 +187,80 @@
           <div class="chapters-carousel__viewport" data-carousel-viewport>
             <ul class="chapters-carousel__track" data-carousel-track>
               <li class="chapter-card">
-                <div class="chapter-card__media">
-                  <img src="assets/images/societies/cs.png" alt="IEEE Computer Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
-                </div>
-                <div class="chapter-card__body">
-                  <h3 class="chapter-card__name">Computer Society</h3>
-                  <span class="chapter-card__meta">CS &middot; Society &middot; Active</span>
-                </div>
+                <a href="societies.html#cs" class="chapter-card__link">
+                  <div class="chapter-card__media">
+                    <img src="assets/images/CS.webp" alt="IEEE Computer Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
+                  </div>
+                  <div class="chapter-card__body">
+                    <h3 class="chapter-card__name">Computer Society</h3>
+                  </div>
+                </a>
               </li>
 
               <li class="chapter-card">
-                <div class="chapter-card__media">
-                  <img src="assets/images/societies/pels.png" alt="IEEE Power Electronics Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
-                </div>
-                <div class="chapter-card__body">
-                  <h3 class="chapter-card__name">Power Electronics Society</h3>
-                  <span class="chapter-card__meta">PELS &middot; Society &middot; Active</span>
-                </div>
+                <a href="societies.html#pels" class="chapter-card__link">
+                  <div class="chapter-card__media">
+                    <img src="assets/images/PELS.webp" alt="IEEE Power Electronics Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
+                  </div>
+                  <div class="chapter-card__body">
+                    <h3 class="chapter-card__name">Power Electronics Society</h3>
+                  </div>
+                </a>
               </li>
 
               <li class="chapter-card">
-                <div class="chapter-card__media">
-                  <img src="assets/images/societies/pes.png" alt="IEEE Power &amp; Energy Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
-                </div>
-                <div class="chapter-card__body">
-                  <h3 class="chapter-card__name">Power &amp; Energy Society</h3>
-                  <span class="chapter-card__meta">PES &middot; Society &middot; Active</span>
-                </div>
+                <a href="societies.html#pes" class="chapter-card__link">
+                  <div class="chapter-card__media">
+                    <img src="assets/images/PES.webp" alt="IEEE Power &amp; Energy Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
+                  </div>
+                  <div class="chapter-card__body">
+                    <h3 class="chapter-card__name">Power &amp; Energy Society</h3>
+                  </div>
+                </a>
               </li>
 
               <li class="chapter-card">
-                <div class="chapter-card__media">
-                  <img src="assets/images/societies/ras.png" alt="IEEE Robotics and Automation Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
-                </div>
-                <div class="chapter-card__body">
-                  <h3 class="chapter-card__name">Robotics &amp; Automation Society</h3>
-                  <span class="chapter-card__meta">RAS &middot; Society &middot; Active</span>
-                </div>
+                <a href="societies.html#ras" class="chapter-card__link">
+                  <div class="chapter-card__media">
+                    <img src="assets/images/RAS.webp" alt="IEEE Robotics and Automation Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
+                  </div>
+                  <div class="chapter-card__body">
+                    <h3 class="chapter-card__name">Robotics &amp; Automation Society</h3>
+                  </div>
+                </a>
               </li>
 
               <li class="chapter-card">
-                <div class="chapter-card__media">
-                  <img src="assets/images/societies/ceda.png" alt="IEEE Council on Electronic Design Automation logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
-                </div>
-                <div class="chapter-card__body">
-                  <h3 class="chapter-card__name">Council on Electronic Design Automation</h3>
-                  <span class="chapter-card__meta">CEDA &middot; Society &middot; Active</span>
-                </div>
+                <a href="societies.html#ceda" class="chapter-card__link">
+                  <div class="chapter-card__media">
+                    <img src="assets/images/CEDA.webp" alt="IEEE Council on Electronic Design Automation logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
+                  </div>
+                  <div class="chapter-card__body">
+                    <h3 class="chapter-card__name">Council on Electronic Design Automation</h3>
+                  </div>
+                </a>
               </li>
 
               <li class="chapter-card">
-                <div class="chapter-card__media">
-                  <img src="assets/images/societies/cass.png" alt="IEEE Circuits and Systems Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
-                </div>
-                <div class="chapter-card__body">
-                  <h3 class="chapter-card__name">Circuits &amp; Systems Society</h3>
-                  <span class="chapter-card__meta">CASS &middot; Society &middot; Active</span>
-                </div>
+                <a href="societies.html#cass" class="chapter-card__link">
+                  <div class="chapter-card__media">
+                    <img src="assets/images/CASS.webp" alt="IEEE Circuits and Systems Society logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
+                  </div>
+                  <div class="chapter-card__body">
+                    <h3 class="chapter-card__name">Circuits &amp; Systems Society</h3>
+                  </div>
+                </a>
               </li>
 
               <li class="chapter-card">
-                <div class="chapter-card__media">
-                  <img src="assets/images/affinity/wie.png" alt="IEEE Women in Engineering logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
-                </div>
-                <div class="chapter-card__body">
-                  <h3 class="chapter-card__name">Women in Engineering</h3>
-                  <span class="chapter-card__meta">WIE &middot; Affinity Group &middot; Active</span>
-                </div>
+                <a href="affinity-groups.html#wie" class="chapter-card__link">
+                  <div class="chapter-card__media">
+                    <img src="assets/images/WIE.webp" alt="IEEE Women in Engineering logo" onerror="this.onerror=null;this.src='assets/images/logo.webp';this.classList.add('chapter-card__media-img--placeholder');">
+                  </div>
+                  <div class="chapter-card__body">
+                    <h3 class="chapter-card__name">Women in Engineering</h3>
+                  </div>
+                </a>
               </li>
             </ul>
           </div>
@@ -390,7 +350,6 @@
         <div class="footer__col">
           <h4>Quick links</h4>
           <ul>
-            <li><a href="about.html">About</a></li>
             <li><a href="societies.html">Societies</a></li>
             <li><a href="affinity-groups.html">Affinity groups</a></li>
             <li><a href="upcoming-events.html">Upcoming events</a></li>
