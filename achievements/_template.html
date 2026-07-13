@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--
+==================================================================
+  ACHIEVEMENT DETAIL PAGE TEMPLATE
+  ------------------------------------------------------------------
+  How to use this for a new achievement:
+
+    1. COPY this file to:   achievements/<slug>.html
+       (replace <slug> with the exact slug you used in achievements-data.js)
+
+    2. Find every "TODO:" comment below and replace it with real
+       content. Do NOT leave any TODO in the final page.
+
+    3. Image paths here use "../assets/..." because detail pages live
+       one folder deeper than index.html. Don't drop the "../".
+
+    4. Update the <title> and <meta description> at the top.
+
+    5. Save, commit, done — the cards and slider on achievements.html
+       already link here once the slug matches.
+==================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TODO: set <title> -->
+  <title>Achievement Title &mdash; IEEE KLETU Student Branch</title>
+  <!-- TODO: set description (1-2 sentences, used in search + link previews) -->
+  <meta name="description" content="TODO: short description of achievement.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/achievement-detail.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- =========================================================
+       NAVBAR — do not edit; copy verbatim from index.html if you
+       ever change the site navigation globally (update relative paths)
+       ========================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__wrap">
+      <a href="../index.html" class="navbar__logo">
+        <img src="../assets/images/logo.webp" alt="IEEE KLETU Logo" class="navbar__logo-img">
+      </a>
+
+      <nav class="navbar__inner">
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="../index.html">Home</a></li>
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Events
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="../upcoming-events.html">Upcoming events</a></li>
+              <li><a href="../past-events.html">Past events</a></li>
+            </ul>
+          </li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Society
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="../societies.html">Societies</a></li>
+              <li><a href="../affinity-groups.html">Affinity groups</a></li>
+            </ul>
+          </li>
+
+          <li class="navbar__item navbar__item--has-dropdown" data-dropdown>
+            <button type="button" class="navbar__dropdown-trigger" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
+              Office bearers
+              <i class="ph ph-caret-down navbar__dropdown-caret" aria-hidden="true"></i>
+            </button>
+            <ul class="navbar__dropdown" data-dropdown-panel>
+              <li><a href="../execom.html">Execom</a></li>
+              <li><a href="../stb-office-bearers.html">STB Office Bearers</a></li>
+              <li><a href="../society-office-bearers.html">Society Office Bearers</a></li>
+              <li><a href="../affinity-office-bearers.html">Affinity Office Bearers</a></li>
+            </ul>
+          </li>
+          <li><a href="../achievements.html">Achievements</a></li>
+          <li><a href="../important-links.html">Important links</a></li>
+        </ul>
+
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu__links">
+      <li><a href="../index.html">Home</a></li>
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Events <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="../upcoming-events.html">Upcoming events</a></li>
+          <li><a href="../past-events.html">Past events</a></li>
+        </ul>
+      </li>
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Society <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="../societies.html">Societies</a></li>
+          <li><a href="../affinity-groups.html">Affinity groups</a></li>
+        </ul>
+      </li>
+      <li class="mobile-menu__item mobile-menu__item--has-dropdown" data-mobile-dropdown>
+        <button type="button" class="mobile-menu__dropdown-trigger" aria-expanded="false" data-mobile-dropdown-trigger>
+          Office bearers <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-menu__dropdown">
+          <li><a href="../execom.html">Execom</a></li>
+          <li><a href="../stb-office-bearers.html">STB Office Bearers</a></li>
+          <li><a href="../society-office-bearers.html">Society Office Bearers</a></li>
+          <li><a href="../affinity-office-bearers.html">Affinity Office Bearers</a></li>
+        </ul>
+      </li>
+      <li><a href="../achievements.html">Achievements</a></li>
+      <li><a href="../important-links.html">Important links</a></li>
+    </ul>
+  </div>
+
+  <!-- =========================================================
+       ACHIEVEMENT CONTENT
+       ========================================================= -->
+  <main id="main">
+    <section class="achievement-detail">
+      <div class="container">
+        
+        <!-- Back navigation link -->
+        <a href="../achievements.html" class="achievement-detail__back">
+          <i class="ph ph-arrow-left" aria-hidden="true"></i> Back to achievements
+        </a>
+
+        <!-- Header section -->
+        <header class="achievement-detail__header">
+          <div class="achievement-detail__meta">
+            <!-- TODO: set category -->
+            <span class="achievement-detail__category">Category</span>
+            <span class="achievement-detail__meta-sep" aria-hidden="true"></span>
+            <!-- TODO: set date -->
+            <time datetime="2026-05-27">Month DD, YYYY</time>
+          </div>
+          <!-- TODO: set main title -->
+          <h1 class="achievement-detail__title">
+            Achievement <em>Title</em>
+          </h1>
+          <!-- TODO: set lead description -->
+          <p class="achievement-detail__lead">
+            One-sentence summary lead of the achievement details page.
+          </p>
+        </header>
+
+        <!-- Main banner image -->
+        <div class="achievement-detail__hero">
+          <!-- TODO: set image path and alt attribute -->
+          <img src="../assets/images/logo.webp" alt="Achievement Banner Image">
+        </div>
+
+        <!-- Double Column Grid Layout -->
+        <div class="achievement-detail__grid">
+          
+          <!-- Left Main Content Column -->
+          <div class="achievement-detail__main">
+            <div class="achievement-detail__content">
+              <!-- TODO: detailed description paragraphs -->
+              <h2>Overview</h2>
+              <p>Detailed paragraphs introducing the achievement, what led to it, and its overall context.</p>
+
+              <h2>Objectives</h2>
+              <ul>
+                <li>Objective point one.</li>
+                <li>Objective point two.</li>
+              </ul>
+
+              <h2>Event Highlights</h2>
+              <ul>
+                <li>Highlight point one.</li>
+                <li>Highlight point two.</li>
+              </ul>
+
+              <h2>Impact and Outcomes</h2>
+              <ul>
+                <li>Impact point one.</li>
+                <li>Impact point two.</li>
+              </ul>
+            </div>
+            
+            <!-- TODO: Photograph Gallery (Optional, remove if unused) -->
+            <div class="achievement-detail__gallery">
+              <div class="achievement-detail__gallery-item">
+                <img src="../assets/images/logo.webp" alt="Gallery Photo 1">
+              </div>
+              <div class="achievement-detail__gallery-item">
+                <img src="../assets/images/logo.webp" alt="Gallery Photo 2">
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Sidebar Column -->
+          <aside class="achievement-detail__sidebar">
+            
+            <!-- Blockquote (Testimonial, congrats message, or quote) -->
+            <!-- TODO: Quote content and author citation -->
+            <blockquote class="achievement-detail__blockquote">
+              <p>"Quote text or congratulatory statement goes here."</p>
+              <cite>~ Team or Person citation</cite>
+            </blockquote>
+
+            <!-- Quick Stats Sidebar Widget -->
+            <div class="achievement-detail__sidebar-widget">
+              <h4>Quick details</h4>
+              <div class="achievement-detail__stats-list">
+                <div class="achievement-detail__stats-item">
+                  <span class="achievement-detail__stats-name">Date of Event</span>
+                  <!-- TODO: Date -->
+                  <span class="achievement-detail__stats-val">DD/MM/YYYY</span>
+                </div>
+                <div class="achievement-detail__stats-item">
+                  <span class="achievement-detail__stats-name">Recognition Level</span>
+                  <!-- TODO: Recognition level (e.g. Subsection, National) -->
+                  <span class="achievement-detail__stats-val">Subsection</span>
+                </div>
+                <div class="achievement-detail__stats-item">
+                  <span class="achievement-detail__stats-name">Competitors</span>
+                  <!-- TODO: Number of competitors -->
+                  <span class="achievement-detail__stats-val">118</span>
+                </div>
+                <div class="achievement-detail__stats-item">
+                  <span class="achievement-detail__stats-name">Total Prize Pool</span>
+                  <!-- TODO: Prize pool -->
+                  <span class="achievement-detail__stats-val">₹34,000</span>
+                </div>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER — copy verbatim from index.html (with relative paths)
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <div class="footer__brand">
+            <img src="../assets/images/logo.webp" alt="IEEE KLETU Logo" class="footer__logo" onerror="this.style.display='none';">
+            <span class="footer__brand-name">IEEE KLETU</span>
+          </div>
+          <p class="footer__tagline">KLE Technological University<br>IEEE Student Branch</p>
+          <div class="footer__hierarchy">
+            <span>IEEE &rarr; Region 10 &rarr; Bangalore Section &rarr; North Karnataka SubSection</span>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="../societies.html">Societies</a></li>
+            <li><a href="../affinity-groups.html">Affinity groups</a></li>
+            <li><a href="../upcoming-events.html">Upcoming events</a></li>
+            <li><a href="../past-events.html">Past events</a></li>
+            <li><a href="../execom.html">Office bearers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>IEEE resources</h4>
+          <ul>
+            <li><a href="https://www.ieee.org" target="_blank" rel="noopener">IEEE Global</a></li>
+            <li><a href="https://ieeebangalore.org" target="_blank" rel="noopener">Bangalore Section</a></li>
+            <li><a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">IEEE Xplore</a></li>
+            <li><a href="https://www.ieee.org/membership" target="_blank" rel="noopener">Join IEEE</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Societies</h4>
+          <ul>
+            <li><a href="../societies.html">Computer Society</a></li>
+            <li><a href="../societies.html">Power Electronics Society</a></li>
+            <li><a href="../societies.html">Power &amp; Energy Society</a></li>
+            <li><a href="../societies.html">Robotics &amp; Automation Society</a></li>
+            <li><a href="../societies.html">Design Automation (CEDA)</a></li>
+            <li><a href="../societies.html">Circuits &amp; Systems (CASS)</a></li>
+            <li><a href="../affinity-groups.html">Women in Engineering</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2026</span> IEEE KLETU Student Branch. All rights reserved.</span>
+        <span class="footer__ieee-note">IEEE and the IEEE logo are registered trademarks of the Institute of Electrical and Electronics Engineers, Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

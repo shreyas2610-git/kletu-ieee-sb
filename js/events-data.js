@@ -44,30 +44,22 @@
       image: 'assets/events/ai-in-robotics-tech-talk.webp',
       description: 'A deep dive into how machine-learning models are reshaping robotics, with a guest session from industry.',
       category: 'Tech talk',
-      priority: 1
+      priority: 1,
+      slider: true
     },
 
     // ------------------------------------------------------------------
     // Example: a PAST event (date has passed; shows under Past events)
     // ------------------------------------------------------------------
     {
-      slug: 'ieee-day-2025',
-      title: 'IEEE Day 2025 — open house',
-      date: '2025-10-07',
-      image: 'assets/events/ieee-day-2025.webp',
-      description: 'Our annual branch-wide celebration with chapter demos, student projects, and a fireside chat.',
-      category: 'Flagship',
-      priority: 1
-    },
-
-    {
-      slug: 'intro-to-ieee-xplore',
-      title: 'Intro to IEEE Xplore — hands-on session',
-      date: '2025-09-12',
-      image: 'assets/events/intro-to-ieee-xplore.webp',
-      description: 'A walk-through of IEEE Xplore for first-years — searching papers, citing work, and finding conference proceedings.',
-      category: 'Workshop',
-      priority: 0
+      slug: 'computer-society-inauguration-and-ideathon',
+      title: 'Computer Society Inauguration & Ideathon',
+      date: '2026-05-23',
+      image: '',
+      description: 'Official IEEE Computer Society Student Branch Chapter inauguration followed by a dynamic 1-day Ideathon.',
+      category: 'Inauguration',
+      priority: 2,
+      slider: false
     }
   ];
 

@@ -53,7 +53,6 @@
   }
 
   // ----- card builder ---------------------------------------------------
-
   function buildCard(event, index) {
     var date = parseDate(event.date);
     var day = String(date.getDate()).padStart(2, '0');
@@ -173,11 +172,175 @@
     cards.forEach(function (c) { io.observe(c); });
   }
 
+  // ----- events hero slider ---------------------------------------------
+
+  function initEventsSlider(allEvents, today) {
+    var sliderContainer = document.querySelector('[data-slider-container]');
+    var dotsContainer = document.querySelector('[data-slider-dots]');
+    var prevBtn = document.querySelector('[data-slider-prev]');
+    var nextBtn = document.querySelector('[data-slider-next]');
+
+    if (!sliderContainer) return;
+
+    var isUpcomingPage = !!document.querySelector('[data-events-target="upcoming"]');
+    var isPastPage = !!document.querySelector('[data-events-target="past"]');
+
+    var sliderCandidates = allEvents.filter(function (e) { return e.slider === true; });
+    var slidesData = [];
+    var isFallback = false;
+
+    if (isUpcomingPage) {
+      // Prioritize upcoming events for slider
+      slidesData = sliderCandidates.filter(function (e) { return !isPast(e, today); });
+      // Sort upcoming: soonest first
+      slidesData.sort(makeComparator(false));
+
+      // Fallback to past if no upcoming events are scheduled
+      if (slidesData.length === 0) {
+        slidesData = sliderCandidates.filter(function (e) { return isPast(e, today); });
+        // Sort past: most recent first
+        slidesData.sort(makeComparator(true));
+        isFallback = true;
+      }
+    } else if (isPastPage) {
+      // Just past events on past page
+      slidesData = sliderCandidates.filter(function (e) { return isPast(e, today); });
+      slidesData.sort(makeComparator(true));
+    } else {
+      // Fallback generic list if loaded on other pages
+      slidesData = sliderCandidates.slice().sort(makeComparator(true));
+    }
+
+    // Limit to 3 slides max
+    if (slidesData.length > 3) {
+      slidesData = slidesData.slice(0, 3);
+    }
+
+    if (slidesData.length === 0) {
+      // Renders a fallback slide if no matching events
+      sliderContainer.innerHTML =
+        '<div class="events-slide active">' +
+          '<div class="events-slide__bg events-slide__bg--fallback"></div>' +
+          '<div class="events-slide__content container">' +
+            '<span class="events-slide__eyebrow">IEEE KLETU Events</span>' +
+            '<h2 class="events-slide__title">No events to showcase</h2>' +
+            '<p class="events-slide__lead">Check back soon for new announcements, workshops, and hackathons.</p>' +
+          '</div>' +
+        '</div>';
+      if (dotsContainer) dotsContainer.style.display = 'none';
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      return;
+    }
+
+    var slidesHtml = '';
+    var dotsHtml = '';
+
+    slidesData.forEach(function (ev, idx) {
+      var activeClass = idx === 0 ? ' active' : '';
+      var detail = ev.detailUrl || ('events/' + ev.slug + '.html');
+      
+      // Determine Eyebrow / Badges based on page and fallback states
+      var isUpcomingEvent = !isPast(ev, today);
+      var label = '';
+      if (isUpcomingPage) {
+        if (isFallback) {
+          label = 'Featured Past Event';
+        } else {
+          label = 'Featured Upcoming Event';
+        }
+      } else {
+        label = 'Featured Past Event';
+      }
+
+      var categoryLabel = ev.category ? (label + ' &middot; ' + escapeHtml(ev.category)) : label;
+
+      slidesHtml +=
+        '<div class="events-slide' + activeClass + '" data-slide-index="' + idx + '">' +
+          '<div class="events-slide__bg" style="background-image: url(\'' + escapeHtml(ev.image || FALLBACK_IMAGE) + '\')"></div>' +
+          '<div class="events-slide__content container">' +
+            '<span class="events-slide__eyebrow">' + categoryLabel + '</span>' +
+            '<h2 class="events-slide__title">' + escapeHtml(ev.title) + '</h2>' +
+            '<p class="events-slide__lead">' + escapeHtml(ev.description || '') + '</p>' +
+            '<div class="events-slide__actions">' +
+              '<a href="' + escapeHtml(detail) + '" class="btn btn--primary">Learn more <i class="ph ph-arrow-right"></i></a>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+
+      dotsHtml += '<button class="slider-dot' + (idx === 0 ? ' active' : '') + '" data-dot-index="' + idx + '" aria-label="Go to slide ' + (idx + 1) + '"></button>';
+    });
+
+    sliderContainer.innerHTML = slidesHtml;
+    if (dotsContainer) {
+      dotsContainer.innerHTML = dotsHtml;
+    }
+
+    var currentSlide = 0;
+    var totalSlides = slidesData.length;
+    var autoplayInterval = null;
+
+    function showSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      else if (index >= totalSlides) index = 0;
+
+      var slides = sliderContainer.querySelectorAll('.events-slide');
+      var dots = dotsContainer ? dotsContainer.querySelectorAll('.slider-dot') : [];
+
+      slides.forEach(function (slide, idx) {
+        slide.classList.toggle('active', idx === index);
+      });
+
+      dots.forEach(function (dot, idx) {
+        dot.classList.toggle('active', idx === index);
+      });
+
+      currentSlide = index;
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (totalSlides > 1) {
+        autoplayInterval = setInterval(nextSlide, 6000);
+      }
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { prevSlide(); startAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { nextSlide(); startAutoplay(); });
+    if (dotsContainer) {
+      dotsContainer.addEventListener('click', function (e) {
+        var dot = e.target.closest('.slider-dot');
+        if (!dot) return;
+        var idx = parseInt(dot.getAttribute('data-dot-index'), 10);
+        showSlide(idx);
+        startAutoplay();
+      });
+    }
+
+    sliderContainer.addEventListener('mouseenter', stopAutoplay);
+    sliderContainer.addEventListener('mouseleave', startAutoplay);
+
+    startAutoplay();
+  }
+
   // ----- init -----------------------------------------------------------
 
   function init() {
     var allEvents = window.EVENTS || [];
     var today = startOfToday();
+
+    // Initialize Hero Slider
+    initEventsSlider(allEvents, today);
 
     var upcoming = allEvents.filter(function (e) { return !isPast(e, today); });
     var past = allEvents.filter(function (e) {  return  isPast(e, today); });

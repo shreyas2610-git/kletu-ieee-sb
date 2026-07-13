@@ -189,8 +189,9 @@ input, textarea, select {
 }
 
 .navbar__logo-img {
-  height: 48px;
+  height: 64px;
   width: auto;
+  transition: height 0.4s var(--ease-out);
 }
 
 .navbar__inner {
@@ -209,6 +210,10 @@ input, textarea, select {
 .navbar.scrolled .navbar__inner {
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.navbar.scrolled .navbar__logo-img {
+  height: 48px;
 }
 
 @media (max-width: 899px) {

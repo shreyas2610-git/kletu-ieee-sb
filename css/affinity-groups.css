@@ -473,6 +473,11 @@
   padding-right: 0;
 }
 
+.ag-row__action {
+  display: flex;
+  align-items: center;
+}
+
 .ag-row__fact-label {
   font-family: var(--font-mono);
   font-size: 0.6rem;
@@ -610,6 +615,10 @@
   .ag-row__fact:last-child {
     border-bottom: none;
     padding-bottom: 0;
+  }
+
+  .ag-row__action {
+    margin-top: 10px;
   }
 }
 

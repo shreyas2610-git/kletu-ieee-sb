@@ -1,0 +1,236 @@
+/* ==========================================================================
+   chapters-slider.css — dynamic hero slider styles for societies.html
+   and affinity-groups.html.
+   ========================================================================== */
+
+.chapters-hero-slider {
+  position: relative;
+  height: clamp(380px, 48vh, 480px);
+  width: 100%;
+  background: #0b0a09; /* Deep matte charcoal */
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chapters-slides-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.chapters-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  /* Snappy transitions (0.35s) since the slide cycles every 1.0s */
+  transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.chapters-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.chapters-slide__grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: center;
+  height: 100%;
+  padding-top: 56px;
+  padding-bottom: 24px;
+}
+
+/* Slide Typography / Details */
+.chapters-slide__text {
+  min-width: 0;
+}
+
+.chapters-slide__eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kletu-nutmeg);
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+
+.chapters-slide.active .chapters-slide__eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.chapters-slide__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--bg-white);
+  margin: 0 0 16px;
+  text-wrap: balance;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: transform 0.35s var(--ease-out), opacity 0.35s var(--ease-out);
+}
+
+.chapters-slide.active .chapters-slide__title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.chapters-slide__lead {
+  font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
+  line-height: 1.5;
+  color: #dfdbd8; /* High-contrast warm gray */
+  margin: 0 0 24px;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+
+.chapters-slide.active .chapters-slide__lead {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.chapters-slide__actions {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+
+.chapters-slide.active .chapters-slide__actions {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+.chapters-slide__actions .btn--ghost {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--bg-white);
+  font-size: 0.8125rem;
+  padding: 8px 18px;
+}
+
+.chapters-slide__actions .btn--ghost:hover {
+  background: var(--kletu-deep-red);
+  border-color: var(--kletu-deep-red);
+  color: var(--bg-white);
+}
+
+/* Floating Logo Rings */
+.chapters-slide__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chapters-slide__logo-ring {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid var(--kletu-nutmeg);
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  transform: scale(0.9) rotate(-5deg);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+}
+
+.chapters-slide.active .chapters-slide__logo-ring {
+  transform: scale(1) rotate(0deg);
+  border-color: var(--kletu-nutmeg);
+}
+
+.chapters-slide__logo-ring img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+}
+
+/* Slider Pagination Indicators */
+.chapters-slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.chapters-slider-dots .slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.chapters-slider-dots .slider-dot.active {
+  background: var(--kletu-nutmeg);
+  transform: scale(1.25);
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .chapters-hero-slider {
+    height: auto;
+    padding-bottom: 40px;
+  }
+  .chapters-slide {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    height: auto;
+  }
+  .chapters-slide.active {
+    display: flex;
+  }
+  .chapters-slide__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  .chapters-slide__lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .chapters-slide__logo-ring {
+    width: 160px;
+    height: 160px;
+  }
+  .chapters-slide__logo-ring img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
