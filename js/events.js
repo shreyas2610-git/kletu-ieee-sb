@@ -336,6 +336,45 @@
   // ----- init -----------------------------------------------------------
 
   function init() {
+    // Check if local CMS API is available (http://localhost:5000)
+    if (typeof fetch === 'function') {
+      fetch('http://localhost:5000/api/v1/public/events')
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && Array.isArray(data.events) && data.events.length > 0) {
+            var cmsEvents = data.events.map(function (ev) {
+              return {
+                slug: ev.slug,
+                title: ev.title,
+                date: ev.event_date ? String(ev.event_date).slice(0, 10) : '',
+                image: ev.banner_url || 'assets/images/logo.webp',
+                description: ev.summary || '',
+                category: 'Event',
+                priority: 10,
+                slider: true,
+                detailUrl: 'events/' + ev.slug + '.html'
+              };
+            });
+
+            // Merge CMS published events into window.EVENTS
+            var existingSlugs = cmsEvents.map(function (e) { return e.slug; });
+            var legacyEvents = (window.EVENTS || []).filter(function (e) {
+              return existingSlugs.indexOf(e.slug) === -1;
+            });
+
+            window.EVENTS = cmsEvents.concat(legacyEvents);
+          }
+          renderPageEvents();
+        })
+        .catch(function () {
+          renderPageEvents(); // Fallback to hardcoded events-data.js if CMS server is offline
+        });
+    } else {
+      renderPageEvents();
+    }
+  }
+
+  function renderPageEvents() {
     var allEvents = window.EVENTS || [];
     var today = startOfToday();
 
@@ -359,8 +398,6 @@
     if (upcomingTarget) revealCards(upcomingTarget);
     if (pastTarget) revealCards(pastTarget);
 
-    // If the URL has a hash (#upcoming / #past), scroll it into view after
-    // cards render (otherwise the hash jump happens before layout settles).
     if (window.location.hash) {
       var target = document.getElementById(window.location.hash.slice(1));
       if (target) {
