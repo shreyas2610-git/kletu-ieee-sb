@@ -21,8 +21,17 @@
     return d;
   }
 
+  // Dates are stored as bare "YYYY-MM-DD" calendar days. Passing that string
+  // straight to `new Date()` makes JS read it as UTC midnight, which renders
+  // as the previous day for any visitor west of UTC. Parsing the parts by hand
+  // builds a LOCAL date instead, so an event shows the same day everywhere.
+  // The CMS uses the identical rule when it generates pages (lib/dates.js).
   function parseDate(value) {
-    // Accept "YYYY-MM-DD" or full ISO. Fall back to epoch so bad data sorts last.
+    if (!value) return new Date(0);
+    var parts = String(value).match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (parts) {
+      return new Date(Number(parts[1]), Number(parts[2]) - 1, Number(parts[3]));
+    }
     var d = new Date(value);
     return isNaN(d.getTime()) ? new Date(0) : d;
   }
@@ -335,43 +344,11 @@
 
   // ----- init -----------------------------------------------------------
 
+  // js/events-data.js is the single source of truth. It is written by the CMS
+  // publish pipeline at publish time, so the page has everything it needs the
+  // moment it loads. The browser never talks to the CMS API.
   function init() {
-    // Check if local CMS API is available (http://localhost:5000)
-    if (typeof fetch === 'function') {
-      fetch('http://localhost:5000/api/v1/public/events')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (data && Array.isArray(data.events) && data.events.length > 0) {
-            var cmsEvents = data.events.map(function (ev) {
-              return {
-                slug: ev.slug,
-                title: ev.title,
-                date: ev.event_date ? String(ev.event_date).slice(0, 10) : '',
-                image: ev.banner_url || 'assets/images/logo.webp',
-                description: ev.summary || '',
-                category: 'Event',
-                priority: 10,
-                slider: true,
-                detailUrl: 'events/' + ev.slug + '.html'
-              };
-            });
-
-            // Merge CMS published events into window.EVENTS
-            var existingSlugs = cmsEvents.map(function (e) { return e.slug; });
-            var legacyEvents = (window.EVENTS || []).filter(function (e) {
-              return existingSlugs.indexOf(e.slug) === -1;
-            });
-
-            window.EVENTS = cmsEvents.concat(legacyEvents);
-          }
-          renderPageEvents();
-        })
-        .catch(function () {
-          renderPageEvents(); // Fallback to hardcoded events-data.js if CMS server is offline
-        });
-    } else {
-      renderPageEvents();
-    }
+    renderPageEvents();
   }
 
   function renderPageEvents() {
