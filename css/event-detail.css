@@ -18,7 +18,8 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--kletu-quicksand);
-  margin-bottom: 36px;
+  margin: 0 auto 36px;
+  max-width: 720px;
   transition: color 0.2s var(--ease-out), gap 0.3s var(--ease-out);
 }
 
@@ -31,27 +32,12 @@
 .event-detail__back:hover i { transform: translateX(-3px); }
 
 .event-detail__header {
-  max-width: 820px;
-  margin-bottom: 56px;
+  max-width: 720px;
+  margin: 0 auto 56px;
 }
 
 .event-detail__meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--kletu-quicksand);
-  margin-bottom: 18px;
-}
-
-.event-detail__meta-sep {
-  display: inline-block;
-  width: 18px;
-  height: 1px;
-  background: var(--kletu-quicksand);
+  display: none !important;
 }
 
 .event-detail__title {
@@ -81,23 +67,29 @@
 }
 
 .event-detail__hero {
-  margin: 0 0 64px;
+  margin: 0 auto 64px;
+  max-width: 720px;
   border-radius: 4px;
   overflow: hidden;
   background: var(--kletu-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 560px;
 }
 
 .event-detail__hero img {
   width: 100%;
   height: auto;
-  display: block;
   max-height: 560px;
-  object-fit: cover;
+  display: block;
+  object-fit: contain;
 }
 
 /* Long-form body — prose column with proper vertical rhythm */
 .event-detail__content {
   max-width: 720px;
+  margin: 0 auto;
   font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--text-secondary);
@@ -177,7 +169,8 @@
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 24px;
   padding: 28px 32px;
-  margin: 0 0 48px;
+  margin: 0 auto 48px;
+  max-width: 720px;
   background: var(--kletu-ivory);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -222,7 +215,7 @@
 
 .event-gallery {
   max-width: 720px;
-  margin: 56px 0 0;
+  margin: 56px auto 0;
 }
 
 .event-gallery__track {
@@ -242,12 +235,20 @@
   flex: 0 0 100%;
   margin: 0;
   scroll-snap-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 560px;
+  background: var(--kletu-ivory);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .event-gallery__slide img {
   width: 100%;
-  aspect-ratio: 1600 / 760;
-  object-fit: cover;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
   display: block;
   border-radius: 4px;
   background: var(--kletu-ivory);
@@ -321,7 +322,8 @@
 
 /* Registration / external link CTA under the facts strip */
 .event-detail__cta {
-  margin: 0 0 48px;
+  max-width: 720px;
+  margin: 0 auto 48px;
 }
 
 @media (prefers-reduced-motion: reduce) {

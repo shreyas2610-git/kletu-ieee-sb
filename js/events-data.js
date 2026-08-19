@@ -17,23 +17,12 @@
 
   var EVENTS = [
     {
-      slug: 'ai-in-robotics-tech-talk',
-      title: 'AI in Robotics — a tech talk',
-      date: '2026-06-14',
-      image: 'assets/images/logo.webp',
-      description: 'A session on how machine-learning models are reshaping real-world robotics, from perception stacks to imitation learning - with a live Q&A from industry.',
-      category: 'Tech talk',
-      society: 'Student Branch',
-      priority: 0,
-      slider: true
-    },
-    {
-      slug: 'computer-society-inauguration-and-ideathon',
-      title: 'Computer Society Inauguration & Ideathon',
-      date: '2026-05-23',
-      image: 'assets/images/logo.webp',
-      description: 'The official inauguration of the IEEE Computer Society Student Branch Chapter at KLE Technological University, coupled with a high-impact Industry Day and collaborative Ideathon competition.',
-      category: 'Inauguration',
+      slug: 'girl-geeks-2026-workshop-1',
+      title: 'Girl Geeks 2026 Workshop-1',
+      date: '2026-07-27',
+      image: 'assets/events/girl-geeks-2026-workshop-1-banner-69daeb60.webp',
+      description: 'Girl Geeks 2026 Workshop-1 introduced participants to emerging technologies and the product development lifecycle, laying the foundation for innovative solution development.',
+      category: 'Workshop',
       society: 'Computer Society',
       priority: 0,
       slider: true
