@@ -20,10 +20,10 @@
       slug: 'girl-geeks-2026-workshop-1',
       title: 'Girl Geeks 2026 Workshop-1',
       date: '2026-07-27',
-      image: 'assets/events/girl-geeks-2026-workshop-1-banner-69daeb60.webp',
+      image: 'assets/images/logo.webp',
       description: 'Girl Geeks 2026 Workshop-1 introduced participants to emerging technologies and the product development lifecycle, laying the foundation for innovative solution development.',
       category: 'Workshop',
-      society: 'Computer Society',
+      society: 'Student Branch',
       priority: 0,
       slider: true
     }
