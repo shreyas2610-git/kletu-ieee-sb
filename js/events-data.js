@@ -20,7 +20,7 @@
       slug: 'pitch-pouch',
       title: 'Pitch Pouch',
       date: '2026-07-27',
-      image: 'https://res.cloudinary.com/zjrsghig/image/upload/v1787759677/ieee-cms/banner/pitch-pouch-banner-10c6dae5.webp',
+      image: 'assets/images/logo.webp',
       description: 'The IUCEE Student Chapter at KLE Technological University proudly hosted Pitch Pouch, a sustainability-focused event where creativity met entrepreneurship!',
       category: 'Workshop',
       society: 'Computer Society',
