@@ -667,6 +667,14 @@ input, textarea, select {
   margin-top: 4px;
 }
 
+.hero__title-motto {
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-top: 6px;
+}
+
 .hero__subtitle {
   max-width: 520px;
   font-size: 1.0625rem;
@@ -1151,22 +1159,20 @@ input, textarea, select {
 .chapter-card__media {
   position: relative;
   aspect-ratio: 1 / 1;
-  background: var(--kletu-ivory);
+  background: #ffffff;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-md, 8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding: 20px;
   overflow: hidden;
   transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
 .chapter-card__media img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   transition: transform 0.4s var(--ease-out);
 }
@@ -1516,12 +1522,14 @@ input, textarea, select {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .footer__logo {
-  height: 40px;
+  height: 52px;
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
   flex-shrink: 0;
 }
 

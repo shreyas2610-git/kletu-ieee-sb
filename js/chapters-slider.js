@@ -64,6 +64,15 @@
       slug: 'societies.html#ras'
     },
     {
+      id: 'embs',
+      abbr: 'EMBS',
+      title: 'Engineering in Medicine & Biology Society',
+      logo: 'assets/images/EMBS.webp',
+      desc: 'Advancing healthcare and biomedical engineering through medical technology, bio-instrumentation, neural engineering, and health informatics.',
+      type: 'society',
+      slug: 'societies.html#embs'
+    },
+    {
       id: 'wie',
       abbr: 'WIE',
       title: 'Women in Engineering',

@@ -1,7 +1,5 @@
 /* ==========================================================================
-   events.js — reads window.EVENTS (from js/events-data.js), splits into
-   upcoming vs. past based on today's date, sorts by priority then date,
-   and renders an event card into each [data-events-target].
+   events.js — Event filtering, searching, sorting, and slider logic
    ========================================================================== */
 
 (function () {
@@ -13,19 +11,6 @@
 
   var FALLBACK_IMAGE = 'assets/images/logo.webp';
 
-  // ----- helpers --------------------------------------------------------
-
-  function startOfToday() {
-    var d = new Date();
-    d.setHours(0, 0, 0, 0);
-    return d;
-  }
-
-  // Dates are stored as bare "YYYY-MM-DD" calendar days. Passing that string
-  // straight to `new Date()` makes JS read it as UTC midnight, which renders
-  // as the previous day for any visitor west of UTC. Parsing the parts by hand
-  // builds a LOCAL date instead, so an event shows the same day everywhere.
-  // The CMS uses the identical rule when it generates pages (lib/dates.js).
   function parseDate(value) {
     if (!value) return new Date(0);
     var parts = String(value).match(/^(\d{4})-(\d{2})-(\d{2})/);
@@ -34,21 +19,6 @@
     }
     var d = new Date(value);
     return isNaN(d.getTime()) ? new Date(0) : d;
-  }
-
-  function isPast(event, today) {
-    return parseDate(event.date) < today;
-  }
-
-  // Primary sort: priority desc. Secondary: earlier date first for upcoming,
-  // more-recent date first for past.
-  function makeComparator(pastSection) {
-    return function (a, b) {
-      if (a.priority !== b.priority) return b.priority - a.priority;
-      var ad = parseDate(a.date).getTime();
-      var bd = parseDate(b.date).getTime();
-      return pastSection ? (bd - ad) : (ad - bd);
-    };
   }
 
   function escapeHtml(str) {
@@ -61,16 +31,20 @@
       .replace(/'/g, '&#39;');
   }
 
-  // ----- card builder ---------------------------------------------------
   function buildCard(event, index) {
     var date = parseDate(event.date);
     var day = String(date.getDate()).padStart(2, '0');
     var month = MONTHS[date.getMonth()] || '';
+    var year = date.getFullYear();
     var iso = event.date || '';
     var detail = event.detailUrl || ('events/' + event.slug + '.html');
 
     var categoryHtml = event.category
       ? '<span class="event-card__category">' + escapeHtml(event.category) + '</span>'
+      : '';
+
+    var societyHtml = event.society
+      ? '<span class="event-card__society-tag">' + escapeHtml(event.society) + '</span>'
       : '';
 
     var card = document.createElement('article');
@@ -84,11 +58,12 @@
             'onerror="this.onerror=null;this.src=\'' + FALLBACK_IMAGE + '\';this.classList.add(\'event-card__media-img--placeholder\');">' +
           '<time class="event-card__date" datetime="' + escapeHtml(iso) + '">' +
             '<span class="event-card__date-day">' + day + '</span>' +
-            '<span class="event-card__date-month">' + month + '</span>' +
+            '<span class="event-card__date-month">' + month + ' ' + year + '</span>' +
           '</time>' +
           categoryHtml +
         '</div>' +
         '<div class="event-card__body">' +
+          societyHtml +
           '<h3 class="event-card__title">' + escapeHtml(event.title) + '</h3>' +
           '<p class="event-card__description">' + escapeHtml(event.description || '') + '</p>' +
           '<span class="event-card__cta">' +
@@ -99,68 +74,6 @@
       '</a>';
 
     return card;
-  }
-
-  // ----- renderer -------------------------------------------------------
-
-  function renderInto(target, events, pastSection) {
-    if (!target) return 0;
-
-    target.innerHTML = '';
-
-    var sorted = events.slice().sort(makeComparator(pastSection));
-    sorted.forEach(function (ev, i) {
-      target.appendChild(buildCard(ev, i));
-    });
-
-    return sorted.length;
-  }
-
-  function formatDateLong(value) {
-    var d = parseDate(value);
-    return DAYS[d.getDay()] + ', ' + d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
-  }
-
-  // Picks the chronologically-relevant event for the section header detail line:
-  //   upcoming → soonest in the future
-  //   past     → most recently passed
-  function pickReferenceEvent(events, isPast) {
-    if (!events.length) return null;
-    var byDate = events.slice().sort(function (a, b) {
-      return parseDate(a.date).getTime() - parseDate(b.date).getTime();
-    });
-    return isPast ? byDate[byDate.length - 1] : byDate[0];
-  }
-
-  function updateMeta(kind, events, isPast) {
-    var countEl = document.querySelector('[data-events-count="' + kind + '"]');
-    var detailEl = document.querySelector('[data-events-detail="' + kind + '"]');
-    var n = events.length;
-
-    if (countEl) {
-      var noun = isPast ? 'past event' : 'upcoming event';
-      countEl.textContent = n === 0
-        ? (isPast ? 'Archive empty' : 'Nothing scheduled yet')
-        : (n + ' ' + noun + (n === 1 ? '' : 's'));
-    }
-
-    if (detailEl) {
-      if (n === 0) {
-        detailEl.hidden = true;
-        detailEl.innerHTML = '';
-      } else {
-        var ref = pickReferenceEvent(events, isPast);
-        var label = isPast ? 'Most recent' : 'Next';
-        detailEl.hidden = false;
-        detailEl.innerHTML = '<strong>' + label + '</strong>' + formatDateLong(ref.date);
-      }
-    }
-  }
-
-  function toggleEmpty(kind, show) {
-    var el = document.querySelector('[data-events-empty="' + kind + '"]');
-    if (!el) return;
-    el.hidden = !show;
   }
 
   function revealCards(root) {
@@ -181,9 +94,11 @@
     cards.forEach(function (c) { io.observe(c); });
   }
 
-  // ----- events hero slider ---------------------------------------------
+  /* ==========================================================================
+     Events Hero Slider
+     ========================================================================== */
 
-  function initEventsSlider(allEvents, today) {
+  function initEventsSlider(allEvents) {
     var sliderContainer = document.querySelector('[data-slider-container]');
     var dotsContainer = document.querySelector('[data-slider-dots]');
     var prevBtn = document.querySelector('[data-slider-prev]');
@@ -191,49 +106,22 @@
 
     if (!sliderContainer) return;
 
-    var isUpcomingPage = !!document.querySelector('[data-events-target="upcoming"]');
-    var isPastPage = !!document.querySelector('[data-events-target="past"]');
+    var slidesData = allEvents.filter(function (e) { return e.slider === true; });
+    slidesData.sort(function (a, b) {
+      return parseDate(b.date).getTime() - parseDate(a.date).getTime();
+    });
 
-    var sliderCandidates = allEvents.filter(function (e) { return e.slider === true; });
-    var slidesData = [];
-    var isFallback = false;
-
-    if (isUpcomingPage) {
-      // Prioritize upcoming events for slider
-      slidesData = sliderCandidates.filter(function (e) { return !isPast(e, today); });
-      // Sort upcoming: soonest first
-      slidesData.sort(makeComparator(false));
-
-      // Fallback to past if no upcoming events are scheduled
-      if (slidesData.length === 0) {
-        slidesData = sliderCandidates.filter(function (e) { return isPast(e, today); });
-        // Sort past: most recent first
-        slidesData.sort(makeComparator(true));
-        isFallback = true;
-      }
-    } else if (isPastPage) {
-      // Just past events on past page
-      slidesData = sliderCandidates.filter(function (e) { return isPast(e, today); });
-      slidesData.sort(makeComparator(true));
-    } else {
-      // Fallback generic list if loaded on other pages
-      slidesData = sliderCandidates.slice().sort(makeComparator(true));
-    }
-
-    // Limit to 3 slides max
-    if (slidesData.length > 3) {
-      slidesData = slidesData.slice(0, 3);
+    if (slidesData.length === 0 && allEvents.length > 0) {
+      slidesData = allEvents.slice(0, 3);
     }
 
     if (slidesData.length === 0) {
-      // Renders a fallback slide if no matching events
       sliderContainer.innerHTML =
         '<div class="events-slide active">' +
           '<div class="events-slide__bg events-slide__bg--fallback"></div>' +
           '<div class="events-slide__content container">' +
             '<span class="events-slide__eyebrow">IEEE KLETU Events</span>' +
             '<h2 class="events-slide__title">No events to showcase</h2>' +
-            '<p class="events-slide__lead">Check back soon for new announcements, workshops, and hackathons.</p>' +
           '</div>' +
         '</div>';
       if (dotsContainer) dotsContainer.style.display = 'none';
@@ -248,146 +136,227 @@
     slidesData.forEach(function (ev, idx) {
       var activeClass = idx === 0 ? ' active' : '';
       var detail = ev.detailUrl || ('events/' + ev.slug + '.html');
-      
-      // Determine Eyebrow / Badges based on page and fallback states
-      var isUpcomingEvent = !isPast(ev, today);
-      var label = '';
-      if (isUpcomingPage) {
-        if (isFallback) {
-          label = 'Featured Past Event';
-        } else {
-          label = 'Featured Upcoming Event';
-        }
-      } else {
-        label = 'Featured Past Event';
-      }
-
-      var categoryLabel = ev.category ? (label + ' &middot; ' + escapeHtml(ev.category)) : label;
 
       slidesHtml +=
         '<div class="events-slide' + activeClass + '" data-slide-index="' + idx + '">' +
-          '<div class="events-slide__bg" style="background-image: url(\'' + escapeHtml(ev.image || FALLBACK_IMAGE) + '\')"></div>' +
+          '<div class="events-slide__bg" style="background-image: url(\'' + escapeHtml(ev.image || FALLBACK_IMAGE) + '\');"></div>' +
+          '<div class="events-slide__overlay"></div>' +
           '<div class="events-slide__content container">' +
-            '<span class="events-slide__eyebrow">' + categoryLabel + '</span>' +
+            '<span class="events-slide__eyebrow">' + escapeHtml(ev.society || 'IEEE KLETU') + ' &bull; ' + escapeHtml(ev.category || 'Event') + '</span>' +
             '<h2 class="events-slide__title">' + escapeHtml(ev.title) + '</h2>' +
             '<p class="events-slide__lead">' + escapeHtml(ev.description || '') + '</p>' +
-            '<div class="events-slide__actions">' +
-              '<a href="' + escapeHtml(detail) + '" class="btn btn--primary">Learn more <i class="ph ph-arrow-right"></i></a>' +
-            '</div>' +
+            '<a href="' + escapeHtml(detail) + '" class="btn btn--primary events-slide__btn">' +
+              'View details' +
+              '<i class="ph ph-arrow-right" aria-hidden="true"></i>' +
+            '</a>' +
           '</div>' +
         '</div>';
 
-      dotsHtml += '<button class="slider-dot' + (idx === 0 ? ' active' : '') + '" data-dot-index="' + idx + '" aria-label="Go to slide ' + (idx + 1) + '"></button>';
+      dotsHtml +=
+        '<button class="slider-dot' + activeClass + '" data-slide-to="' + idx + '" aria-label="Go to slide ' + (idx + 1) + '"></button>';
     });
 
     sliderContainer.innerHTML = slidesHtml;
-    if (dotsContainer) {
-      dotsContainer.innerHTML = dotsHtml;
+    if (dotsContainer) dotsContainer.innerHTML = dotsHtml;
+
+    if (slidesData.length <= 1) {
+      if (dotsContainer) dotsContainer.style.display = 'none';
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      return;
     }
 
-    var currentSlide = 0;
+    var currentIndex = 0;
     var totalSlides = slidesData.length;
-    var autoplayInterval = null;
+    var autoplayTimer = null;
 
-    function showSlide(index) {
-      if (index < 0) index = totalSlides - 1;
-      else if (index >= totalSlides) index = 0;
-
+    function goToSlide(newIndex) {
       var slides = sliderContainer.querySelectorAll('.events-slide');
       var dots = dotsContainer ? dotsContainer.querySelectorAll('.slider-dot') : [];
 
-      slides.forEach(function (slide, idx) {
-        slide.classList.toggle('active', idx === index);
-      });
+      if (slides[currentIndex]) slides[currentIndex].classList.remove('active');
+      if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
 
-      dots.forEach(function (dot, idx) {
-        dot.classList.toggle('active', idx === index);
-      });
+      currentIndex = (newIndex + totalSlides) % totalSlides;
 
-      currentSlide = index;
+      if (slides[currentIndex]) slides[currentIndex].classList.add('active');
+      if (dots[currentIndex]) dots[currentIndex].classList.add('active');
     }
-
-    function nextSlide() { showSlide(currentSlide + 1); }
-    function prevSlide() { showSlide(currentSlide - 1); }
 
     function startAutoplay() {
       stopAutoplay();
-      if (totalSlides > 1) {
-        autoplayInterval = setInterval(nextSlide, 6000);
-      }
+      autoplayTimer = setInterval(function () {
+        goToSlide(currentIndex + 1);
+      }, 6000);
     }
 
     function stopAutoplay() {
-      if (autoplayInterval) {
-        clearInterval(autoplayInterval);
-        autoplayInterval = null;
-      }
+      if (autoplayTimer) clearInterval(autoplayTimer);
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', function () { prevSlide(); startAutoplay(); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { nextSlide(); startAutoplay(); });
-    if (dotsContainer) {
-      dotsContainer.addEventListener('click', function (e) {
-        var dot = e.target.closest('.slider-dot');
-        if (!dot) return;
-        var idx = parseInt(dot.getAttribute('data-dot-index'), 10);
-        showSlide(idx);
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        goToSlide(currentIndex - 1);
         startAutoplay();
       });
     }
 
-    sliderContainer.addEventListener('mouseenter', stopAutoplay);
-    sliderContainer.addEventListener('mouseleave', startAutoplay);
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        goToSlide(currentIndex + 1);
+        startAutoplay();
+      });
+    }
+
+    if (dotsContainer) {
+      dotsContainer.addEventListener('click', function (e) {
+        var dot = e.target.closest('[data-slide-to]');
+        if (dot) {
+          var targetIdx = parseInt(dot.getAttribute('data-slide-to'), 10);
+          if (!isNaN(targetIdx)) {
+            goToSlide(targetIdx);
+            startAutoplay();
+          }
+        }
+      });
+    }
 
     startAutoplay();
   }
 
-  // ----- init -----------------------------------------------------------
+  /* ==========================================================================
+     Events Search & Filtering Engine
+     ========================================================================== */
 
-  // js/events-data.js is the single source of truth. It is written by the CMS
-  // publish pipeline at publish time, so the page has everything it needs the
-  // moment it loads. The browser never talks to the CMS API.
-  function init() {
-    renderPageEvents();
-  }
+  function initEventsApp() {
+    var allEvents = Array.isArray(window.EVENTS) ? window.EVENTS : [];
+    
+    // Sort all events by date desc by default
+    allEvents.sort(function (a, b) {
+      return parseDate(b.date).getTime() - parseDate(a.date).getTime();
+    });
 
-  function renderPageEvents() {
-    var allEvents = window.EVENTS || [];
-    var today = startOfToday();
+    initEventsSlider(allEvents);
 
-    // Initialize Hero Slider
-    initEventsSlider(allEvents, today);
+    var eventsContainer = document.getElementById('eventsContainer') || document.querySelector('[data-events-target]');
+    var searchInput = document.getElementById('eventsSearch');
+    var societySelect = document.getElementById('societyFilter');
+    var yearSelect = document.getElementById('yearFilter');
+    var sortSelect = document.getElementById('sortOrder');
+    var countEl = document.getElementById('eventsCount') || document.querySelector('[data-events-count]');
+    var emptyEl = document.getElementById('eventsEmpty') || document.querySelector('[data-events-empty]');
+    var categoryPills = document.querySelectorAll('[data-society-pill]');
 
-    var upcoming = allEvents.filter(function (e) { return !isPast(e, today); });
-    var past = allEvents.filter(function (e) {  return  isPast(e, today); });
+    if (!eventsContainer) return;
 
-    var upcomingTarget = document.querySelector('[data-events-target="upcoming"]');
-    var pastTarget = document.querySelector('[data-events-target="past"]');
+    // Populate Year Filter Dynamically
+    if (yearSelect && yearSelect.options.length <= 1) {
+      var yearsSet = {};
+      allEvents.forEach(function (e) {
+        var y = parseDate(e.date).getFullYear();
+        if (y > 1970) yearsSet[y] = true;
+      });
+      var sortedYears = Object.keys(yearsSet).map(Number).sort(function (a, b) { return b - a; });
+      sortedYears.forEach(function (yr) {
+        var opt = document.createElement('option');
+        opt.value = String(yr);
+        opt.textContent = String(yr);
+        yearSelect.appendChild(opt);
+      });
+    }
 
-    var nUp = renderInto(upcomingTarget, upcoming, false);
-    var nPast = renderInto(pastTarget, past, true);
+    function filterAndRender() {
+      var query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      var selectedYear = yearSelect ? yearSelect.value.trim() : 'all';
+      var selectedSort = sortSelect ? sortSelect.value.trim() : 'newest';
 
-    updateMeta('upcoming', upcoming, false);
-    updateMeta('past', past, true);
-    toggleEmpty('upcoming', nUp === 0);
-    toggleEmpty('past', nPast === 0);
+      var selectedSociety = 'all';
+      var activePill = document.querySelector('[data-society-pill].active');
+      if (activePill) {
+        selectedSociety = activePill.getAttribute('data-society-pill').toLowerCase();
+      }
 
-    if (upcomingTarget) revealCards(upcomingTarget);
-    if (pastTarget) revealCards(pastTarget);
+      var filtered = allEvents.filter(function (e) {
+        // Query search
+        if (query) {
+          var titleMatch = (e.title || '').toLowerCase().indexOf(query) !== -1;
+          var descMatch = (e.description || '').toLowerCase().indexOf(query) !== -1;
+          var catMatch = (e.category || '').toLowerCase().indexOf(query) !== -1;
+          var socMatch = (e.society || '').toLowerCase().indexOf(query) !== -1;
+          if (!titleMatch && !descMatch && !catMatch && !socMatch) {
+            return false;
+          }
+        }
 
-    if (window.location.hash) {
-      var target = document.getElementById(window.location.hash.slice(1));
-      if (target) {
-        setTimeout(function () {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 60);
+        // Society pill filter
+        if (selectedSociety !== 'all') {
+          var eSoc = (e.society || '').toLowerCase();
+          if (eSoc.indexOf(selectedSociety) === -1 && selectedSociety.indexOf(eSoc) === -1) {
+            return false;
+          }
+        }
+
+        // Year filter
+        if (selectedYear !== 'all') {
+          var eYear = String(parseDate(e.date).getFullYear());
+          if (eYear !== selectedYear) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      // Sorting
+      filtered.sort(function (a, b) {
+        var ad = parseDate(a.date).getTime();
+        var bd = parseDate(b.date).getTime();
+        return selectedSort === 'oldest' ? (ad - bd) : (bd - ad);
+      });
+
+      // Render Cards
+      eventsContainer.innerHTML = '';
+
+      if (filtered.length === 0) {
+        if (emptyEl) emptyEl.hidden = false;
+        if (countEl) countEl.textContent = '0 events found';
+      } else {
+        if (emptyEl) emptyEl.hidden = true;
+        if (countEl) {
+          countEl.textContent = filtered.length + ' event' + (filtered.length === 1 ? '' : 's');
+        }
+
+        filtered.forEach(function (ev, i) {
+          eventsContainer.appendChild(buildCard(ev, i));
+        });
+
+        revealCards(eventsContainer);
       }
     }
+
+    // Attach Event Listeners
+    if (searchInput) searchInput.addEventListener('input', filterAndRender);
+    if (yearSelect) yearSelect.addEventListener('change', filterAndRender);
+    if (sortSelect) sortSelect.addEventListener('change', filterAndRender);
+
+    if (categoryPills.length) {
+      categoryPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          categoryPills.forEach(function (p) { p.classList.remove('active'); });
+          pill.classList.add('active');
+          filterAndRender();
+        });
+      });
+    }
+
+    // Initial render
+    filterAndRender();
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', initEventsApp);
   } else {
-    init();
+    initEventsApp();
   }
+
 })();
