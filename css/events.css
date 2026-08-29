@@ -154,6 +154,166 @@
   color: var(--kletu-quicksand);
 }
 
+/* ==========================================================================
+   Filter Controls & Search Bar
+   ========================================================================== */
+.events-filter-bar {
+  background: var(--bg-surface, #ffffff);
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.events-filter-bar__grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.events-search-wrap {
+  position: relative;
+}
+
+.events-search-wrap i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--kletu-slate, #666);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.events-search-input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  background: var(--bg-canvas, #f9f9f9);
+  border: 1px solid var(--border, #ddd);
+  border-radius: 8px;
+  color: var(--text-primary, #111);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.events-search-input:focus {
+  outline: none;
+  border-color: var(--kletu-deep-red, #6B170D);
+  box-shadow: 0 0 0 3px rgba(107, 23, 13, 0.1);
+  background: #ffffff;
+}
+
+.events-filter-select {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: var(--bg-canvas, #f9f9f9);
+  border: 1px solid var(--border, #ddd);
+  border-radius: 8px;
+  color: var(--text-primary, #111);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.events-filter-select:focus {
+  outline: none;
+  border-color: var(--kletu-deep-red, #6B170D);
+}
+
+.events-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.06));
+}
+
+.events-filter-pill {
+  padding: 7px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--kletu-slate);
+  background: var(--kletu-ivory, #f4efe9);
+  border: 1px solid var(--kletu-sand, #e2d9ce);
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s var(--ease-out);
+}
+
+.events-filter-pill:hover,
+.events-filter-pill.active {
+  background: var(--kletu-deep-red, #6B170D);
+  color: #ffffff;
+  border-color: var(--kletu-deep-red, #6B170D);
+}
+
+/* ---------- Mobile UX Optimizations for Filter Bar ---------- */
+@media (max-width: 768px) {
+  .events-filter-bar {
+    padding: 16px;
+    margin-bottom: 28px;
+    border-radius: 14px;
+  }
+
+  .events-filter-bar__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .events-search-wrap {
+    grid-column: 1 / -1;
+  }
+
+  .events-filter-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-top: 14px;
+    padding-bottom: 6px;
+    margin-top: 12px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+  }
+
+  .events-filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .events-filter-pill {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 8px 16px;
+    font-size: 0.8125rem;
+  }
+}
+
+.event-card__society-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kletu-deep-red);
+  background: rgba(107, 23, 13, 0.08);
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
 .events-section__detail strong {
   font-style: normal;
   font-family: var(--font-mono);
