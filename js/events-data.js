@@ -1,22 +1,22 @@
 /* ==========================================================================
-   events-data.js — Single Source of Truth for IEEE KLETU Events
+   events-data.js
+
+   GENERATED FILE - do not edit by hand.
+
+   The IEEE Student Branch CMS is the single source of truth for events. This
+   file is rewritten in full every time an event is published or unpublished.
+   To add, change or remove an event, use the CMS at the admin portal; any
+   manual edit here is overwritten on the next publish.
+
+   Each entry carries only structured fields, so every card renders identically
+   regardless of what the article body contains.
    ========================================================================== */
 
 (function () {
   'use strict';
 
   var EVENTS = [
-    {
-      slug: 'pitch-pouch',
-      title: 'Pitch Pouch',
-      date: '2026-07-27',
-      image: 'https://res.cloudinary.com/zjrsghig/image/upload/v1787760869/ieee-cms/banner/pitch-pouch-banner-1ca0adfd.webp',
-      description: 'A sustainability-focused event where creativity met entrepreneurship! Students presented innovative pitch proposals on sustainable technology.',
-      category: 'Workshop & Pitch Competition',
-      society: 'Computer Society',
-      priority: 1,
-      slider: true
-    }
+
   ];
 
   EVENTS.forEach(function (ev) {

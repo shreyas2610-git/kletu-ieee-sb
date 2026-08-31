@@ -6,7 +6,11 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ieee-kletu.org/events.html</loc>
+    <loc>https://ieee-kletu.org/upcoming-events.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ieee-kletu.org/past-events.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -36,10 +40,5 @@
   <url>
     <loc>https://ieee-kletu.org/affinity-office-bearers.html</loc>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ieee-kletu.org/events/pitch-pouch.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <priority>0.6</priority>
   </url>
 </urlset>
